@@ -1,0 +1,431 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{1}
+\def\DUE{9/11/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math B4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+
+\begin{enumerate}[1.]
+\item Recall that  $\ZZn = \{ \bar{a} \in  \ZZn \}$ is the set of congruence classes modulo $n$.  Define  $(\ZZ/n\ZZ)^\times$ to be the subset of $\ZZ/n\ZZ$ that have multiplicative inverses, i.e.\
+$$(\ZZ/n\ZZ)^\times = \{ \bar{a} \in \ZZ/n\ZZ ~|~ \text{ there is some $\bar{c} \in \ZZn$ such that $\bar{c} \bar{a} = 1$ }\}.$$
+
+\begin{enumerate}
+\item Compute $(\ZZ/n\ZZ)^\times$ for $n = 1, 2, 3, 4, 5,$ and $6$. 
+	
+\begin{ans}
+\textbf{Case 1 $(\ZZ/1\ZZ)$}: note that every integer is divisible by $1$. This is true because, for any integer $x \in \ZZ$, we have that $x = 1 \cdot x$. Hence, every integer belongs to $\overline{0}$ when $n = 1$.\\
+
+By the definition of modular multiplication on p. 9 of the text, if we have $\overline{a}, \overline{b} \in (\ZZ/1\ZZ)$, we can take $\overline{a} \cdot \overline{b} = \overline{ab}$.\\
+
+Since we just showed that every integer in $(\ZZ/1\ZZ)$ belongs to the congruence class $\overline{0}$, we have $\overline{0} \cdot \overline{0} = \overline{0 \cdot 0} = \overline{0} \; \forall \; z \in \ZZ$.\\
+
+Hence, there are no elements $\overline{a} \in \ZZ/1\ZZ$ such that $\exists \overline{c} \in \ZZ/1\ZZ$ with the property that $\overline{c}\overline{a} = 1$.\\
+
+Thus, $(\ZZ/n\ZZ)^{\times} = \emptyset$\\
+
+\textbf{Case 2 $(\ZZ/2\ZZ)$}: note that there are two congruence classes, $\overline{0}$ and $\overline{1}$.\\
+
+We have $\overline{0} \cdot \overline{0} = \overline{0} \cdot \overline{1} = \overline{1} \cdot \overline{0} = \overline{0}$.\\
+
+However, we have $\overline{1} \cdot \overline{1} = \overline{1}$. Hence, for $\overline{1} \in (\ZZ/2\ZZ)$, $\exists \overline{c} \in (\ZZ/2\ZZ)$ such that $\overline{c} \cdot \overline{1} = \overline{1}$. In this case, $\overline{c} = \overline{1}$.\\
+
+Hence, $(\ZZ/2\ZZ)^{\times} = \{\overline{1}\}$\\
+
+\textbf{Case 3 $(\ZZ/3\ZZ)$}: note that there are three congruence classes, $\overline{0}$, $\overline{1}$, $\overline{2}$.\\
+
+We know that $\overline{0} \cdot \overline{c} = \overline{0} \; \forall \; \overline{c} \in (\ZZ/3\ZZ)$, so we don't need to consider it.\\
+
+For the other two congruence classes, we have $\overline{1} \cdot \overline{1} = \overline{1}$, $\overline{1} \cdot \overline{2} = \overline{2} = \overline{2} \cdot \overline{1}$, and $\overline{2} \cdot \overline{2} = \overline{4} = \overline{1}$.\\
+
+So we have that $(\ZZ/3\ZZ)^{\times} = \{\overline{1}, \overline{2}\}$\\
+
+\newpage
+\textbf{Case 4 $(\ZZ/4\ZZ)$}: note that there are four congruence classes, $\overline{0}$, $\overline{1}$, $\overline{2}$, $\overline{3}$.
+
+From here I will assume the commutativity of multiplication of congruence classes and as such will only show one direction.\\
+
+Once again, we do not need to consider $\overline{0}$ since multiplying it by any other congruence class yields $\overline{0}$.\\
+
+We have,
+\begin{align*}
+\overline{1} \cdot \overline{1} &= \overline{1}\\
+\overline{1} \cdot \overline{2} &= \overline{2}\\
+\overline{2} \cdot \overline{2} &= \overline{4} = \overline{0}\\
+\overline{1} \cdot \overline{3} &= \overline{3}\\
+\overline{2} \cdot \overline{3} &= \overline{6} = \overline{2}\\
+\overline{3} \cdot \overline{3} &= \overline{9} = \overline{1}
+\end{align*}
+
+So we have that $(\ZZ/4\ZZ)^{\times} = \{\overline{1}, \overline{3}\}$\\
+
+\textbf{Case 5 $(\ZZ/5\ZZ)$}: note that there are five congruence classes, $\overline{0}$, $\overline{1}$, $\overline{2}$, $\overline{3}$, $\overline{4}$.\\
+
+We have,
+\begin{align*}
+\overline{1} \cdot \overline{1} &= \overline{1}\\
+\overline{1} \cdot \overline{2} &= \overline{2}\\
+\overline{1} \cdot \overline{3} &= \overline{3}\\
+\overline{1} \cdot \overline{4} &= \overline{4}\\
+\overline{2} \cdot \overline{2} &= \overline{4}\\
+\overline{2} \cdot \overline{3} &= \overline{6} = \overline{1}\\
+\overline{2} \cdot \overline{4} &= \overline{8} = \overline{3}\\
+\overline{3} \cdot \overline{3} &= \overline{9} = \overline{4}\\
+\overline{3} \cdot \overline{4} &= \overline{12} = \overline{2}\\
+\overline{4} \cdot \overline{4} &= \overline{16} = \overline{1}
+\end{align*}
+
+So we have that $(\ZZ/5\ZZ)^{\times} = \{\overline{1}, \overline{2}, \overline{3}, \overline{4}\}$\\
+
+\newpage
+\textbf{Case 6 $(\ZZ/6\ZZ)$}: note that there are six congruence classes, $\overline{0}$, $\overline{1}$, $\overline{2}$, $\overline{3}$, $\overline{4}$, $\overline{5}$.\\
+
+We have,
+\begin{align*}
+\overline{1} \cdot \overline{1} &= \overline{1}\\
+\overline{1} \cdot \overline{2} &= \overline{2}\\
+\overline{1} \cdot \overline{3} &= \overline{3}\\
+\overline{1} \cdot \overline{4} &= \overline{4}\\
+\overline{1} \cdot \overline{5} &= \overline{5}\\
+\overline{2} \cdot \overline{2} &= \overline{4}\\
+\overline{2} \cdot \overline{3} &= \overline{6} = \overline{0}\\
+\overline{2} \cdot \overline{4} &= \overline{8} = \overline{2}\\
+\overline{2} \cdot \overline{5} &= \overline{10} = \overline{4}\\
+\overline{3} \cdot \overline{3} &= \overline{9} = \overline{3}\\
+\overline{3} \cdot \overline{4} &= \overline{12} = \overline{0}\\
+\overline{3} \cdot \overline{5} &= \overline{15} = \overline{3}\\
+\overline{4} \cdot \overline{4} &= \overline{16} = \overline{4}\\
+\overline{4} \cdot \overline{5} &= \overline{20} = \overline{2}
+\end{align*}
+
+So we have that $(\ZZ/6\ZZ)^{\times} = \{\overline{1}\}$\\
+
+\end{ans}
+	
+\item Prove that if $\bar{a}, \bar{b} \in (\ZZ/n\ZZ)^\times$, then $\bar{a} \cdot \bar{b} \in (\ZZ/n\ZZ)^\times$.\\
+
+
+\begin{proof}
+Suppose $\bar{a}, \bar{b} \in (\ZZ/n\ZZ)^\times$. Then $\exists \overline{c_1}, \overline{c_2} \in (\ZZ/n\ZZ)^\times$ such that 
+\begin{align*}
+\bar{a} \cdot \overline{c_1} &= \bar{1}\\
+\bar{b} \cdot \overline{c_2} &= \bar{1}
+\end{align*}
+
+Thus we have that,
+\begin{align}
+\overline{ab} \cdot \overline{c_1c_2} &= \overline{(a \cdot b) \cdot (c_1 \cdot c_2)}\\
+&= \overline{a \cdot c_1 \cdot b \cdot c_2} \nonumber \\
+&= (\bar{a} \cdot \overline{c_1}) \cdot (\bar{b} \cdot \overline{c_2}) \nonumber \\
+&= \overline{1} \cdot \overline{1} \nonumber \\
+&= \bar{1} \nonumber
+\end{align}
+
+The first three equalities come from the properties of modular multiplication described on p. 9 in the text.\\
+
+Since multiplication in $(\ZZ/n\ZZ)^\times$ is well-defined and both $\overline{c_1}, \overline{c_2} \in (\ZZ/n\ZZ)^\times$, we have that $\overline{c_3} = \overline{c_1c_2} \in (\ZZ/n\ZZ)^\times$.\\
+
+Similarly, $\overline{ab} \in (\ZZ/n\ZZ)^\times$\\
+
+Hence by (1) and the above statements, we have that $\bar{a} \cdot \bar{b} = \overline{ab} \in (\ZZ/n\ZZ)^\times$.
+\end{proof}
+
+\item Let $a \in \ZZ$. Show that if $(a,n) \neq 1$, then there is some $1\leq b \leq n-1$ for which $n \big| ab$. Conclude that if $(a,n) \neq 1$, there is some $1\leq b \leq n-1$ for which  $\bar{a} \cdot \bar{b} = \bar{0}$. 
+
+
+\begin{proof}
+Let $a \in \ZZ$ and suppose $(a, n) \neq 1$. Since the gcd is a positive integer, we know that $(a, n) > 1$.\\
+
+Hence, $\exists d \in \ZZ$ such that $d > 1$, $d | a$, and $d | n$.\\
+
+Let $b = n/d$ and $c = a/d$. We know that $d|n$ and $d|a$, so $b, c \in \ZZ$.\\
+
+Then we have,
+\begin{align}
+ab &= a \cdot \frac{n}{d} \nonumber \\
+&= \frac{a}{d} \cdot n \nonumber \\
+&= cn
+\end{align}
+
+Thus, we clearly have that $n | ab$.\\
+
+
+We know that $d > 1$ and also that $n \geq 1$. Hence, it is clear that $b \geq 1$.\\
+
+Now suppose that $b \geq n$. Since $d > 1$, it is clear that,
+\begin{align*}
+bd > n
+\end{align*}
+
+However, we defined $b = n/d$. Hence, the above statement is a contradiction and thus $b < n$.\\
+
+We already established that $b \geq 1$, so we have $1 \leq b < n$, or equivalently since $b, n \in \ZZ$, $1 \leq b \leq n-1$.\\
+
+Now note that $\overline{0} = \{0 + kn | k \in \ZZ\}$. We have from (2) that $ab = cn$.\\
+
+Since $c \in \ZZ$, $cn$ satisfies the condition defined for the set $\bar{0}$ and so $cn = ab \in \bar{0}$.\\
+
+Hence, we have
+\begin{align*}
+\overline{ab} = \bar{0} = \bar{a} \cdot \bar{b}
+\end{align*}
+\end{proof}
+
+\item Let $\bar{a} \in \ZZn$. Show that if there is some non-zero $\bar{b} \in \ZZn$ such that $\bar{a} \cdot \bar{b} = \bar{0}$, then $\bar{a} \notin (\ZZ/n\ZZ)^\times$. 
+
+
+\begin{proof}
+Let $\bar{a} \in \ZZn$ and suppose there is some non-zero $\bar{b} \in \ZZn$ such that $\bar{a} \cdot \bar{b} = \bar{0}$.\\
+
+We have that,
+\begin{align*}
+\bar{a} \cdot \bar{b} = \bar{0} \implies ab = 0 + kn
+\end{align*}
+
+for some $k \in \ZZ$\\
+
+Now assume $\bar{a} \in (\ZZ/n\ZZ)^\times$.\\
+
+Then there exists $\bar{c} \in \ZZ/n\ZZ$ such that $\bar{a} \cdot \bar{c} = \bar{1}$. That is,
+\begin{align*}
+ac = 1 + mn
+\end{align*}
+
+for some $m \in \ZZ$.
+\end{proof}
+
+\item Prove that if $a$ and $n$ are relatively prime then there is an integer $c$ such that $ac \equiv_n 1$. {[Hint: use the fact that the g.c.d.\ of two integers is a $\ZZ$-linear combination of the integers]}
+
+
+%\begin{proof}
+%
+%\end{proof}
+	
+\item Conclude from the previous  exercises that $(\ZZ/n\ZZ)^\times$ is the set of elements $\bar{a}$ of $\ZZ/n\ZZ$ with $(a,n) = 1$ and hence prove Proposition 0.3.4. Verify this directly in the case $n = 6$. 
+
+
+%\begin{proof}
+%
+%\end{proof}
+\end{enumerate}
+
+
+
+\item	Determine (prove positive, or give a reason why not) which of the following sets are groups under addition:
+\begin{enumerate}
+\item the set of polynomials $\ZZ[x]$;
+	
+\NOTE{\textbf{Tip:} Start with ``Yes, this is a group. First\dots'' or ``No, this is not a group. For example\dots''. You do not have to prove that addition is associative---you may take that for granted.}
+%\begin{ans}
+% 
+%\end{ans}
+	
+\item the set of rational numbers (including $0=0/1$) in lowest terms whose denominators are even;
+	
+%\begin{ans}
+%
+%\end{ans}
+
+\item the set of rational numbers of absolute value $< 1$;
+	
+%\begin{ans}
+%
+%\end{ans}
+\end{enumerate}
+
+\item Let $x, y \in G$. Prove that $xy=yx$ if and only if $y^{-1}xy = x$ if and only if $x^{-1}y^{-1}xy=1$.
+
+
+
+%\begin{proof}
+%
+%\end{proof}
+
+\item Let $G$ be a group and let $x \in G$.
+\begin{enumerate}
+\item If $g \in G$, show $|g^{-1}xg| = |x|$. 
+\item Prove that if $|x| \leq 2$ for all $x \in G$ then $G$ is abelian.
+\item If $|x| = n < \infty$, prove that the elements $e, x, x^2, \dots, x^{n-1}$ are all distinct. Deduce that $|x| \leq |G|$. 
+\end{enumerate}
+
+
+
+
+\item {\bf The dihedral group. } The dihedral group $D_{2n}$ has the usual presentation 
+$$D_{2n} = \< r,s ~|~ r^n = s^2 = 1, rs=sr^{-1}\>.$$ 
+
+\NOTE{\textbf{\LaTeX\ Tip:} There is a difference between the symbols $<$ (meaning less than) and $\langle$ (meaning left angle bracket). As you can see above, I made a shortcut to use of $\backslash\!\!<$ in place of $\backslash$langle: $\<$ (and similar for $\backslash\!\!>$  in place of $\backslash$rangle: $\>$.}
+
+\begin{enumerate}
+\item Compute the order of each of the elements in $D_8$.
+
+%\begin{ans}
+%
+%\end{ans}
+
+\item Use the generators and relations above to show that if $x$ is any element of $D_{2n}$ which is not a power of $r$, then 
+	$$rx = xr^{-1} \qquad \text{ and } \qquad |x| = 2.$$
+	
+%\begin{proof}
+%
+%\end{proof}	
+	
+\item Show that if $s_1 =  s$ and $s_2 = sr$, then those together with the relations 
+$$s_1^2 = s_2^2 = (s_1s_2)^n = 1$$
+forms and alternative presentation of $D_{2n}$ (you have to show that $S=\{s_1, s_2\}$ generates the whole group and that you can derive these relations from the old ones and vice versa). 
+
+%\begin{proof}
+%
+%\end{proof}	
+\end{enumerate}
+
+\item {\bf The symmetric group. }
+\begin{enumerate}
+\item Let $$\alpha = (1~2~3~4~5~6~7), \quad \beta =(1~2~3~4~5~6~7~8~9~10~11~12), \quad \text{and}\quad \gamma = (1~2~3~4~5~6~7~8).$$
+	\begin{enumerate}
+	\item Compute $\alpha^2$, $\beta^2$, and $\gamma^2$.
+	\item For which $i$ between 1 and 7 is $\alpha^i$ still a 7-cycle? \dots between 1 and 12 is $\beta^i$ still a 12-cycle? \dots between 1 and 8 is $\gamma^i$ still an 8-cycle?
+	\item What's the theorem in general? \\
+	\centerline{\emph{If $\sigma$ is an $m$-cycle, then $\sigma^i$ is also an $m$-cycle if and only if \dots}}
+	(Just state, don't prove it.)
+	\end{enumerate}
+
+	\item Prove that if $\sigma$ is the $m$-cycle $(a_1~a_2~\dots~a_m)$, then for all $i =1, \dots, m$, 
+$$\sigma^i(a_k) = a_{\overline{k+{i}}} \qquad \text{ where $\overline{k+{i}}$ is the least residue mod $m$.}$$
+Deduce that $|\sigma|=m$. 
+
+
+	\item Use the last part to prove that the order of an element in $S_n$ equals the least common multiple of the lengths of the cycles in its cycle decomposition (\emph{cycle decomposition} means writing it as the product of disjoint cycles; you may assume such a decomposition exists, and that disjoint cycles commute).\\
+	 {[You may use previous problems in your solution.]}
+
+	\item Which values appear as orders of elements of $S_5$ (for which $i$ is there some element of $S_5$ that has order $i$)? For each value, give an example of an element that has that order. 
+\end{enumerate}
+
+
+
+\end{enumerate}
+\NOTE{\textbf{\LaTeX\ Tip:} If you need to write several lines of equations, and want the equalities to line up, you can use the align environment (see code to see how this is done):
+\begin{align*}
+f(b_1) &= (-1, 1, 2) = -b_1 + 2b_2, & \text{and}\\
+f(b_2) &= (-1, 0, -1) = b_1 + b_2 - 2b_3, & \text{so that}\\
+f(b_1) + f(b_2)
+	&= (-1, 1, 2) + (-1, 0, -1)  = (-2, 1, 1)\\
+	&= (-b_1 + 2b_2) + (b_1 + b_2 - 2b_3)\\
+	&= -b_2 - 2b_3.
+\end{align*}
+Here, the two backslashes mark breaks the line ($\backslash\backslash$), the first ampersand in each line ($\&$)  is where the first column (right justified) ends and the second column (left justified) begins, and the optional second $\&$ in a line moves to the third (right justified) column. Since align is a math environment, it will interpret any letters as math symbols. If I want to write text instead of math symbols (like ``and'' and ``so that''), I surround it by a $\backslash$text$\{\}$ command. Again, feel free to copy and past the above code for your purposes, and replace the math with whatever you need to write. Finally, note the use of my punctuation, even in the system of equations!
+}
+
+\smallskip
+
+\NOTE{Tip: Feel free to delete all these ``Tips'' in your homework submission. :)}
+
+
+
+\end{document}
