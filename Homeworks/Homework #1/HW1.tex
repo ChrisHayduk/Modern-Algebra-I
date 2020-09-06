@@ -321,39 +321,212 @@ for some $m \in \ZZ$.
 \begin{enumerate}
 \item the set of polynomials $\ZZ[x]$;
 	
-\NOTE{\textbf{Tip:} Start with ``Yes, this is a group. First\dots'' or ``No, this is not a group. For example\dots''. You do not have to prove that addition is associative---you may take that for granted.}
-%\begin{ans}
-% 
-%\end{ans}
+\begin{ans}
+Yes, this is a group. Firstly, we have the identity element $0$. For any polynomial $p \in \ZZ[x]$, we have that $p + 0 = p = 0 + p$.\\
+
+Now for the additive inverse of $p$, we must take $-p$. That is, for
+\begin{align*}
+p = p_0 + p_1 X + p_2 X^2 + \cdots + p_{m - 1} X^{m - 1} + p_m X^m
+\end{align*}
+
+with $p_k \in \ZZ$, we will take $-p$ to be:
+\begin{align*}
+-p &= -(p_0 + p_1 X + p_2 X^2 + \cdots + p_{m - 1} X^{m - 1} + p_m X^m)\\
+&= -p_0 - p_1 X - p_2 X^2 - \cdots - p_{m - 1} X^{m - 1} - p_m X^m
+\end{align*}
+
+Note that if we take $p + (-p)$, we get,
+\begin{align*}
+p + (-p) &= p_0 + p_1 X + p_2 X^2 + \cdots + p_{m - 1} X^{m - 1} + p_m X^m + (-p_0 - p_1 X - p_2 X^2 - \cdots - p_{m - 1} X^{m - 1} - p_m X^m)\\
+&= (p_0 - p_0) + (p_1 X - p_1 X) + (p_2 X^2 - p_2 X^2) + \cdots + (p_{m - 1} X^{m - 1} - p_{m - 1} X^{m - 1}) + (p_m X^m - p_m X^m)\\
+&= 0 + 0 + 0 + \cdots + 0 + 0\\
+&= 0
+\end{align*}
+
+The same is true for $(-p) + p$.
+\end{ans}
 	
 \item the set of rational numbers (including $0=0/1$) in lowest terms whose denominators are even;
 	
-%\begin{ans}
-%
-%\end{ans}
+\begin{ans}
+Yes, this is a group. Firstly, we have the identity element $0 = \frac{0}{2}$. For any rational number $q$ in the described set, we have that
+\begin{align*}
+q + \frac{0}{2} &= q + 0 = q\\
+\frac{0}{2} + q &= 0 + q = q
+\end{align*}
+
+Now let $q$ in this set. Then $\exists n,m \in \ZZ$ such that $q = n/m$. Note that $m$ is even and $n$ is odd, since if $n$ were even this fraction would not be in lowest terms.\\
+
+Now consider the fraction $-q = -n/m$. Observe that, since $n$ is odd, we can take $n = 2k + 1$ for some $k \in \ZZ$. When we take $-n$, we have $-n = -2k - 1$. Since $-2k$ is even, we have that $-n$ is still odd. Hence, even if we needed to reduce $-q$ to lowest terms, it would still be in the described set since $m$ would still be even.\\
+
+Now that we have established that $-q$ is in our set, we can show that $q + -q = 0$.\\
+
+Observe that
+\begin{align*}
+q + -q &= \frac{n}{m} + \frac{-n}{m}\\
+&= \frac{n + -n}{m}\\
+&= \frac{0}{m} = 0
+\end{align*}
+
+The same is true for $-q + q$.
+\end{ans}
 
 \item the set of rational numbers of absolute value $< 1$;
 	
-%\begin{ans}
-%
-%\end{ans}
+\begin{ans}
+Yes, this is a group.\\
+
+We have that $0 \in \QQ$ and $|0| < 1$, so $0$ is in our set. For any $q \in \QQ$ with $|q| < 1$, we have that
+\begin{align*}
+0 + q = 0 = q + 0
+\end{align*}
+
+So $0$ is the identity element.\\
+
+Now observe that if $q \in \QQ$, then $-q \in \QQ$. In addition, note that if $|q| < 1$, then we have that $|-q| = |-1| \cdot |q| = |q| < 1$. Hence, $-q$ is in our set as well. Thus, we have that,
+\begin{align*}
+q + (-q) = 0 = (-q) + q
+\end{align*}
+
+Hence, every element in our set has an additive inverse within the set, as required.
+\end{ans}
 \end{enumerate}
 
 \item Let $x, y \in G$. Prove that $xy=yx$ if and only if $y^{-1}xy = x$ if and only if $x^{-1}y^{-1}xy=1$.
 
 
 
-%\begin{proof}
-%
-%\end{proof}
+\begin{proof}
+Suppose that $x = yx$. Then we have that,
+\begin{align*}
+&xy = yx\\
+\implies &y^{-1}(xy) = y^{-1}(yx)\\
+\implies &y^{-1}xy = (y^{-1}y)x\\
+\implies &y^{-1}xy = x
+\end{align*}
+
+Now suppose that $y^{-1}xy = x$. Then we have that,
+\begin{align*}
+&y^{-1}xy = x\\
+\implies &y(y^{-1}xy) = yx\\
+\implies &(yy^{-1})xy = yx\\
+\implies &xy = yx
+\end{align*}
+
+In addition, we have that
+\begin{align*}
+&y^{-1}xy = x\\
+\implies &x^{-1}(y^{-1}xy) = x^{-1}x\\
+\implies &x^{-1}y^{-1}xy = 1
+\end{align*}
+
+Now suppose that $x^{-1}y^{-1}xy = 1$. Then we have that
+\begin{align*}
+&x^{-1}y^{-1}xy = 1\\
+\implies &x(x^{-1}y^{-1}xy) = x \cdot 1\\
+\implies &(xx^{-1})y^{-1}xy = x\\
+\implies &y^{-1}xy = x
+\end{align*}
+
+Hence we have that $xy = yx \iff y^{-1}xy = x \iff x^{-1}y^{-1}xy = 1$
+\end{proof}
 
 \item Let $G$ be a group and let $x \in G$.
 \begin{enumerate}
 \item If $g \in G$, show $|g^{-1}xg| = |x|$. 
+
+\begin{proof}
+We know that $|x| \in \ZZ$ and $|x| \geq 1$. Suppose $|x| = 1$. Then $x = e$. Hence we have that,
+\begin{align*}
+|g^{-1}xg| &= |g^{-1}eg|\\
+&= |g^{-1}g|\\
+&= |e| = 1
+\end{align*}
+
+So we have $|g^{-1}xg| = |x|$ in this case.\\
+
+Now suppose $|x| = n > 1$. Then we can show that,
+\begin{align*}
+(g^{-1}xg)^n &= g^{-1}xg \cdot g^{-1}xg \cdots g^{-1}xg \cdot g^{-1}xg\\
+&= g^{-1}x(gg^{-1})x(gg^{-1}) \cdots (gg^{-1}) x (gg^{-1})xg\\
+&= g^{-1} x \cdot x \cdots x \cdot x \cdot g\\
+&= g^{-1} x^n g\\
+&= g^{-1} e g\\
+&= g^{-1} g = e
+\end{align*}
+
+So $(g^{-1}xg)^n = e$.\\
+
+Now suppose we select an $m$ such that $1 \leq m < n$. Then we have that,
+\begin{align*}
+(g^{-1}xg)^m &= g^{-1} x^m g
+\end{align*}
+
+Since $|x| = n$ and $1 \leq m < n$, we have that $x^m \neq e$, and thus $(g^{-1}xg)^m \neq e$.\\
+
+Hence, $n$ is the least positive integer $k$ such that $(g^{-1}xg)^k = e$ and we have that $|g^{-1}xg| = n$
+
+\end{proof}
+
 \item Prove that if $|x| \leq 2$ for all $x \in G$ then $G$ is abelian.
+
+\begin{proof}
+Suppose that $|x| \leq 2$ for all $x \in G$. Now let $x, y \in G$.\\
+
+Note that, since the order of an element is a positive integer, the only two possibilities for $|x|$ are $1, 2$.\\
+
+If $|x| = 1$, then $x = e$ and we have,
+\begin{align*}
+xy = ey = y = ye = yx
+\end{align*}
+
+for any $y \in G$.\\
+
+Now suppose $|x| = 2$. If $|y| = 1$, $y$ is the identity and is commutative (as shown above), so we will assume $|y| = 2$ as well.\\
+
+Since $x^2 = xx = e$ and $y^2 = yy = e$, we have that $x = x^{-1}$ and $y = y^{-1}$. If $|xy| = 1$ or $|xy| = 2$, then $xy = (xy)^{-1}$ and
+\begin{align*}
+xy = (xy)^{-1} = y^{-1}x^{-1} = yx
+\end{align*}
+
+as required
+
+\end{proof}
+
 \item If $|x| = n < \infty$, prove that the elements $e, x, x^2, \dots, x^{n-1}$ are all distinct. Deduce that $|x| \leq |G|$. 
 \end{enumerate}
 
+\begin{proof}
+Let $|x| = n < \infty$. Now suppose that there are numbers $m, k \in \ZZ$ with $0 \leq m, k \leq n-1$ and $k < m$ such that $x^m = x^k$.\\
+
+Then we clearly have that,
+\begin{align*}
+x^k \cdot x &= x^m \cdot x\\
+x^k \cdot x^2 &= x^m \cdot x^2\\
+x^k \cdot x^3 &= x^m \cdot x^3\\
+&\vdots\\
+x^k \cdot x^{n-m} &= x^m \cdot x^{n-m}
+\end{align*}
+
+However, on the right side of the equality, we have
+\begin{align*}
+x^m \cdot x^{n-m} &= x^{m+n-m}\\
+&= x^n\\
+&= e
+\end{align*}
+
+This implies that,
+\begin{align*}
+x^k \cdot x^{n-m} &= x^{k+n-m}\\
+&= e
+\end{align*}
+
+where $k+n-m \in \ZZ$ and $0 < k+n-m < m+n-m = n$.\\
+
+However, we know that the order of $x$ is $n$, which is defined to be the smallest positive integer of $x$ that yields the identity element. Hence, $e, x, x^2, \dots, x^{n-1}$ are all distinct.\\
+
+Suppose $x \in G$ where $G$ is a group. Then, $\{e, x, x^2, \dots, x^{n-1}\} \subset G$. Thus the $|x| = n$ and there are at least $n$ elements in $G$. Hence, we have that $|x| \leq |G|$.
+\end{proof}
 
 
 
