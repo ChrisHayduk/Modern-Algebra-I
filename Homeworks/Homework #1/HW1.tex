@@ -533,29 +533,147 @@ Suppose $x \in G$ where $G$ is a group. Then, $\{e, x, x^2, \dots, x^{n-1}\} \su
 \item {\bf The dihedral group. } The dihedral group $D_{2n}$ has the usual presentation 
 $$D_{2n} = \< r,s ~|~ r^n = s^2 = 1, rs=sr^{-1}\>.$$ 
 
-\NOTE{\textbf{\LaTeX\ Tip:} There is a difference between the symbols $<$ (meaning less than) and $\langle$ (meaning left angle bracket). As you can see above, I made a shortcut to use of $\backslash\!\!<$ in place of $\backslash$langle: $\<$ (and similar for $\backslash\!\!>$  in place of $\backslash$rangle: $\>$.}
-
 \begin{enumerate}
 \item Compute the order of each of the elements in $D_8$.
 
-%\begin{ans}
-%
-%\end{ans}
+\begin{ans}
+Suppose $|r| = k < 4$. Then, since $r^4 = 1$, we must have that $4 = mk$ for some $m \in \ZZ^+$.\\
+
+Since $k > 1$ and $k$ must be a factor of $4$, we also have that $k = 2$.\\
+
+However, if $|r| = 2$, then $r = r^{-1}$. Thus, the second relation becomes
+\begin{align*}
+rs = sr
+\end{align*}
+
+This implies one of two cases: either $r = s^{-1}$ or $r = 1$. We know that $r \neq 1$ by the geometric properties of rotation of a square, so we can ignore this case.\\
+
+Thus, we will only consider the case where $r = s^{-1}$. Note that $s^{-1} = s$ since $s^2 = 1$, so we have that $r = s$. However, by the geometric properties of clockwise rotation (which $r$ represents) and reflection over the line $y = x$ (which $s$ represents) of the square, we know that $r \neq s$.\\
+
+Hence, $|r|$ cannot be less than $4$. Since we know that $r^4 = 1$ from the list of generators, we have that $|r| = 4$.\\
+
+From the list of generators we also have that $s^2 = 1$. If $s^1 = 1$, then we have that $s = 1$. However, by the properties of reflection over the line $y = x$ of the square, we know that $s \neq 1$.\\
+
+Thus, $|s| = 2$.\\
+
+Now take $rs$. We have that
+\begin{align*}
+(rs)^2 &= rsrs\\
+&= rssr^{-1}\\
+&= rs^2r{-1}\\
+&= rr^{-1}\\
+&= 1
+\end{align*}
+
+Hence $|rs| = 2$\\
+
+Similarly, for $sr^{-1}$, we have
+\begin{align*}
+(sr^{-1})^2 &= sr^{-1}sr^{-1}\\
+&= rssr^{-1}\\
+&= rs^2r^{-1}\\
+&= rr^{-1}\\
+&= 1
+\end{align*}
+
+so $|sr^{-1}| = 2$ as well.
+\end{ans}
 
 \item Use the generators and relations above to show that if $x$ is any element of $D_{2n}$ which is not a power of $r$, then 
 	$$rx = xr^{-1} \qquad \text{ and } \qquad |x| = 2.$$
 	
-%\begin{proof}
-%
-%\end{proof}	
+\begin{proof}
+Suppose $x \in D_{2n}$ and $x \neq r^k$ for any $k \in \ZZ^+$.\\
+
+Hence $x$ must be some product of $r$ and $s$.\\
+
+Note that, since $s^2 = 1$, we have that $s^{2m+1} = s^2m \cdot s^1 = s$ for any $m \in \ZZ^+$. So the $s$ term in $x$ must be $s^1$.\\
+
+Thus, we have
+\begin{align}
+x = sr^k
+\end{align}
+
+or 
+\begin{align}
+x = r^ks
+\end{align}
+
+So for the case of (3) we get,
+\begin{align*}
+rx &= r(sr^k)\\
+&= (rs)r^k\\
+&= (sr^{-1})r^k\\
+&= sr^{k-1}\\
+&= sr^k(r^{-1})\\
+&= xr^{-1}
+\end{align*}
+
+and for (4) we get
+\begin{align*}
+rx &= r(r^ks)\\
+&= r^k(rs)\\
+&= r^k(sr^{-1})\\
+&= (r^ks)r^{-1}\\
+&= xr^{-1}
+\end{align*}
+
+as required.\\
+
+Now we will compute the order of (3):
+\begin{align*}
+x^2 &= sr^ksr^k\\
+&= sr^kr^{-k}s\\
+&= s(r^kr^{-k})s\\
+&= ss\\
+&= 1
+\end{align*}
+
+and of (4):
+\begin{align*}
+x^2 &= r^ksr^ks\\
+&= r^kr^{-k}ss\\
+&= (r^kr^{-k})(ss)\\
+&= 1
+\end{align*}
+
+So in either case, $|x| = 2$.\\
+
+Note that the second line of both of the above equations was derived by repeatedly applying the relation $sr = r^{-1}s$
+\end{proof}	
 	
 \item Show that if $s_1 =  s$ and $s_2 = sr$, then those together with the relations 
 $$s_1^2 = s_2^2 = (s_1s_2)^n = 1$$
 forms and alternative presentation of $D_{2n}$ (you have to show that $S=\{s_1, s_2\}$ generates the whole group and that you can derive these relations from the old ones and vice versa). 
 
-%\begin{proof}
-%
-%\end{proof}	
+\begin{proof}
+By the relations given above we have that,
+\begin{align*}
+s_1^2 = 1 = s^2
+\end{align*}
+
+Moreover, we have that
+\begin{align*}
+s_2^2 = 1 = srsr
+\end{align*}
+
+This implies that $sr = (sr)^{-1} = r^{-1}s^{-1}$.\\
+
+However, we know that $s^{-1} = s$ since $s^2 = 1$, so we have
+\begin{align*}
+sr = (sr)^{-1} &= r^{-1}s^{-1}\\
+&= r^{-1}s
+\end{align*}
+
+We are also given that $(s_1s_2)^n = 1$. That is,
+\begin{align*}
+(s_1s_2)^n &= (ssr)^n\\
+&= r^n\\
+&= 1
+\end{align*}
+
+Hence, the elements $s_1$ and $s_2$ together with the relations shown above fully describe the initial presentation of $D_{2n}$.
+\end{proof}	
 \end{enumerate}
 
 \item {\bf The symmetric group. }
