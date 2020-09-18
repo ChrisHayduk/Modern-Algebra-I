@@ -1,0 +1,844 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{red}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{1 Reflection}
+\def\DUE{9/21/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math B4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+\section{Questions}
+
+\begin{enumerate}[1.]
+\item
+
+\item
+\end{enumerate}
+
+\section{Marked-up Homework}
+
+\begin{enumerate}[1.]
+\item Recall that  $\ZZn = \{ \bar{a} \in  \ZZn \}$ is the set of congruence classes modulo $n$.  Define  $(\ZZ/n\ZZ)^\times$ to be the subset of $\ZZ/n\ZZ$ that have multiplicative inverses, i.e.\
+$$(\ZZ/n\ZZ)^\times = \{ \bar{a} \in \ZZ/n\ZZ ~|~ \text{ there is some $\bar{c} \in \ZZn$ such that $\bar{c} \bar{a} = 1$ }\}.$$
+
+\begin{enumerate}
+\item Compute $(\ZZ/n\ZZ)^\times$ for $n = 1, 2, 3, 4, 5,$ and $6$. 
+	
+\begin{ans}
+\textbf{Case 1 $(\ZZ/1\ZZ)$}: note that every integer is divisible by $1$. This is true because, for any integer $x \in \ZZ$, we have that $x = 1 \cdot x$. Hence, every integer belongs to $\overline{0}$ when $n = 1$.\\
+
+By the definition of modular multiplication on p. 9 of the text, if we have $\overline{a}, \overline{b} \in (\ZZ/1\ZZ)$, we can take $\overline{a} \cdot \overline{b} = \overline{ab}$.\\
+
+Since we just showed that every integer in $(\ZZ/1\ZZ)$ belongs to the congruence class $\overline{0}$, we have $\overline{0} \cdot \overline{0} = \overline{0 \cdot 0} = \overline{0} \; \forall \; z \in \ZZ$.\\
+
+Hence, there are no elements $\overline{a} \in \ZZ/1\ZZ$ such that $\exists \overline{c} \in \ZZ/1\ZZ$ with the property that $\overline{c}\overline{a} = 1$.\\
+
+Thus, $(\ZZ/n\ZZ)^{\times} = \emptyset$\\
+
+\textbf{Case 2 $(\ZZ/2\ZZ)$}: note that there are two congruence classes, $\overline{0}$ and $\overline{1}$.\\
+
+We have $\overline{0} \cdot \overline{0} = \overline{0} \cdot \overline{1} = \overline{1} \cdot \overline{0} = \overline{0}$.\\
+
+However, we have $\overline{1} \cdot \overline{1} = \overline{1}$. Hence, for $\overline{1} \in (\ZZ/2\ZZ)$, $\exists \overline{c} \in (\ZZ/2\ZZ)$ such that $\overline{c} \cdot \overline{1} = \overline{1}$. In this case, $\overline{c} = \overline{1}$.\\
+
+Hence, $(\ZZ/2\ZZ)^{\times} = \{\overline{1}\}$\\
+
+\textbf{Case 3 $(\ZZ/3\ZZ)$}: note that there are three congruence classes, $\overline{0}$, $\overline{1}$, $\overline{2}$.\\
+
+We know that $\overline{0} \cdot \overline{c} = \overline{0} \; \forall \; \overline{c} \in (\ZZ/3\ZZ)$, so we don't need to consider it.\\
+
+For the other two congruence classes, we have $\overline{1} \cdot \overline{1} = \overline{1}$, $\overline{1} \cdot \overline{2} = \overline{2} = \overline{2} \cdot \overline{1}$, and $\overline{2} \cdot \overline{2} = \overline{4} = \overline{1}$.\\
+
+So we have that $(\ZZ/3\ZZ)^{\times} = \{\overline{1}, \overline{2}\}$\\
+
+\textbf{Case 4 $(\ZZ/4\ZZ)$}: note that there are four congruence classes, $\overline{0}$, $\overline{1}$, $\overline{2}$, $\overline{3}$.
+
+From here I will assume the commutativity of multiplication of congruence classes and as such will only show one direction.\\
+
+Once again, we do not need to consider $\overline{0}$ since multiplying it by any other congruence class yields $\overline{0}$.\\
+
+We have,
+\begin{align*}
+\overline{1} \cdot \overline{1} &= \overline{1}\\
+\overline{1} \cdot \overline{2} &= \overline{2}\\
+\overline{2} \cdot \overline{2} &= \overline{4} = \overline{0}\\
+\overline{1} \cdot \overline{3} &= \overline{3}\\
+\overline{2} \cdot \overline{3} &= \overline{6} = \overline{2}\\
+\overline{3} \cdot \overline{3} &= \overline{9} = \overline{1}
+\end{align*}
+
+So we have that $(\ZZ/4\ZZ)^{\times} = \{\overline{1}, \overline{3}\}$\\
+
+\textbf{Case 5 $(\ZZ/5\ZZ)$}: note that there are five congruence classes, $\overline{0}$, $\overline{1}$, $\overline{2}$, $\overline{3}$, $\overline{4}$.\\
+
+We have,
+\begin{align*}
+\overline{1} \cdot \overline{1} &= \overline{1}\\
+\overline{1} \cdot \overline{2} &= \overline{2}\\
+\overline{1} \cdot \overline{3} &= \overline{3}\\
+\overline{1} \cdot \overline{4} &= \overline{4}\\
+\overline{2} \cdot \overline{2} &= \overline{4}\\
+\overline{2} \cdot \overline{3} &= \overline{6} = \overline{1}\\
+\overline{2} \cdot \overline{4} &= \overline{8} = \overline{3}\\
+\overline{3} \cdot \overline{3} &= \overline{9} = \overline{4}\\
+\overline{3} \cdot \overline{4} &= \overline{12} = \overline{2}\\
+\overline{4} \cdot \overline{4} &= \overline{16} = \overline{1}
+\end{align*}
+
+So we have that $(\ZZ/5\ZZ)^{\times} = \{\overline{1}, \overline{2}, \overline{3}, \overline{4}\}$\\
+
+\newpage
+\textbf{Case 6 $(\ZZ/6\ZZ)$}: note that there are six congruence classes, $\overline{0}$, $\overline{1}$, $\overline{2}$, $\overline{3}$, $\overline{4}$, $\overline{5}$.\\
+
+We have,
+\begin{align*}
+\overline{1} \cdot \overline{1} &= \overline{1}\\
+\overline{1} \cdot \overline{2} &= \overline{2}\\
+\overline{1} \cdot \overline{3} &= \overline{3}\\
+\overline{1} \cdot \overline{4} &= \overline{4}\\
+\overline{1} \cdot \overline{5} &= \overline{5}\\
+\overline{2} \cdot \overline{2} &= \overline{4}\\
+\overline{2} \cdot \overline{3} &= \overline{6} = \overline{0}\\
+\overline{2} \cdot \overline{4} &= \overline{8} = \overline{2}\\
+\overline{2} \cdot \overline{5} &= \overline{10} = \overline{4}\\
+\overline{3} \cdot \overline{3} &= \overline{9} = \overline{3}\\
+\overline{3} \cdot \overline{4} &= \overline{12} = \overline{0}\\
+\overline{3} \cdot \overline{5} &= \overline{15} = \overline{3}\\
+\overline{4} \cdot \overline{4} &= \overline{16} = \overline{4}\\
+\overline{4} \cdot \overline{5} &= \overline{20} = \overline{2}
+\end{align*}
+
+So we have that $(\ZZ/6\ZZ)^{\times} = \{\overline{1}\}$\\
+
+\end{ans}
+	
+\item Prove that if $\bar{a}, \bar{b} \in (\ZZ/n\ZZ)^\times$, then $\bar{a} \cdot \bar{b} \in (\ZZ/n\ZZ)^\times$.\\
+
+
+\begin{proof}
+Suppose $\bar{a}, \bar{b} \in (\ZZ/n\ZZ)^\times$. Then $\exists \overline{c_1}, \overline{c_2} \in (\ZZ/n\ZZ)^\times$ such that 
+\begin{align*}
+\bar{a} \cdot \overline{c_1} &= \bar{1}\\
+\bar{b} \cdot \overline{c_2} &= \bar{1}
+\end{align*}
+
+Thus we have that,
+\begin{align}
+\overline{ab} \cdot \overline{c_1c_2} &= \overline{(a \cdot b) \cdot (c_1 \cdot c_2)}\\
+&= \overline{a \cdot c_1 \cdot b \cdot c_2} \nonumber \\
+&= (\bar{a} \cdot \overline{c_1}) \cdot (\bar{b} \cdot \overline{c_2}) \nonumber \\
+&= \overline{1} \cdot \overline{1} \nonumber \\
+&= \bar{1} \nonumber
+\end{align}
+
+The first three equalities come from the properties of modular multiplication described on p. 9 in the text.\\
+
+Since multiplication in $(\ZZ/n\ZZ)^\times$ is well-defined and both $\overline{c_1}, \overline{c_2} \in (\ZZ/n\ZZ)^\times$, we have that $\overline{c_3} = \overline{c_1c_2} \in (\ZZ/n\ZZ)^\times$.\\
+
+Similarly, $\overline{ab} \in (\ZZ/n\ZZ)^\times$\\
+
+Hence by (1) and the above statements, we have that $\bar{a} \cdot \bar{b} = \overline{ab} \in (\ZZ/n\ZZ)^\times$.
+\end{proof}
+
+\item Let $a \in \ZZ$. Show that if $(a,n) \neq 1$, then there is some $1\leq b \leq n-1$ for which $n \big| ab$. Conclude that if $(a,n) \neq 1$, there is some $1\leq b \leq n-1$ for which  $\bar{a} \cdot \bar{b} = \bar{0}$. 
+
+
+\begin{proof}
+Let $a \in \ZZ$ and suppose $(a, n) \neq 1$. Since the gcd is a positive integer, we know that $(a, n) > 1$.\\
+
+Hence, $\exists d \in \ZZ$ such that $d > 1$, $d | a$, and $d | n$.\\
+
+Let $b = n/d$ and $c = a/d$. We know that $d|n$ and $d|a$, so $b, c \in \ZZ$.\\
+
+Then we have,
+\begin{align}
+ab &= a \cdot \frac{n}{d} \nonumber \\
+&= \frac{a}{d} \cdot n \nonumber \\
+&= cn
+\end{align}
+
+Thus, we clearly have that $n | ab$.\\
+
+
+We know that $d > 1$ and also that $n \geq 1$. Hence, it is clear that $b \geq 1$.\\
+
+Now suppose that $b \geq n$. Since $d > 1$, it is clear that,
+\begin{align*}
+bd > n
+\end{align*}
+
+However, we defined $b = n/d$. Hence, the above statement is a contradiction and thus $b < n$.\\
+
+We already established that $b \geq 1$, so we have $1 \leq b < n$, or equivalently since $b, n \in \ZZ$, $1 \leq b \leq n-1$.\\
+
+Now note that $\overline{0} = \{0 + kn | k \in \ZZ\}$. We have from (2) that $ab = cn$.\\
+
+Since $c \in \ZZ$, $cn$ satisfies the condition defined for the set $\bar{0}$ and so $cn = ab \in \bar{0}$.\\
+
+Hence, we have
+\begin{align*}
+\overline{ab} = \bar{0} = \bar{a} \cdot \bar{b}
+\end{align*}
+\end{proof}
+
+\item Let $\bar{a} \in \ZZn$. Show that if there is some non-zero $\bar{b} \in \ZZn$ such that $\bar{a} \cdot \bar{b} = \bar{0}$, then $\bar{a} \notin (\ZZ/n\ZZ)^\times$. 
+
+
+\begin{proof}
+Let $\bar{a} \in \ZZn$ and suppose there is some non-zero $\bar{b} \in \ZZn$ such that $\bar{a} \cdot \bar{b} = \bar{0}$.\\
+
+We have that,
+\begin{align*}
+\bar{a} \cdot \bar{b} = \bar{0} \implies ab = 0 + kn
+\end{align*}
+
+for some $k \in \ZZ$\\
+
+Now assume $\bar{a} \in (\ZZ/n\ZZ)^\times$.\\
+
+Then there exists $\bar{c} \in \ZZ/n\ZZ$ such that $\bar{a} \cdot \bar{c} = \bar{1}$. That is,
+\begin{align*}
+ac = 1 + mn
+\end{align*}
+
+for some $m \in \ZZ$.
+\end{proof}
+
+\item Prove that if $a$ and $n$ are relatively prime then there is an integer $c$ such that $ac \equiv_n 1$. {[Hint: use the fact that the g.c.d.\ of two integers is a $\ZZ$-linear combination of the integers]}
+
+
+%\begin{proof}
+%
+%\end{proof}
+	
+\item Conclude from the previous  exercises that $(\ZZ/n\ZZ)^\times$ is the set of elements $\bar{a}$ of $\ZZ/n\ZZ$ with $(a,n) = 1$ and hence prove Proposition 0.3.4. Verify this directly in the case $n = 6$. 
+
+
+%\begin{proof}
+%
+%\end{proof}
+\end{enumerate}
+
+
+
+\item	Determine (prove positive, or give a reason why not) which of the following sets are groups under addition:
+\begin{enumerate}
+\item the set of polynomials $\ZZ[x]$;
+	
+\begin{ans}
+Yes, this is a group. Firstly, we have the identity element $0$. For any polynomial $p \in \ZZ[x]$, we have that $p + 0 = p = 0 + p$.\\
+
+Now for the additive inverse of $p$, we must take $-p$. That is, for
+\begin{align*}
+p = p_0 + p_1 X + p_2 X^2 + \cdots + p_{m - 1} X^{m - 1} + p_m X^m
+\end{align*}
+
+with $p_k \in \ZZ$, we will take $-p$ to be:
+\begin{align*}
+-p &= -(p_0 + p_1 X + p_2 X^2 + \cdots + p_{m - 1} X^{m - 1} + p_m X^m)\\
+&= -p_0 - p_1 X - p_2 X^2 - \cdots - p_{m - 1} X^{m - 1} - p_m X^m
+\end{align*}
+
+Note that if we take $p + (-p)$, we get,
+\begin{align*}
+p + (-p) &= p_0 + p_1 X + p_2 X^2 + \cdots + p_{m - 1} X^{m - 1} + p_m X^m + (-p_0 - p_1 X - p_2 X^2 - \cdots - p_{m - 1} X^{m - 1} - p_m X^m)\\
+&= (p_0 - p_0) + (p_1 X - p_1 X) + (p_2 X^2 - p_2 X^2) + \cdots + (p_{m - 1} X^{m - 1} - p_{m - 1} X^{m - 1}) + (p_m X^m - p_m X^m)\\
+&= 0 + 0 + 0 + \cdots + 0 + 0\\
+&= 0
+\end{align*}
+
+The same is true for $(-p) + p$.
+\end{ans}
+	
+\item the set of rational numbers (including $0=0/1$) in lowest terms whose denominators are even;
+	
+\begin{ans}
+Yes, this is a group. Firstly, we have the identity element $0 = \frac{0}{2}$. For any rational number $q$ in the described set, we have that
+\begin{align*}
+q + \frac{0}{2} &= q + 0 = q\\
+\frac{0}{2} + q &= 0 + q = q
+\end{align*}
+
+Now let $q$ in this set. Then $\exists n,m \in \ZZ$ such that $q = n/m$. Note that $m$ is even and $n$ is odd, since if $n$ were even this fraction would not be in lowest terms.\\
+
+Now consider the fraction $-q = -n/m$. Observe that, since $n$ is odd, we can take $n = 2k + 1$ for some $k \in \ZZ$. When we take $-n$, we have $-n = -2k - 1$. Since $-2k$ is even, we have that $-n$ is still odd. Hence, even if we needed to reduce $-q$ to lowest terms, it would still be in the described set since $m$ would still be even.\\
+
+Now that we have established that $-q$ is in our set, we can show that $q + -q = 0$.\\
+
+Observe that
+\begin{align*}
+q + -q &= \frac{n}{m} + \frac{-n}{m}\\
+&= \frac{n + -n}{m}\\
+&= \frac{0}{m} = 0
+\end{align*}
+
+The same is true for $-q + q$.
+\end{ans}
+
+\item the set of rational numbers of absolute value $< 1$;
+	
+\begin{ans}
+Yes, this is a group.\\
+
+We have that $0 \in \QQ$ and $|0| < 1$, so $0$ is in our set. For any $q \in \QQ$ with $|q| < 1$, we have that
+\begin{align*}
+0 + q = 0 = q + 0
+\end{align*}
+
+So $0$ is the identity element.\\
+
+Now observe that if $q \in \QQ$, then $-q \in \QQ$. In addition, note that if $|q| < 1$, then we have that $|-q| = |-1| \cdot |q| = |q| < 1$. Hence, $-q$ is in our set as well. Thus, we have that,
+\begin{align*}
+q + (-q) = 0 = (-q) + q
+\end{align*}
+
+Hence, every element in our set has an additive inverse within the set, as required.
+\end{ans}
+\end{enumerate}
+
+\item Let $x, y \in G$. Prove that $xy=yx$ if and only if $y^{-1}xy = x$ if and only if $x^{-1}y^{-1}xy=1$.
+
+
+
+\begin{proof}
+Suppose that $x = yx$. Then we have that,
+\begin{align*}
+&xy = yx\\
+\implies &y^{-1}(xy) = y^{-1}(yx)\\
+\implies &y^{-1}xy = (y^{-1}y)x\\
+\implies &y^{-1}xy = x
+\end{align*}
+
+Now suppose that $y^{-1}xy = x$. Then we have that,
+\begin{align*}
+&y^{-1}xy = x\\
+\implies &y(y^{-1}xy) = yx\\
+\implies &(yy^{-1})xy = yx\\
+\implies &xy = yx
+\end{align*}
+
+In addition, we have that
+\begin{align*}
+&y^{-1}xy = x\\
+\implies &x^{-1}(y^{-1}xy) = x^{-1}x\\
+\implies &x^{-1}y^{-1}xy = 1
+\end{align*}
+
+Now suppose that $x^{-1}y^{-1}xy = 1$. Then we have that
+\begin{align*}
+&x^{-1}y^{-1}xy = 1\\
+\implies &x(x^{-1}y^{-1}xy) = x \cdot 1\\
+\implies &(xx^{-1})y^{-1}xy = x\\
+\implies &y^{-1}xy = x
+\end{align*}
+
+Hence we have that $xy = yx \iff y^{-1}xy = x \iff x^{-1}y^{-1}xy = 1$
+\end{proof}
+
+\item Let $G$ be a group and let $x \in G$.
+\begin{enumerate}
+\item If $g \in G$, show $|g^{-1}xg| = |x|$. 
+
+\begin{proof}
+We know that $|x| \in \ZZ$ and $|x| \geq 1$. Suppose $|x| = 1$. Then $x = e$. Hence we have that,
+\begin{align*}
+|g^{-1}xg| &= |g^{-1}eg|\\
+&= |g^{-1}g|\\
+&= |e| = 1
+\end{align*}
+
+So we have $|g^{-1}xg| = |x|$ in this case.\\
+
+Now suppose $|x| = n > 1$. Then we can show that,
+\begin{align*}
+(g^{-1}xg)^n &= g^{-1}xg \cdot g^{-1}xg \cdots g^{-1}xg \cdot g^{-1}xg\\
+&= g^{-1}x(gg^{-1})x(gg^{-1}) \cdots (gg^{-1}) x (gg^{-1})xg\\
+&= g^{-1} x \cdot x \cdots x \cdot x \cdot g\\
+&= g^{-1} x^n g\\
+&= g^{-1} e g\\
+&= g^{-1} g = e
+\end{align*}
+
+So $(g^{-1}xg)^n = e$.\\
+
+Now suppose we select an $m$ such that $1 \leq m < n$. Then we have that,
+\begin{align*}
+(g^{-1}xg)^m &= g^{-1} x^m g
+\end{align*}
+
+Since $|x| = n$ and $1 \leq m < n$, we have that $x^m \neq e$, and thus $(g^{-1}xg)^m \neq e$.\\
+
+Hence, $n$ is the least positive integer $k$ such that $(g^{-1}xg)^k = e$ and we have that $|g^{-1}xg| = n$
+
+\end{proof}
+
+\item Prove that if $|x| \leq 2$ for all $x \in G$ then $G$ is abelian.
+
+\begin{proof}
+Suppose that $|x| \leq 2$ for all $x \in G$. Now let $x, y \in G$.\\
+
+Note that, since the order of an element is a positive integer, the only two possibilities for $|x|$ are $1, 2$.\\
+
+If $|x| = 1$, then $x = e$ and we have,
+\begin{align*}
+xy = ey = y = ye = yx
+\end{align*}
+
+for any $y \in G$.\\
+
+Now suppose $|x| = 2$. If $|y| = 1$, $y$ is the identity and is commutative (as shown above), so we will assume $|y| = 2$ as well.\\
+
+Since $x^2 = xx = e$ and $y^2 = yy = e$, we have that $x = x^{-1}$ and $y = y^{-1}$. If $|xy| = 1$ or $|xy| = 2$, then $xy = (xy)^{-1}$ and
+\begin{align*}
+xy = (xy)^{-1} = y^{-1}x^{-1} = yx
+\end{align*}
+
+as required
+
+\end{proof}
+
+\item If $|x| = n < \infty$, prove that the elements $e, x, x^2, \dots, x^{n-1}$ are all distinct. Deduce that $|x| \leq |G|$. 
+\end{enumerate}
+
+\begin{proof}
+Let $|x| = n < \infty$. Now suppose that there are numbers $m, k \in \ZZ$ with $0 \leq m, k \leq n-1$ and $k < m$ such that $x^m = x^k$.\\
+
+Then we clearly have that,
+\begin{align*}
+x^k \cdot x &= x^m \cdot x\\
+x^k \cdot x^2 &= x^m \cdot x^2\\
+x^k \cdot x^3 &= x^m \cdot x^3\\
+&\vdots\\
+x^k \cdot x^{n-m} &= x^m \cdot x^{n-m}
+\end{align*}
+
+However, on the right side of the equality, we have
+\begin{align*}
+x^m \cdot x^{n-m} &= x^{m+n-m}\\
+&= x^n\\
+&= e
+\end{align*}
+
+This implies that,
+\begin{align*}
+x^k \cdot x^{n-m} &= x^{k+n-m}\\
+&= e
+\end{align*}
+
+where $k+n-m \in \ZZ$ and $0 < k+n-m < m+n-m = n$.\\
+
+However, we know that the order of $x$ is $n$, which is defined to be the smallest positive integer of $x$ that yields the identity element. Hence, $e, x, x^2, \dots, x^{n-1}$ are all distinct.\\
+
+Suppose $x \in G$ where $G$ is a group. Then, $\{e, x, x^2, \dots, x^{n-1}\} \subset G$. Thus $|x| = n$ and there are at least $n$ elements in $G$. Hence, we have that $|x| \leq |G|$.
+\end{proof}
+
+
+
+\item {\bf The dihedral group. } The dihedral group $D_{2n}$ has the usual presentation 
+$$D_{2n} = \< r,s ~|~ r^n = s^2 = 1, rs=sr^{-1}\>.$$ 
+
+\begin{enumerate}
+\item Compute the order of each of the elements in $D_8$.
+
+\begin{ans}
+Suppose $|r| = k < 4$. Then, since $r^4 = 1$, we must have that $4 = mk$ for some $m \in \ZZ^+$.\\
+
+Since $k > 1$ and $k$ must be a factor of $4$, we also have that $k = 2$.\\
+
+However, if $|r| = 2$, then $r = r^{-1}$. Thus, the second relation becomes
+\begin{align*}
+rs = sr
+\end{align*}
+
+This implies one of two cases: either $r = s^{-1}$ or $r = 1$. We know that $r \neq 1$ by the geometric properties of rotation of a square, so we can ignore this case.\\
+
+Thus, we will only consider the case where $r = s^{-1}$. Note that $s^{-1} = s$ since $s^2 = 1$, so we have that $r = s$. However, by the geometric properties of clockwise rotation (which $r$ represents) and reflection over the line $y = x$ (which $s$ represents) of the square, we know that $r \neq s$.\\
+
+Hence, $|r|$ cannot be less than $4$. Since we know that $r^4 = 1$ from the list of generators, we have that $|r| = 4$.\\
+
+From the list of generators we also have that $s^2 = 1$. If $s^1 = 1$, then we have that $s = 1$. However, by the properties of reflection over the line $y = x$ of the square, we know that $s \neq 1$.\\
+
+Thus, $|s| = 2$.\\
+
+Now take $rs$. We have that
+\begin{align*}
+(rs)^2 &= rsrs\\
+&= rssr^{-1}\\
+&= rs^2r{-1}\\
+&= rr^{-1}\\
+&= 1
+\end{align*}
+
+Hence $|rs| = 2$\\
+
+Similarly, for $sr^{-1}$, we have
+\begin{align*}
+(sr^{-1})^2 &= sr^{-1}sr^{-1}\\
+&= rssr^{-1}\\
+&= rs^2r^{-1}\\
+&= rr^{-1}\\
+&= 1
+\end{align*}
+
+so $|sr^{-1}| = 2$ as well.
+\end{ans}
+
+\item Use the generators and relations above to show that if $x$ is any element of $D_{2n}$ which is not a power of $r$, then 
+	$$rx = xr^{-1} \qquad \text{ and } \qquad |x| = 2.$$
+	
+\begin{proof}
+Suppose $x \in D_{2n}$ and $x \neq r^k$ for any $k \in \ZZ^+$.\\
+
+Hence $x$ must be some product of $r$ and $s$.\\
+
+Note that, since $s^2 = 1$, we have that $s^{2m+1} = s^2m \cdot s^1 = s$ for any $m \in \ZZ^+$. So the $s$ term in $x$ must be $s^1$.\\
+
+Thus, we have
+\begin{align}
+x = sr^k
+\end{align}
+
+or 
+\begin{align}
+x = r^ks
+\end{align}
+
+So for the case of (3) we get,
+\begin{align*}
+rx &= r(sr^k)\\
+&= (rs)r^k\\
+&= (sr^{-1})r^k\\
+&= sr^{k-1}\\
+&= sr^k(r^{-1})\\
+&= xr^{-1}
+\end{align*}
+
+and for (4) we get
+\begin{align*}
+rx &= r(r^ks)\\
+&= r^k(rs)\\
+&= r^k(sr^{-1})\\
+&= (r^ks)r^{-1}\\
+&= xr^{-1}
+\end{align*}
+
+as required.\\
+
+Now we will compute the order of (3):
+\begin{align*}
+x^2 &= sr^ksr^k\\
+&= sr^kr^{-k}s\\
+&= s(r^kr^{-k})s\\
+&= ss\\
+&= 1
+\end{align*}
+
+and of (4):
+\begin{align*}
+x^2 &= r^ksr^ks\\
+&= r^kr^{-k}ss\\
+&= (r^kr^{-k})(ss)\\
+&= 1
+\end{align*}
+
+So in either case, $|x| = 2$.\\
+
+Note that the second line of both of the above equations was derived by repeatedly applying the relation $sr = r^{-1}s$
+\end{proof}	
+	
+\item Show that if $s_1 =  s$ and $s_2 = sr$, then those together with the relations 
+$$s_1^2 = s_2^2 = (s_1s_2)^n = 1$$
+forms and alternative presentation of $D_{2n}$ (you have to show that $S=\{s_1, s_2\}$ generates the whole group and that you can derive these relations from the old ones and vice versa). 
+
+\begin{proof}
+By the relations given above we have that,
+\begin{align*}
+s_1^2 = 1 = s^2
+\end{align*}
+
+Moreover, we have that
+\begin{align*}
+s_2^2 = 1 = srsr
+\end{align*}
+
+This implies that $sr = (sr)^{-1} = r^{-1}s^{-1}$.\\
+
+However, we know that $s^{-1} = s$ since $s^2 = 1$, so we have
+\begin{align*}
+sr = (sr)^{-1} &= r^{-1}s^{-1}\\
+&= r^{-1}s
+\end{align*}
+
+We are also given that $(s_1s_2)^n = 1$. That is,
+\begin{align*}
+(s_1s_2)^n &= (ssr)^n\\
+&= r^n\\
+&= 1
+\end{align*}
+
+Hence, the elements $s_1$ and $s_2$ together with the relations shown above fully describe the initial presentation of $D_{2n}$.
+\end{proof}	
+\end{enumerate}
+
+\item {\bf The symmetric group. }
+\begin{enumerate}
+\item Let $$\alpha = (1~2~3~4~5~6~7), \quad \beta =(1~2~3~4~5~6~7~8~9~10~11~12), \quad \text{and}\quad \gamma = (1~2~3~4~5~6~7~8).$$
+	\begin{enumerate}
+	\item Compute $\alpha^2$, $\beta^2$, and $\gamma^2$.
+	
+	\begin{ans}
+	
+	We have,
+	\begin{align*}
+	\alpha^2 &= (1~2~3~4~5~6~7) \circ (1~2~3~4~5~6~7)\\
+	&= (1~3~5~7~2~4~6)
+	\end{align*}
+	
+	and,
+	\begin{align*}
+	\beta^2 &= (1~2~3~4~5~6~7~8~9~10~11~12) \circ (1~2~3~4~5~6~7~8~9~10~11~12)\\
+	&= (1~3~5~7~9~11)(2~4~6~8~10~12)
+	\end{align*}
+	
+	finally,
+	\begin{align*}
+	\gamma^2 &= (1~2~3~4~5~6~7~8) \circ (1~2~3~4~5~6~7~8)\\
+	&= (1~3~5~7)(2~4~6~8)
+	\end{align*}
+	\end{ans}
+	\item For which $i$ between 1 and 7 is $\alpha^i$ still a 7-cycle? \dots between 1 and 12 is $\beta^i$ still a 12-cycle? \dots between 1 and 8 is $\gamma^i$ still an 8-cycle?
+	
+	\begin{ans}
+	For the case of $\alpha$:\\
+	
+	We already have that $\alpha$ and $\alpha^2$ are 7-cycles. We will now check the other powers.
+	
+	\begin{align*}
+	\alpha^3 &= \alpha \circ \alpha^2\\
+	&= (1~2~3~4~5~6~7) \circ (1~3~5~7~2~4~6)\\
+	&= (1~4~7~3~6~2~5)
+	\end{align*}
+	
+	\begin{align*}
+	\alpha^4 &= \alpha \circ \alpha^3\\
+	&= (1~2~3~4~5~6~7) \circ (1~4~7~3~6~2~5)\\
+	&= (1~5~2~6~3~7~4)
+	\end{align*}
+	
+	\begin{align*}
+	\alpha^5 &= \alpha \circ \alpha^4\\
+	&= (1~2~3~4~5~6~7) \circ (1~5~2~6~3~7~4)\\
+	&= (1~6~4~2~7~5~3)
+	\end{align*}
+	
+	\begin{align*}
+	\alpha^6 &= \alpha \circ \alpha^5\\
+	&= (1~2~3~4~5~6~7) \circ (1~6~4~2~7~5~3)\\
+	&= (1~7~6~5~4~3~2)
+	\end{align*}
+	
+	\begin{align*}
+	\alpha^7 &= \alpha \circ \alpha^6\\
+	&= (1~2~3~4~5~6~7) \circ (1~7~6~5~4~3~2)\\
+	&= 1
+	\end{align*}
+	
+	So we have that $\alpha^i$ is a 7-cycle if $i \in \{1, 2, 3, 4, 5, 6\}$.\\
+	
+	Now for the case of $\gamma$:\\
+	
+	We already have that $\gamma$ is an 8-cycle and $\gamma^2$ is not. We will now check the other powers.
+	
+	\begin{align*}
+	\gamma^3 &= \gamma \circ \gamma^2\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~3~5~7)(2~4~6~8)\\
+	&= (1~4~7~2~5~8~3~6)
+	\end{align*}
+	
+	\begin{align*}
+	\gamma^4 &= \gamma \circ \gamma^3\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~4~7~2~5~8~3~6)\\
+	&= (1~5)(4~8)(7~3)(2~6)
+	\end{align*}
+	
+	\begin{align*}
+	\gamma^5 &= \gamma \circ \gamma^4\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~5)(4~8)(7~3)(2~6)\\
+	&= (1~6~3~8~5~2~7~4)
+	\end{align*}
+	
+	\begin{align*}
+	\gamma^6 &= \gamma \circ \gamma^5\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~6~3~8~5~2~7~4)\\
+	&= (1~7~5~3)(2~8~6~4)
+	\end{align*}
+	
+	\begin{align*}
+	\gamma^7 &= \gamma \circ \gamma^6\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~7~5~3)(2~8~6~4)\\
+	&= (1~8~7~6~5~4~3~2~1)
+	\end{align*}
+	
+	\begin{align*}
+	\gamma^8 &= \gamma \circ \gamma^7\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~8~7~6~5~4~3~2~1)\\
+	&= 1
+	\end{align*}
+	
+	So we have that $\gamma^i$ is an 8-cycle if $i \in \{1, 3, 5, 7\}$.
+	\end{ans}
+	
+	\item What's the theorem in general? \\
+	\centerline{\emph{If $\sigma$ is an $m$-cycle, then $\sigma^i$ is also an $m$-cycle if and only if \dots}}
+	(Just state, don't prove it.)
+	
+	\begin{ans}
+	If $\sigma$ is an m-cycle, then $\sigma^i$ is also an m-cycle if and only if $i \equiv r \mod m$ with $r$ and $m$ relatively prime.
+	\end{ans}
+	\end{enumerate}
+
+	\item Prove that if $\sigma$ is the $m$-cycle $(a_1~a_2~\dots~a_m)$, then for all $i =1, \dots, m$, 
+$$\sigma^i(a_k) = a_{\overline{k+{i}}} \qquad \text{ where $\overline{k+{i}}$ is the least residue mod $m$.}$$
+Deduce that $|\sigma|=m$. 
+
+	\begin{proof}
+	Fix $i, k \in \{1, \cdots, m\}$.\\
+	
+	Now consider $\sigma^i(a_k)$. Then we have,
+	\begin{align*}
+	\sigma^i(a_k) &= (\sigma \circ \sigma \circ \cdots \circ \sigma)(a_k)
+	\end{align*}
+	
+	Note that we have,
+	\begin{align*}
+	\sigma(a_k) &= a_{k+1}\\
+	\sigma^2(a_k) &= a_{k+2}\\
+	&\vdots
+	\end{align*}
+	
+	If for some $j$ we have $k + j = m+1$, then $a_{k+j} = a_1$	
+	
+	\end{proof}
+
+
+	\item Use the last part to prove that the order of an element in $S_n$ equals the least common multiple of the lengths of the cycles in its cycle decomposition (\emph{cycle decomposition} means writing it as the product of disjoint cycles; you may assume such a decomposition exists, and that disjoint cycles commute).\\
+	 {[You may use previous problems in your solution.]}
+	
+	\begin{proof}
+	
+	\end{proof}
+	
+	\item Which values appear as orders of elements of $S_5$ (for which $i$ is there some element of $S_5$ that has order $i$)? For each value, give an example of an element that has that order. 
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+\end{document}

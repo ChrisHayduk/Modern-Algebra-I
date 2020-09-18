@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.19)  18 SEP 2020 15:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.19)  18 SEP 2020 16:02
 entering extended mode
-**./HW2.tex
-(HW2.tex
+**./HW3.tex
+(HW3.tex
 LaTeX2e <2018-12-01>
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\amsart.cls"
 Document Class: amsart 2017/10/31 v2.20.4
@@ -1035,8 +1035,9 @@ LaTeX Font Info:    Redeclaring math symbol \bracelu on input line 907.
 LaTeX Font Info:    Redeclaring math symbol \braceru on input line 909.
 LaTeX Font Info:    Redeclaring math accent \widehat on input line 944.
 LaTeX Font Info:    Redeclaring math accent \widetilde on input line 946.
-)) (HW2.aux)
-\openout1 = `HW2.aux'.
+))
+No file HW3.aux.
+\openout1 = `HW3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
 LaTeX Font Info:    ... okay on input line 105.
@@ -1053,7 +1054,6 @@ LaTeX Font Info:    ... okay on input line 105.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
 LaTeX Font Info:    ... okay on input line 105.
 LaTeX Font Info:    Try loading font information for U+msa on input line 105.
-
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -1097,7 +1097,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 Configuring pdfsync
 \PDFSYNC@ut=\write4
-\openout4 = `HW2.pdfsync'.
+\openout4 = `HW3.pdfsync'.
 
 \PDFSYNCf@li@=\count150
 \PDFSYNC@rder=\count151
@@ -1126,9 +1126,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 105.
 LaTeX Info: Redefining \pageref on input line 105.
 LaTeX Info: Redefining \nameref on input line 105.
- (HW2.out) (HW2.out)
 \@outlinefile=\write5
-\openout5 = `HW2.out'.
+\openout5 = `HW3.out'.
 
  ABD: EveryShipout initializing macros
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
@@ -1161,252 +1160,57 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
-
- []
+LaTeX Warning: Reference `subsets' on page 1 undefined on input line 140.
 
 [1{C:/Users/chris/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 161.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 161.
+ (HW3.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 161.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 161.
 
- []
+Package rerunfilecheck Warning: File `HW3.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
+Package rerunfilecheck Info: Checksums for `HW3.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+LaTeX Warning: There were undefined references.
 
- []
 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 224--225
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--243
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 250--251
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 402--403
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 404--405
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 406--407
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 410--411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 414--415
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 431--432
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--446
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 485--486
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--494
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 500--501
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 502--503
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 514--515
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 524--525
-
- []
-
-[9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 539.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 539.
- (HW2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 539.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 539.
-Package rerunfilecheck Info: File `HW2.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18622 strings out of 492895
- 346158 string characters out of 3123735
- 418030 words of memory out of 3000000
- 22006 multiletter control sequences out of 15000+200000
- 16364 words of font info for 58 fonts, out of 3000000 for 9000
+ 18607 strings out of 492895
+ 345929 string characters out of 3123735
+ 415894 words of memory out of 3000000
+ 22018 multiletter control sequences out of 15000+200000
+ 20164 words of font info for 71 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,19n,52p,846b,681s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,15n,52p,846b,356s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\chris\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi6
-00\matha8.pk> <C:\Users\chris\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/m
-athabx/dpi657\matha10.pk><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/chris/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/chris/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/chris/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
-Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-r8.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmti10.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/symbols/msam10.pfb><C:/Users/chris/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on HW2.pdf (9 pages, 135649 bytes).
+00\matha7.pk> <C:\Users\chris\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/m
+athabx/dpi600\matha10.pk> <C:\Users\chris\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
+our/public/mathabx/dpi600\matha8.pk> <C:\Users\chris\AppData\Local\MiKTeX\2.9\f
+onts/pk/ljfour/public/mathabx/dpi657\matha10.pk><C:/Users/chris/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/chris/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/U
+sers/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
+i7.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmmi8.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr10.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/chris/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/chris/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/chr
+is/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb>
+Output written on HW3.pdf (1 page, 117600 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
+ 114 PDF objects out of 1000 (max. 8388607)
+ 14 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

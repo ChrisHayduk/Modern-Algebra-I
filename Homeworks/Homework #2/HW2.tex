@@ -381,12 +381,155 @@ Let $H \leq G$ (recall that $\leq$ means ``subgroup'').
 \begin{enumerate}
 \item Show that $H \leq N_G(H)$. 
 \begin{proof}
-Note that $N_G(H) = \{g \in G | gHg^{-1} = H\}$
+Recall that $N_G(H) = \{g \in G | gHg^{-1} = H\}$
+
+Suppose $g_1 \in H$. Then $g_1 \in G$ since $H \leqslant G$. Moreover, $g_1^{-1} \in H, G$. Hence, for every $h \in H$, we have
+\begin{align*}
+g_1hg_1^{-1} \in H
+\end{align*}
+
+Now fix $h_1, h_2 \in H$ and suppose
+\begin{align*}
+g_1h_1g_1^{-1} = g_1h_2g_1^{-1}
+\end{align*}
+
+This implies that
+\begin{align*}
+&g_1^{-1}(g_1h_1g_1^{-1})g_1 = g_1^{-1}(g_1h_2g_1^{-1})g^1)g_1\\
+\iff &h_1 = h_2
+\end{align*}
+
+Now suppose $\exists x \in H$ such that there is no $h_x \in H$ with $g_1h_xg^{-1} = x$.\\
+
+Then the domain has $|H| = n$ elements, and the co-domain has at most $n-1$ elements. By the pigeonhole principle, there must be at least one $h_0 \in H$ such that $g_1h_0g_1^{-1} = g_1h_kg_1^{-1}$ for some $h_k \in H$.\\
+
+However, as we proved above, $g_1h_0g_1^{-1} = g_1h_kg_1^{-1} \implies h_0 = h_k$. Hence, there cannot be an element $x \in H$ such that there is no $h_x \in H$ with $g_1h_xg^{-1} = x$.\\
+
+Thus, if we define $\varphi_g: H \to H$ by $\varphi_g: h \to ghg^{-1}$, we see from the above that $\varphi$ is a bijection from $H \to H$. This is precisely a permutation of the elements in $H$.\\
+
+Hence, for every $g \in H$, we have that $\varphi_g(H) = H$. So $g \in N_G(H)$.\\
+
+Thus, we have that $H \subset N_G(H)$. Now need to show that $N_G(H)$ is a group in order to establish that $H \leqslant N_G(H)$.\\
+
+We can do this by showing that $N_G(H) \leqslant G$. First, $N_G(H) \neq \emptyset$ because $1 \in H \implies 1 \in N_G(H)$.\\
+
+Now assume $x, y \in N_G(H)$. That is, $xHx^{-1} = H$ and $yHy^{-1} = H$.\\
+
+Note that, if we multiply on the left by $y^{-1}$ and on the right by $y$ in the second equality, we get
+\begin{align*}
+H = y^{-1}Hy
+\end{align*}
+
+Hence, $y^{-1} \in N_G(H)$ and $N_G(H)$ is closed under inverses. Now
+\begin{align*}
+(xy)H(xy)^{-1} &= (xy)H(y^{-1}x^{-1})\\
+&= x(yHy^{-1})x^{-1}\
+&= xHx^{-1}\\
+&= H
+\end{align*} 
+
+so $xy \in N_G(H)$ and $N_G(H)$ is closed under product. Hence $N_G(H) \leqslant G$ and so $N_G(H)$ is a group.\\
+
+Since $H \leqslant G$, we know $H$ is a group, and since $H \subset N_G(H)$ and $N_G(H)$ group, we have that
+\begin{align*}
+H \leqslant N_G(H)
+\end{align*}
+
+as required.
 \end{proof}
 
 \item Give an example where $A$ is not a subgroup of G and $A \not\subseteq N_G(A)$. 
+\begin{ans}
+Let $G = S_3$, and $A = \{(1 \; 2 \; 3), (2 \; 3)\}$.\\
+
+$G$ is clearly a group, and $A$ clearly is not a subgroup of $G$ because $1 \not\in A$.\\
+
+Now observe that
+\begin{align*}
+(1 \; 2 \; 3)(1 \; 2 \; 3)(1 \; 2 \; 3)^{-1} &= [(1 \; 2 \; 3)(1 \; 2 \; 3)](1 \; 3 \; 2)\\
+&= (1 \; 3 \; 2)(1 \; 3 \; 2)\\
+&= (1 \; 2 \; 3)
+\end{align*}
+
+but 
+\begin{align*}
+(1 \; 2 \; 3)(2 \; 3)(1 \; 2 \; 3)^{-1} &= (1 \; 2 \; 3)(2 \; 3)(1 \; 3 \; 2)\\
+&= (1 \; 2 \; 3)(1 \; 2)\\
+&= (1 \; 3)
+\end{align*}
+
+So $(1 \; 2 \; 3)A(1 \; 2 \; 3)^{-1} \neq A$ and hence $(1 \; 2 \; 3) \not\in N_G(A)$. Hence,
+\begin{align*}
+A \not\subseteq N_G(A)
+\end{align*}
+
+as required
+\end{ans}
+
 \item Show $H \leq C_G(H)$ if and only if $H$ is abelian.
+\begin{proof}
+Suppose $H \leq C_G(H)$. Fix $h_1 \in H$. We know $h_1 \in C_G(H)$ since $H \leq C_G(H)$. Hence, for every $h \in H$,
+\begin{align*}
+h_1 \cdot h \cdot h_1^{-1} = h
+\end{align*}
+
+Thus, we have that,
+\begin{align*}
+h_1 \cdot h \cdot h_1^{-1} &= h_1 \cdot h_1^{-1} \cdot h\\
+&= h_1^{-1} \cdot h_1 \cdot h\\
+&= h \cdot h_1 \cdot h_1^{-1}\\
+&= h \cdot h_1^{-1} \cdot h_1\\
+&= h
+\end{align*}
+
+for every $h \in H$. That is, every $h \in H$ commutes with $h_1, h_1^{-1}$. Since $h_1$ was arbitrary, this applies for every element of $H$. Hence, $H$ is abelian.\\
+
+Now suppose that $H$ is an abelian group. Fix $h_2 \in H$. Then for every $h \in H$, we have
+\begin{align*}
+h_2 \cdot h \cdot h_2^{-1} &= h_2 \cdot h_2^{-1} \cdot h\\
+&= h
+\end{align*}
+
+Hence, $h_2 \in C_G(H)$. Since $h_2$ was arbitrary, we have that every element of $H$ is in $C_G(H)$\\
+
+Hence, $H \subset C_G(H)$. We know $C_G(H) \leqslant G$, so $C_G(H)$ is a group and we have $H \leqslant C_G(H)$.
+\end{proof}
+
 \item For any nonempty $A \subseteq G$, define $N_H(A) = \{ h \in H ~|~ hAh^{-1} = A \}$. Show that $N_H(A) = H \cap N_G(A)$ and deduce $N_H(A) \leq H$. 
+\begin{proof}
+We have that $N_G(A) = \{g \in G | gAg^{-1} = A\}$.\\
+
+Hence, $H \cap N_G(A) = \{g \in G | gAg^{-1} = A \; \text{and} \; g \in H\}$.\\
+
+Since $H \leqslant G$, every element $h \in H$ is an element of $G$, so we can rewrite the above definition as,
+\begin{align*}
+H \cap N_G(A) = \{h \in H | hAh^{-1} = A\}
+\end{align*}
+
+But this is precisely the definition of $N_H(A)$. Hence,
+\begin{align*}
+N_H(A) = H \cap N_G(A)
+\end{align*}
+
+Clearly then, $N_H(A) \subset H$ by definition of intersections.\\
+
+Next, we know $1 \in N_H(A)$ because $1 \in H$ since $H$ is a subgroup and $1A1^{-1} = A$ trivially. Now let $x, y \in N_H(A)$. Then,
+\begin{align*}
+(xy)A(xy)^{-1} &= xyAy^{-1}x^{-1}\\
+&= x(yAy^{-1})x^{-1}\\
+&= xAx^{-1}\\
+&= A
+\end{align*}
+
+So $xy^{-1} \in N_H(A)$ for every $x, y \in N_H(A)$\\
+
+Hence, $N_H(A) \subset H$ and satisfies the subgroup criterion, so
+\begin{align*}
+N_H(A) \leqslant H
+\end{align*}
+
+as required.
+\end{proof}
 \end{enumerate}
 
 \end{enumerate}
