@@ -91,6 +91,8 @@
 \def\ZZn{\ZZ/n\ZZ}
 
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -681,42 +683,154 @@ Hence, the elements $s_1$ and $s_2$ together with the relations shown above full
 \item Let $$\alpha = (1~2~3~4~5~6~7), \quad \beta =(1~2~3~4~5~6~7~8~9~10~11~12), \quad \text{and}\quad \gamma = (1~2~3~4~5~6~7~8).$$
 	\begin{enumerate}
 	\item Compute $\alpha^2$, $\beta^2$, and $\gamma^2$.
+	
+	\begin{ans}
+	
+	We have,
+	\begin{align*}
+	\alpha^2 &= (1~2~3~4~5~6~7) \circ (1~2~3~4~5~6~7)\\
+	&= (1~3~5~7~2~4~6)
+	\end{align*}
+	
+	and,
+	\begin{align*}
+	\beta^2 &= (1~2~3~4~5~6~7~8~9~10~11~12) \circ (1~2~3~4~5~6~7~8~9~10~11~12)\\
+	&= (1~3~5~7~9~11)(2~4~6~8~10~12)
+	\end{align*}
+	
+	finally,
+	\begin{align*}
+	\gamma^2 &= (1~2~3~4~5~6~7~8) \circ (1~2~3~4~5~6~7~8)\\
+	&= (1~3~5~7)(2~4~6~8)
+	\end{align*}
+	\end{ans}
 	\item For which $i$ between 1 and 7 is $\alpha^i$ still a 7-cycle? \dots between 1 and 12 is $\beta^i$ still a 12-cycle? \dots between 1 and 8 is $\gamma^i$ still an 8-cycle?
+	
+	\begin{ans}
+	For the case of $\alpha$:\\
+	
+	We already have that $\alpha$ and $\alpha^2$ are 7-cycles. We will now check the other powers.
+	
+	\begin{align*}
+	\alpha^3 &= \alpha \circ \alpha^2\\
+	&= (1~2~3~4~5~6~7) \circ (1~3~5~7~2~4~6)\\
+	&= (1~4~7~3~6~2~5)
+	\end{align*}
+	
+	\begin{align*}
+	\alpha^4 &= \alpha \circ \alpha^3\\
+	&= (1~2~3~4~5~6~7) \circ (1~4~7~3~6~2~5)\\
+	&= (1~5~2~6~3~7~4)
+	\end{align*}
+	
+	\begin{align*}
+	\alpha^5 &= \alpha \circ \alpha^4\\
+	&= (1~2~3~4~5~6~7) \circ (1~5~2~6~3~7~4)\\
+	&= (1~6~4~2~7~5~3)
+	\end{align*}
+	
+	\begin{align*}
+	\alpha^6 &= \alpha \circ \alpha^5\\
+	&= (1~2~3~4~5~6~7) \circ (1~6~4~2~7~5~3)\\
+	&= (1~7~6~5~4~3~2)
+	\end{align*}
+	
+	\begin{align*}
+	\alpha^7 &= \alpha \circ \alpha^6\\
+	&= (1~2~3~4~5~6~7) \circ (1~7~6~5~4~3~2)\\
+	&= 1
+	\end{align*}
+	
+	So we have that $\alpha^i$ is a 7-cycle if $i \in \{1, 2, 3, 4, 5, 6\}$.\\
+	
+	Now for the case of $\gamma$:\\
+	
+	We already have that $\gamma$ is an 8-cycle and $\gamma^2$ is not. We will now check the other powers.
+	
+	\begin{align*}
+	\gamma^3 &= \gamma \circ \gamma^2\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~3~5~7)(2~4~6~8)\\
+	&= (1~4~7~2~5~8~3~6)
+	\end{align*}
+	
+	\begin{align*}
+	\gamma^4 &= \gamma \circ \gamma^3\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~4~7~2~5~8~3~6)\\
+	&= (1~5)(4~8)(7~3)(2~6)
+	\end{align*}
+	
+	\begin{align*}
+	\gamma^5 &= \gamma \circ \gamma^4\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~5)(4~8)(7~3)(2~6)\\
+	&= (1~6~3~8~5~2~7~4)
+	\end{align*}
+	
+	\begin{align*}
+	\gamma^6 &= \gamma \circ \gamma^5\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~6~3~8~5~2~7~4)\\
+	&= (1~7~5~3)(2~8~6~4)
+	\end{align*}
+	
+	\begin{align*}
+	\gamma^7 &= \gamma \circ \gamma^6\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~7~5~3)(2~8~6~4)\\
+	&= (1~8~7~6~5~4~3~2~1)
+	\end{align*}
+	
+	\begin{align*}
+	\gamma^8 &= \gamma \circ \gamma^7\\
+	&= (1~2~3~4~5~6~7~8) \circ (1~8~7~6~5~4~3~2~1)\\
+	&= 1
+	\end{align*}
+	
+	So we have that $\gamma^i$ is an 8-cycle if $i \in \{1, 3, 5, 7\}$.
+	\end{ans}
+	
 	\item What's the theorem in general? \\
 	\centerline{\emph{If $\sigma$ is an $m$-cycle, then $\sigma^i$ is also an $m$-cycle if and only if \dots}}
 	(Just state, don't prove it.)
+	
+	\begin{ans}
+	If $\sigma$ is an m-cycle, then $\sigma^i$ is also an m-cycle if and only if $i \equiv r \mod m$ with $r$ and $m$ relatively prime.
+	\end{ans}
 	\end{enumerate}
 
 	\item Prove that if $\sigma$ is the $m$-cycle $(a_1~a_2~\dots~a_m)$, then for all $i =1, \dots, m$, 
 $$\sigma^i(a_k) = a_{\overline{k+{i}}} \qquad \text{ where $\overline{k+{i}}$ is the least residue mod $m$.}$$
 Deduce that $|\sigma|=m$. 
 
+	\begin{proof}
+	Fix $i, k \in \{1, \cdots, m\}$.\\
+	
+	Now consider $\sigma^i(a_k)$. Then we have,
+	\begin{align*}
+	\sigma^i(a_k) &= (\sigma \circ \sigma \circ \cdots \circ \sigma)(a_k)
+	\end{align*}
+	
+	Note that we have,
+	\begin{align*}
+	\sigma(a_k) &= a_{k+1}\\
+	\sigma^2(a_k) &= a_{k+2}\\
+	&\vdots
+	\end{align*}
+	
+	If for some $j$ we have $k + j = m+1$, then $a_{k+j} = a_1$	
+	
+	\end{proof}
+
 
 	\item Use the last part to prove that the order of an element in $S_n$ equals the least common multiple of the lengths of the cycles in its cycle decomposition (\emph{cycle decomposition} means writing it as the product of disjoint cycles; you may assume such a decomposition exists, and that disjoint cycles commute).\\
 	 {[You may use previous problems in your solution.]}
-
+	
+	\begin{proof}
+	
+	\end{proof}
+	
 	\item Which values appear as orders of elements of $S_5$ (for which $i$ is there some element of $S_5$ that has order $i$)? For each value, give an example of an element that has that order. 
 \end{enumerate}
 
 
 
 \end{enumerate}
-\NOTE{\textbf{\LaTeX\ Tip:} If you need to write several lines of equations, and want the equalities to line up, you can use the align environment (see code to see how this is done):
-\begin{align*}
-f(b_1) &= (-1, 1, 2) = -b_1 + 2b_2, & \text{and}\\
-f(b_2) &= (-1, 0, -1) = b_1 + b_2 - 2b_3, & \text{so that}\\
-f(b_1) + f(b_2)
-	&= (-1, 1, 2) + (-1, 0, -1)  = (-2, 1, 1)\\
-	&= (-b_1 + 2b_2) + (b_1 + b_2 - 2b_3)\\
-	&= -b_2 - 2b_3.
-\end{align*}
-Here, the two backslashes mark breaks the line ($\backslash\backslash$), the first ampersand in each line ($\&$)  is where the first column (right justified) ends and the second column (left justified) begins, and the optional second $\&$ in a line moves to the third (right justified) column. Since align is a math environment, it will interpret any letters as math symbols. If I want to write text instead of math symbols (like ``and'' and ``so that''), I surround it by a $\backslash$text$\{\}$ command. Again, feel free to copy and past the above code for your purposes, and replace the math with whatever you need to write. Finally, note the use of my punctuation, even in the system of equations!
-}
-
-\smallskip
-
-\NOTE{Tip: Feel free to delete all these ``Tips'' in your homework submission. :)}
-
-
 
 \end{document}

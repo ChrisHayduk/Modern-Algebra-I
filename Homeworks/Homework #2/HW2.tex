@@ -1,0 +1,396 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{2}
+\def\DUE{9/18/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math B4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+
+
+
+
+\begin{enumerate}[1.]
+\item \textbf{Intersections and unions of subgroups.} Prove that if $H$ and $K$ are subgroups of $G$, then so is $H \cap K$. 
+On the other hand, prove $H \cup K$ is a subgroup if and only if $H \subseteq K$ or $K \subseteq H$.
+
+\begin{proof}
+Suppose $H, K \leqslant G$. Consider $H \cap K$.\\
+
+Note that $1 \in H, K$ by the definition of groups, so $1 \in H \cap K$. Hence, $H \cap K \neq \emptyset$\\
+
+Now let $x, y \in H \cap K$. Then $x, y \in H$ and $x, y \in K$, both of which are groups. Hence, $y^{-1} \in H$ and $y^{-1} \in K$, which implies $xy^{-1} \in H$ and $xy^{-1} \in K$. Thus, $xy^{-1} \in H \cap K$.\\
+
+As a result, $H \cap K$ satisfies the subgroup criterion and is hence a subgroup of $G$.\\
+
+Now consider $H \cup K$. Suppose for contraposition that $H \not\subset K$ and $K \not\subset H$. Then $\exists x \in H$ such that $x \not\in K$ and $\exists y \in K$ such that $y \not\in H$.\\
+
+Then we have $y^{-1} \not\in H$ and $x \not\in K$, so $xy^{-1} \not\in H, K$. Hence $xy^{-1} \not\in H \cup K$ and so $H \cup K$ does not satisfy the subgroup criterion.\\
+
+As a result, we have that $H \cup K$ subgroup of $G$ implies that $H \subset K$ or $K \subset H$.\\
+
+Now for the other direction of the proof. Suppose $H \subset K$.\\
+
+Then $\forall \; x \in H$ we have $x \in K$. Hence, $H \cup K = K$. Since $K \leqslant G$, we have $H \cup K \leqslant G$ as well.
+\end{proof}
+
+\item {\bf Homomorphisms and isomorphisms. }
+\begin{enumerate}[(a)] 
+\item Show that the map
+$$\varphi: G \to G \qquad \text{ defined by } \quad  \varphi: g \mapsto g^{-1}$$ is a homomorphism if and only if $G$ is abelian. Give an example of a (non-abelian) group $G$, and verify by example that this map is not a homomorphism.
+
+\begin{proof}
+Suppose $\varphi$ is a homomorphism. Then $\varphi(xy) = \varphi(x)\varphi(y)$ for every $x, y \in G$. By the definition of $\varphi$ we have
+\begin{align*}
+\varphi(xy) &= y^{-1}x^{-1}\\
+&= \varphi(x)\varphi(y)\\
+&= x^{-1}y^{-1}
+\end{align*}
+
+Hence $y^{-1}x^{-1} = x^{-1}y^{-1}$ for every $x, y \in G$. Thus, $G$ is abelian.\\
+
+Now suppose $G$ is abelian. Then for every $x, y \in G$, we have that
+\begin{align*}
+xy = yx
+\end{align*}
+
+Define the map $\varphi: G \to G$ by $\varphi: g \to g^{-1}$\\
+
+Then we have,
+\begin{align*}
+\varphi(xy) &= (xy)^{-1}\\
+&= y^{-1}x^{-1}
+\end{align*}
+
+and
+\begin{align*}
+\varphi(x)\varphi(y) &= x^{-1}y^{-1}
+\end{align*}
+
+Since $G$ abelian, we can rewrite 
+\begin{align*}
+\varphi(x)\varphi(y) &= x^{-1}y^{-1}\\
+&= y^{-1}x^{-1}
+\end{align*}
+
+Hence we have that $\varphi(xy) = \varphi(x)\varphi(y)$ for all $x, y \in G$, so $\varphi$ is a homomorphism.
+\end{proof}
+
+\item Let $\varphi: G \to H$ be an isomorphism of groups. For the following, you may use the facts that (1) a function is a bijection if and only if it has an inverse, and (2) an invertible function is a homomorphism if and only if its inverse is a homomorphism (which implies that $G \cong H$ if and only if $H \cong G$).
+\begin{enumerate}[(i)]
+\item Show $|G|=|H|$.
+
+\begin{proof}
+Since $\varphi: G \to H$ is an isomorphism, we know that it is a bijection from $G$ to $H$. Suppose $|G| < |H|$. Since $\varphi$ is injective, then each element of $G$ is mapped to exactly one element of $H$. \\
+
+Since $|H| > |G|$, there exists $y \in H$ such that there is no $x \in G$ with $\varphi(x) = y$. However, we assumed $\varphi$ was bijective, so this cannot be the case. So $|G| \geq |H|$.\\
+
+However, now assume that $|G| > |H|$. Since $\varphi$ is a bijection, we can take the inverse bijection $\varphi^{-1}$ and apply the same argument as above. Thus, $|H|$ cannot be greater than $|G|$.\\
+
+As a result, the only remaining option is that $|G| = |H|$.
+\end{proof}
+
+\item Show $G$ is abelian if and only if $H$ is also abelian. 
+\begin{proof}
+Suppose $G$ is abelian. Then $\forall \; x, y \in G$, we have $xy = yx$. Thus, we have
+\begin{align}
+\varphi(xy) = \varphi(yx)
+\end{align}
+
+In addition, by the definition of $\varphi$ as an isomorphism, we have that $\varphi(xy) = \varphi(x)\varphi(y)$ and $\varphi(yx) = \varphi(y)\varphi(x)$.\\
+
+Hence, from $(1)$ and the above, we get
+\begin{align*}
+\varphi(x)\varphi(y) = \varphi(y)\varphi(x)
+\end{align*}
+
+for every $x, y \in G$. Since $\varphi$ is a bijection, for every element $y \in H$, $\exists x_y \in G$ such that $\varphi(x_y) = y$. Hence, this shows that $H$ is an abelian group as well.\\
+
+Now suppose $H$ is abelian. Consider $\varphi^{-1}$, which is a bijection from $H \to G$ and a homomorphism (hence an isomorphism). Then we can apply the same argument as above, just swapping the $H$ and $G$.\\
+
+Hence, $H$ abelian $\implies G$ abelian, and we get $G$ abelian $\iff H$ abelian.
+
+\end{proof}
+
+\item Show that for any $g \in G$, $|g| = |\varphi(g)|$. [Show $g^n = 1$ if and only if $\varphi(g)^n = 1$.]
+\begin{proof}
+Suppose $g^n = 1$.\\
+
+Then $\varphi(g^n) = \varphi(1)$.\\
+
+Note that for every $x \in G$, we have
+\begin{align*}
+\varphi(1x) &= \varphi(1)\varphi(x)\\
+&= \varphi(x)
+\end{align*}
+
+Hence $\varphi(g^n) = \varphi(1)$ must map to the identity in $H$ (ie. $1$).\\
+
+In addition, we have
+\begin{align*}
+\varphi(g^n) &= \varphi(g \cdot g \cdots g)\\
+&= \varphi(g) \cdot \varphi(g) \cdots \varphi(g)\\
+&= \varphi(g)^n\\
+&= 1
+\end{align*}
+
+as required.\\
+
+Now suppose $\varphi(g)^n = 1$. Then
+\begin{align*}
+\varphi(g)^n &= \varphi(g) \cdot \varphi(g) \cdots \varphi(g)\\
+&= \varphi(g^n) = 1
+\end{align*}
+
+So $g^n = 1$ if and only if $\varphi(g)^n = 1$.\\
+
+Thus, if $g^m \neq 1$ for some $m$, then $\varphi(g)^m \neq 1$ as well. So if $|g| = n$, then every power $g^k$ with $k \in \{1, \cdots, n-1\}$ is such that $g^k \neq 1$ and $\varphi(g)^k \neq 1$\\
+
+In addition, from what we have proved above, we have $g^n = 1 \implies \varphi(g)^n = 1$. Since we showed that neither $g^k$ nor $\varphi^k$ are $1$ for any $k \in \{1, \cdots, n-1\}$, we have that $|g| = |\varphi(g)| = n$
+\end{proof}
+\end{enumerate}
+\item Show that the following groups are \emph{not} isomorphic. [If you use the previous part, these will all be short answers.]
+\begin{enumerate}[(i)]
+\item The multiplicative groups $\RR^\times$ and $\CC^\times$;
+\begin{ans}
+There are only $2$ elements in $\RR^\times$ with order less than $\infty$: $|1| = 1$ and $|-1| = 2$. However, there are $4$ in $\CC^\times$: $|1| = 1$, $|-1| = 2$, $|i| = 4$, $|-i| = 4$.\\
+
+Since there are no elements in $\RR^\times$ with order $4$, these two groups cannot be isomorphic.
+\end{ans}
+\item $\ZZ/24\ZZ$ and $S_4$;
+\begin{ans}
+We know that $\ZZ/24\ZZ$ is abelian since
+\begin{align*}
+\overline{x} + \overline{y} &= \overline{x + y}\\
+&= \overline{y + x}\\
+&= \overline{y} + \overline{x}
+\end{align*}
+
+for every $\overline{x}, \overline{y} \in \ZZ/24\ZZ$. However, $S_4$ is not abelian because
+\begin{align*}
+(2 3)(1 3) = (1 2 3)
+\end{align*}
+
+but
+\begin{align*}
+(1 3)(2 3) = (1 3 2)
+\end{align*}
+\end{ans}
+
+\item $D_{2\cdot12}$ and $S_4$;
+\begin{ans}
+The order of $r \in D_{2 \cdot 12}$ is $12$. However, there is no element in $S_4$ with order $12$.
+\end{ans}
+
+\item $S_m$ and $S_n$, with $m \neq n$.
+\begin{ans}
+We have $|S_m| = m!$ and $|S_n| = n!$. Since $n \neq m$, we have $|S_m| \neq |S_n|$
+\end{ans}
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+\item {\bf Direct Products. } As defined in Example 6 on page 18, if $(A, \star)$ and $(B, \diamond)$ are groups, we can form a new group $A \times B$, called their \emph{direct product}, whose elements are those in the Cartesian Product 
+$$A \times B = \{(a,b) ~|~ a \in A, b\in B\}$$
+and whose operation is defined component-wise:
+$$(a_1, b_1) (a_2, b_2) = (a_1 \star a_2, b_1 \diamond b_2).$$
+For example, if $A = B = \RR$ and $\star = \diamond = +$, then $\RR \times \RR$ is the familiar $\RR^2$. 
+\begin{enumerate}[(a)]
+\item Verify the group axioms for $A \times B$. 
+\begin{proof}
+Let $(a_1, b_1), (a_2, b_2), (a_3, b_3) \in A \times B$. Then,
+\begin{align*}
+[(a_1, b_1) \cdot (a_2, b_2)] \cdot (a_3, b_3) &= (a_1a_2, b_1b_2) \cdot (a_3, b_3)\\
+&= (a_1a_2a_3, b_1b_2b_3)\\
+&= (a_1, b_1) \cdot (a_2a_3, b_2b_3)\\
+&= (a_1, b_1) \cdot [(a_2, b_2) \cdot (a_3, b_3)]
+\end{align*}
+
+Now let $1 = (1, 1)$. Then,
+\begin{align*}
+(a_1, b_1) \cdot (1, 1) &= (a_1 \cdot 1, b_1 \cdot 1)\\
+&= (a_1, b_1)
+\end{align*}
+
+and
+\begin{align*}
+(1, 1) \cdot (a_1, b_1) &= (1 \cdot a_1, 1 \cdot b_1)\\
+&= (a_1, b_1)
+\end{align*}
+
+Finally, we know that if $a_1, b_1 \in \RR$, then $a_1^{-1}, b_1^{-1} \in \RR$. Let $(a_1, b_1)^{-1} = (a_1^{-1}, b_1^{-1})$. Then,
+\begin{align*}
+(a_1, b_1)^{-1} \cdot (a_1, b_1) &= (a_1^{-1}, b_1^{-1}) \cdot (a_1, b_1)\\
+&= (a_1^{-1}a_1, b_1^{-1}b_1)\\
+&= (1, 1)
+\end{align*}
+
+and,
+\begin{align*}
+(a_1, b_1) \cdot (a_1, b_1)^{-1} &= (a_1, b_1) \cdot (a_1^{-1}, b_1^{-1})\\
+&= (a_1a_1^{-1}, b_1b_1^{-1})\\
+&= (1, 1)
+\end{align*}
+
+Hence, $A \times B$ is a group.
+\end{proof}
+
+\item Verify that $\pi: A \times B \to A$ defined by $(a,b) \mapsto a$ is a homomorphism, and compute its kernel.\\
+(Note: A similar proof would show that  the projection $\pi_B: A \times B \to A$ defined by $(a,b) \mapsto b$ is a homomorphism, with a corresponding kernel.)
+\begin{proof}
+Let $(a_1, b_1), (a_2, b_2) \in A \times B$. Then,
+\begin{align*}
+\varphi((a_1, b_1) \cdot (a_2, b_2)) &= \varphi((a_1a_2, b_1b_2))\\
+&= a_1a_2\\
+&= \varphi((a_1, b_1)) \cdot \varphi((a_2, b_2))
+\end{align*}
+
+Hence, $\varphi$ is a homomorphism.
+\end{proof}
+
+\item Verify that $A \times 1 = \{(a,1) ~|~ a \in A\}$ is a subgroup of $A \times B$ and that $A \times 1 \cong A$. \\
+(Note: A similar proof would show that  $1 \times B$ is a  subgroup of $A \times B$ isomorphic to $B$.)
+\begin{proof}
+We know that $A \times 1$ is non-empty because $1 \in A$, so $(1, 1) \in A \times 1$.\\
+
+Now note that for every element $(a, 1) \in A \times 1$, we have that $a \in A$ and $1 \in B$. Hence, $A \times 1 \subset A \times B$.\\
+
+Now let $(a_1, 1), (a_2, 1) \in A \times 1$. We have that $(a_2, 1)^{-1} = (a_2^{-1}, 1)$. We know $a_2^{-1} \in A$, so $(a_2^{-1}, 1) \in A \times 1$. Now consider,
+\begin{align*}
+(a_1, 1) \cdot (a_2^{-1}, 1) &= (a_1a_2^{-1}, 1)
+\end{align*}
+
+Since $A$ is a group and $a_1, a_2^{-1} \in A$, then $a_1a_2^{-1} \in A$ and we have that $(a_1a_2^{-1}, 1) \in A \times 1$.\\
+
+As a result $A \times 1$ satisfies the subgroup criterion and hence $A \times 1 \leqslant A \times B$.
+\end{proof}
+\end{enumerate}
+
+
+%%%%%%%%%%%%%
+\item {\bf Normalizers and Centralizers of subgroups.}\\
+Let $H \leq G$ (recall that $\leq$ means ``subgroup''). 
+\begin{enumerate}
+\item Show that $H \leq N_G(H)$. 
+\begin{proof}
+Note that $N_G(H) = \{g \in G | gHg^{-1} = H\}$
+\end{proof}
+
+\item Give an example where $A$ is not a subgroup of G and $A \not\subseteq N_G(A)$. 
+\item Show $H \leq C_G(H)$ if and only if $H$ is abelian.
+\item For any nonempty $A \subseteq G$, define $N_H(A) = \{ h \in H ~|~ hAh^{-1} = A \}$. Show that $N_H(A) = H \cap N_G(A)$ and deduce $N_H(A) \leq H$. 
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}
