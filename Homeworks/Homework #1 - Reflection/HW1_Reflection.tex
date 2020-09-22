@@ -116,11 +116,20 @@ Homework \HW\\
 \section{Questions}
 
 \begin{enumerate}[1.]
-\item
+\item After reading ``Communicating Mathematics through Homework and Exams'' and ``Some Guidelines for Good Mathematical Writing'', I have begun to think much more carefully about my use of language in my mathematical writing. In particular, I tend to use the word ``clearly'' or the phrase ``it is clear that...'' quite often in my assignments. Until reading ``Communicating Mathematics through Homework and Exams'', I had not considered how these statements might cause me to gloss over important details in a proof, which may not actually be all that clear to the reader.\\
 
-\item
+I believe that I also need to work on simplifying my arguments after I have completed a proof. Oftentimes, once my proof is finished, I will just check it for logical errors and spelling errors before submitting an assignment. However, I may be able to clean it up further by deleting unnecessary details or simplifying the language used to express the ideas, as described in ``Some Guidelines for Good Mathematical Writing''.\\
+
+Lastly, I tend to use shorthand notation quite often in my writing, such as $\forall$, $\exists$, $\implies$, and $\iff$. I did not realize that the usage of these symbols is not encouraged in formal mathematical writing. So, as stated in ``Some Guidelines for Good Mathematical Writing'', I will try to replace those quantifiers and implications with written expressions. I believe this will allow me to put together clearer expositions in my proofs.
+
+\item I believe that, for the most part, I explained my ideas fully with complete sentences and connective words.\\
+
+In addition, I think I made good use of whitespace and paragraph breaks in order to make the proofs easier to follow.\\
+
+As stated above, I believe I need to work on simplifying my proofs and removing unnecessary details in order to make sure that the logic is more streamlined.
 \end{enumerate}
 
+\newpage
 \section{Marked-up Homework}
 
 \begin{enumerate}[1.]
@@ -135,8 +144,10 @@ $$(\ZZ/n\ZZ)^\times = \{ \bar{a} \in \ZZ/n\ZZ ~|~ \text{ there is some $\bar{c} 
 
 By the definition of modular multiplication on p. 9 of the text, if we have $\overline{a}, \overline{b} \in (\ZZ/1\ZZ)$, we can take $\overline{a} \cdot \overline{b} = \overline{ab}$.\\
 
+\NOTE{Don't use the for all symbol here}\\
 Since we just showed that every integer in $(\ZZ/1\ZZ)$ belongs to the congruence class $\overline{0}$, we have $\overline{0} \cdot \overline{0} = \overline{0 \cdot 0} = \overline{0} \; \forall \; z \in \ZZ$.\\
 
+\NOTE{Don't use the exists symbol here}\\
 Hence, there are no elements $\overline{a} \in \ZZ/1\ZZ$ such that $\exists \overline{c} \in \ZZ/1\ZZ$ with the property that $\overline{c}\overline{a} = 1$.\\
 
 Thus, $(\ZZ/n\ZZ)^{\times} = \emptyset$\\
@@ -145,12 +156,14 @@ Thus, $(\ZZ/n\ZZ)^{\times} = \emptyset$\\
 
 We have $\overline{0} \cdot \overline{0} = \overline{0} \cdot \overline{1} = \overline{1} \cdot \overline{0} = \overline{0}$.\\
 
+\NOTE{Don't use the exists symbol here}\\
 However, we have $\overline{1} \cdot \overline{1} = \overline{1}$. Hence, for $\overline{1} \in (\ZZ/2\ZZ)$, $\exists \overline{c} \in (\ZZ/2\ZZ)$ such that $\overline{c} \cdot \overline{1} = \overline{1}$. In this case, $\overline{c} = \overline{1}$.\\
 
 Hence, $(\ZZ/2\ZZ)^{\times} = \{\overline{1}\}$\\
 
 \textbf{Case 3 $(\ZZ/3\ZZ)$}: note that there are three congruence classes, $\overline{0}$, $\overline{1}$, $\overline{2}$.\\
 
+\NOTE{Don't use the for all symbol here}\\
 We know that $\overline{0} \cdot \overline{c} = \overline{0} \; \forall \; \overline{c} \in (\ZZ/3\ZZ)$, so we don't need to consider it.\\
 
 For the other two congruence classes, we have $\overline{1} \cdot \overline{1} = \overline{1}$, $\overline{1} \cdot \overline{2} = \overline{2} = \overline{2} \cdot \overline{1}$, and $\overline{2} \cdot \overline{2} = \overline{4} = \overline{1}$.\\
@@ -220,8 +233,8 @@ So we have that $(\ZZ/6\ZZ)^{\times} = \{\overline{1}\}$\\
 	
 \item Prove that if $\bar{a}, \bar{b} \in (\ZZ/n\ZZ)^\times$, then $\bar{a} \cdot \bar{b} \in (\ZZ/n\ZZ)^\times$.\\
 
-
 \begin{proof}
+\NOTE{Don't use the exists symbol here}\\
 Suppose $\bar{a}, \bar{b} \in (\ZZ/n\ZZ)^\times$. Then $\exists \overline{c_1}, \overline{c_2} \in (\ZZ/n\ZZ)^\times$ such that 
 \begin{align*}
 \bar{a} \cdot \overline{c_1} &= \bar{1}\\
@@ -252,6 +265,7 @@ Hence by (1) and the above statements, we have that $\bar{a} \cdot \bar{b} = \ov
 \begin{proof}
 Let $a \in \ZZ$ and suppose $(a, n) \neq 1$. Since the gcd is a positive integer, we know that $(a, n) > 1$.\\
 
+\NOTE{Don't use the exists symbol here}\\
 Hence, $\exists d \in \ZZ$ such that $d > 1$, $d | a$, and $d | n$.\\
 
 Let $b = n/d$ and $c = a/d$. We know that $d|n$ and $d|a$, so $b, c \in \ZZ$.\\
@@ -263,11 +277,13 @@ ab &= a \cdot \frac{n}{d} \nonumber \\
 &= cn
 \end{align}
 
+\NOTE{Don't use ``clearly'' here}\\
 Thus, we clearly have that $n | ab$.\\
 
-
+\NOTE{Don't use ``clear'' here}\\
 We know that $d > 1$ and also that $n \geq 1$. Hence, it is clear that $b \geq 1$.\\
 
+\NOTE{Don't use ``clear'' here}\\
 Now suppose that $b \geq n$. Since $d > 1$, it is clear that,
 \begin{align*}
 bd > n
@@ -293,6 +309,7 @@ Hence, we have
 \begin{proof}
 Let $\bar{a} \in \ZZn$ and suppose there is some non-zero $\bar{b} \in \ZZn$ such that $\bar{a} \cdot \bar{b} = \bar{0}$.\\
 
+\NOTE{Don't use the implies symbol here}\\
 We have that,
 \begin{align*}
 \bar{a} \cdot \bar{b} = \bar{0} \implies ab = 0 + kn
@@ -312,13 +329,14 @@ for some $m \in \ZZ$.
 
 \item Prove that if $a$ and $n$ are relatively prime then there is an integer $c$ such that $ac \equiv_n 1$. {[Hint: use the fact that the g.c.d.\ of two integers is a $\ZZ$-linear combination of the integers]}
 
-
+\NOTE{Complete this proof}
 %\begin{proof}
 %
 %\end{proof}
 	
 \item Conclude from the previous  exercises that $(\ZZ/n\ZZ)^\times$ is the set of elements $\bar{a}$ of $\ZZ/n\ZZ$ with $(a,n) = 1$ and hence prove Proposition 0.3.4. Verify this directly in the case $n = 6$. 
 
+\NOTE{Complete this proof}
 
 %\begin{proof}
 %
@@ -365,6 +383,7 @@ q + \frac{0}{2} &= q + 0 = q\\
 \frac{0}{2} + q &= 0 + q = q
 \end{align*}
 
+\NOTE{Don't use the exists symbol here}\\
 Now let $q$ in this set. Then $\exists n,m \in \ZZ$ such that $q = n/m$. Note that $m$ is even and $n$ is odd, since if $n$ were even this fraction would not be in lowest terms.\\
 
 Now consider the fraction $-q = -n/m$. Observe that, since $n$ is odd, we can take $n = 2k + 1$ for some $k \in \ZZ$. When we take $-n$, we have $-n = -2k - 1$. Since $-2k$ is even, we have that $-n$ is still odd. Hence, even if we needed to reduce $-q$ to lowest terms, it would still be in the described set since $m$ would still be even.\\
@@ -438,6 +457,7 @@ Now suppose that $x^{-1}y^{-1}xy = 1$. Then we have that
 \implies &y^{-1}xy = x
 \end{align*}
 
+\NOTE{Don't use if and only if symbol here}\\
 Hence we have that $xy = yx \iff y^{-1}xy = x \iff x^{-1}y^{-1}xy = 1$
 \end{proof}
 
@@ -509,6 +529,7 @@ as required
 \begin{proof}
 Let $|x| = n < \infty$. Now suppose that there are numbers $m, k \in \ZZ$ with $0 \leq m, k \leq n-1$ and $k < m$ such that $x^m = x^k$.\\
 
+\NOTE{Don't use ``clearly'' here}
 Then we clearly have that,
 \begin{align*}
 x^k \cdot x &= x^m \cdot x\\
@@ -799,6 +820,8 @@ Hence, the elements $s_1$ and $s_2$ together with the relations shown above full
 	(Just state, don't prove it.)
 	
 	\begin{ans}
+	\NOTE{Complete this proof}\\
+
 	If $\sigma$ is an m-cycle, then $\sigma^i$ is also an m-cycle if and only if $i \equiv r \mod m$ with $r$ and $m$ relatively prime.
 	\end{ans}
 	\end{enumerate}
@@ -808,6 +831,8 @@ $$\sigma^i(a_k) = a_{\overline{k+{i}}} \qquad \text{ where $\overline{k+{i}}$ is
 Deduce that $|\sigma|=m$. 
 
 	\begin{proof}
+	\NOTE{Complete this proof}\\
+
 	Fix $i, k \in \{1, \cdots, m\}$.\\
 	
 	Now consider $\sigma^i(a_k)$. Then we have,
@@ -831,10 +856,14 @@ Deduce that $|\sigma|=m$.
 	 {[You may use previous problems in your solution.]}
 	
 	\begin{proof}
-	
+	\NOTE{Complete this proof}
+
 	\end{proof}
 	
 	\item Which values appear as orders of elements of $S_5$ (for which $i$ is there some element of $S_5$ that has order $i$)? For each value, give an example of an element that has that order. 
+	
+	\NOTE{Complete this proof}
+
 \end{enumerate}
 
 
