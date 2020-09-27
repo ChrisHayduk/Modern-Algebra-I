@@ -103,13 +103,13 @@ Math A4900/44900\\
 \author{}
 
 \begin{document}
-\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
-%\begin{flushright}
-%YOUR NAME HERE\\
-%Math B4900\\
-%Homework \HW\\
-%\DUE
-%\end{flushright}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math B4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
 
 
 
@@ -123,10 +123,116 @@ Math A4900/44900\\
 $$S \to gSg^{-1} \quad \text{defined by} \quad s \mapsto gsg^{-1}$$
 is also a bijection, so that $|gSg^{-1}| = |S|$. \\
 {\small[Recall, even if $A$ and/or $B$ is infinite, we say $|A| = |B|$ exactly when there is a bijection  $A \leftrightarrow B$]}
+
+\begin{proof}
+Fix $g \in G$. Define $\varphi_g(a) = gag^{-1}$ for every $a \in G$. In order to show that $\varphi_g$ is an automorphism of $G$, we must show that $\varphi_G$ is a bijection from to $G$ to $G$ and that
+\begin{align*}
+\varphi_g(ab) = \varphi_g(a)\varphi_g(b)
+\end{align*}
+
+for all $a, b \in G$.\\
+
+First, we have that $\phi_g$ is well-defined. This is true because $G$ is a group, so $gag^{-1} \in G$ for every $a \in G$.\\
+
+Now fix $a, b \in G$ and suppose $\varphi_g(a) = \varphi_g(b)$. Then we have,
+\begin{align*}
+&\varphi(a) = \varphi(b)\\
+&\implies gag^{-1} = gbg^{-1}
+\end{align*}
+
+Multiplying by $g^{-1}$ on the left and $g$ on the right on both sides of the equal signs yields
+\begin{align*}
+a = b
+\end{align*}
+
+Hence, $\varphi_g$ is injective.\\
+
+Now fix $c \in G$. Since $G$ is a group, we have $g^{-1}cg \in G$. Hence this gives us that,
+\begin{align*}
+\varphi_g(g^{-1}cg) &= g(g^{-1}cg)g^{-1}\\
+&= c
+\end{align*}
+
+Since $c$ was arbitrary, this holds for every element in $G$. Hence, $\varphi$ is surjective as well and is thus a bijection from $G$ to $G$.\\
+
+Now we will check the homomorphism property. Fix $a, b \in G$. Then,
+\begin{align*}
+\varphi_g(ab) &= gabg^{-1}\\
+&= ga(g^{-1}g)bg^{-1}\\
+&= (gag^{-1})(gbg^{-1})\\
+&= \varphi_g(a)\varphi_g(b)
+\end{align*}
+
+Hence, $\varphi_g$ is a bijective homorphism and thus an autmorphism of $G$. From problem 2b(iii) on Homework 2, we have that 
+\begin{align*}
+|a| = |gag^{-1}|
+\end{align*}
+
+as a consequence of $\varphi_g$ being an automorphism.\\
+
+Now for any non-empty $S \subset G$ we consider the map
+\begin{align*}
+S \to gSg^{-1} \; \text{defined by} \; s \to gsg^{-1}
+\end{align*}
+
+Since every element of $S$ is an element of $G$ and $G$ is a group, we have that $gsg^{-1} \in G$ for every $g \in G$ and $s \in S$. Hence, for every $g$, we have that
+\begin{align*}
+gSg^{-1} \subset G
+\end{align*}
+
+So our map sends the subsets of $G$ to the subsets of $G$. Let $S, R \in \mathcal{P}(G) \setminus \emptyset$. Suppose $gSg^{-1} = gRg^{-1}$. Then we have
+\begin{align*}
+&(g^{-1}g)S(g^{-1}g) = (g^{-1}g)R(g^{-1}g)\\
+&\implies S = R
+\end{align*}
+
+So our map is injective. Now let $S \in \mathcal{P}(G) \setminus \emptyset$. Observe, that since $G$ is a group, for every $s \in S$, there exists an element $g^{-1}sg \in G$. Hence, we can define the set $R \subset G \setminus \emptyset$ such that every element $r \in R$ is defined to be $g^{-1}sg$ for some $s \in S$. Ensure that each $s$ is used to define exactly one $r$. Then, we have for all $r \in R$,
+\begin{align*}
+grg^{-1} &= g(g^{-1}sg)g^{-1}\\
+&= s
+\end{align*}
+
+Hence, we have that $gRg^{-1} = S$, and so our map is surjective and hence bijective.\\
+
+Now consider again sets $S, R \in \mathcal{P}(G) \setminus \emptyset$. Then we have
+\begin{align*}
+gSRg^{-1} &= gS(g^{-1}g)Rg^{-1}\\
+&= (gSg^{-1})(gRg^{-1})
+\end{align*}
+
+So the map is homomorphism and hence and isomorphishm. Thus, again from problem 2b(iii) on Homework 2, we can assert that 
+\begin{align*}
+|S| = |gSg^{-1}|
+\end{align*}
+
+for every $S \in \mathcal{P}(G) \setminus \emptyset$
+
+\end{proof}
+\newpage
 \item \label{subsets} 
 Let $A$ be a non-empty set and let $0<k \leq |A|$. Check that the action of the  symmetric group $S_A$  on the set of size $k$ subsets of $A$ by 
 $$\sigma\cdot \{a_1, \dots, a_k\} = \{\sigma(a_1), \dots, \sigma(a_k)\}$$
 satisfies the axioms of group actions. \hfill {\small[Similar to the action of $D_{2n}$ on sets from lecture.]}
+
+\begin{proof}
+Let $\sigma_1, \sigma_2 \in S_A$ and $a = \{a_1, \cdots a_k\} \subset A$. Then we have,
+\begin{align*}
+\sigma_2 \cdot (\sigma_1 \cdot a) &= \sigma_2 \cdot \{\sigma_1(a_1), \cdots \sigma_1(a_k)\}\\
+&= \{\sigma_2(\sigma_1(a)), \cdots, \sigma_2(\sigma_1(a_k))\}\\
+&= \{\sigma_2\sigma_1(a), \cdots, \sigma_2\sigma_1(a_k)\}\\
+&= \sigma_1 \sigma_2 \cdot \{a_1, \cdots, a_k\}\\
+&= \sigma_1 \sigma_2 \cdot a
+\end{align*}
+
+We also have,
+\begin{align*}
+1 \cdot a &= \{1 \cdot a_1, \cdots 1 \cdot a_k\}\\
+&= \{a_1, \cdots, a_k\}\\
+&= a
+\end{align*}
+
+Hence, this action satisfies the axioms of group actions.
+\end{proof}
 
 \item 
  Let $G$ act on a set $A$. Prove that the relation $\sim$ on $A$ defined by 
@@ -137,20 +243,112 @@ is an equivalence relation.
 
 Note: the equivalence classes with respect to this relation are called \emph{\bf orbits}.
 
+\begin{proof}
+We need to check that this relation is reflexive, symmetric, and transitive. We will start with reflexivity. Since $G$ is a group, then $1 \in G$ and so we have 
+\begin{align*}
+a = 1 \cdot a
+\end{align*}
+
+Hence, we have $a \sim a$. Now let $a, b \in A$ and suppose $a \sim b$. Then,
+\begin{align*}
+a = g \cdot b
+\end{align*}
+
+for some $g \in G$. Since $G$ is a group, we have $g^{-1} \in G$ and hence
+\begin{align*}
+g^{-1} \cdot a &= g^{-1} \cdot (g \cdot b)
+\end{align*}
+
+By properties of group actions, we can write
+\begin{align*}
+g^{-1} \cdot a &= (g^{-1}g) \cdot b\\
+&= b
+\end{align*}
+
+So we have that $b \sim a$ since $g^{-1} \in G$. Hence, the relation is symmetric.\\
+
+Now let $a, b, c \in A$. Suppose $a \sim b$ and $b \sim c$. Then we have,
+\begin{align*}
+a = g _1 \cdot b
+\end{align*}
+
+and 
+\begin{align*}
+b = g_2 \cdot c
+\end{align*}
+
+for some $g_1, g_2 \in G$. We can use our equation for $b$ and the properties of group action to rewrite $a$ as
+\begin{align*}
+a = (g_1g_2) \cdot c
+\end{align*}
+
+Since $g_1g_2 \in G$, we have that $a \sim c$ and so the relation is transitive. Hence, this is an equivalence relation.
+\end{proof}
+
 \item Describe the orbits of the action of $S_4$ on $2$-element subsets of $\{1,2,3,4\}$ (as in problem \ref{subsets}).
+
+\begin{ans}
+The two element subsets of $\{1, 2, 3, 4\}$ are: $\{\{1, 2\}, \{1, 3\}, \{1, 4\}, \{2, 3\}, \{2, 4\}, \{3, 4\}\}$\\
+
+We have,
+\begin{align*}
+(2 \; 3) \cdot \{1, 2\} &= \{1, 3\}\\
+(3 \; 4) \cdot \{1, 3\} &= \{1, 4\}\\
+(1 \; 2) \cdot \{1, 4\} &= \{2, 4\}\\
+(3 \; 4) \cdot \{2, 4\} &= \{2, 3\}\\
+(2 \; 3) \cdot \{2, 4\} &= \{3, 4\}
+\end{align*}
+
+From the above equations, we have
+\begin{align*}
+\{1, 2\} &\sim \{1, 3\}\\
+&\sim \{1, 4\}\\
+&\sim \{2, 4\}\\
+&\sim \{2, 3\}, \{3, 4\}
+\end{align*}
+
+Hence, by transitivity, all of two element subsets of $\{1, 2, 3, 4\}$ belong to the same equivalence class under this relation. Thus, there is only one orbit for this relation.
+\end{ans}
 
 \end{enumerate}
 
 \item {\bf Cyclic groups}
 \begin{enumerate}
-\item If $x$ is an element of a finite group $G$ and $|x| = |G|$, prove that $G = \<x\>$. Give an explicit example to show $|x| = |G|$ does not imply $G = \<x\>$ if $G$ is an infinite group.
+\item If $x$ is an element of a finite group $G$ and $|x| = n = |G|$, prove that $G = \<x\>$. Give an explicit example to show $|x| = |G|$ does not imply $G = \<x\>$ if $G$ is an infinite group.
+
+\begin{proof}
+Suppose $G$ is a group with finite order and $x \in G$. Also suppose that $|x| = |G|$.\\
+
+Now suppose there exists $y \in G$ such that $y \neq x^k$ for some $k \in \ZZ$. Note that since we know $|x| = n$, we can list out a subset of the elements in $G$. Hence, we have
+\begin{align*}
+\{1, x, x^2, \cdots, x^{n-1}, y\} \subset G
+\end{align*}
+
+However, note that $\{1, x, x^2, \cdots, x^{n-1}, y\} = n + 1 > |G|$. But since this is a subset of $G$, we have that,
+\begin{align*}
+|\{1, x, x^2, \cdots, x^{n-1}, y\}| \leq G
+\end{align*}
+
+So we have a contradiction and thus, this $y \neq x^k$ cannot exist. Hence, $G = \<x\>$.\\
+
+Now consider the infinite group $(\mathbb{R}, +)$. We have that $|\mathbb{R}| = \infty = |2|$. However, $\mathbb{R} \neq \<1\>$ because $1 \in \mathbb{Z}$ and $\mathbb{Z}$ is closed under addition, so $\mathbb{R} \setminus \mathbb{Z}$ is not generated by $\<1\>$.
+\end{proof}
+
 \item Write $Z_{63} = \<x\>$. For which integers $a$ does the map $\psi_a$ defined by 
 $$\psi_a : \bar{1} \to x^a$$
 extend to a \emph{well defined homomorphism} from $\ZZ/147 \ZZ$ to $Z_{63}$? Can $\psi_a$ ever be a surjective homomorphism? 
 {\small[Take care to remember that the binary operation on the left is $+$ and the binary operation on the right is $\times$: if the image of  $\bar{1}$ is $x^a$, then the image of $\bar{1} + \bar{1} + \cdots + \bar{1} = \ell\bar{1}$ is $(x^{a})^{\ell}$.]}
+\begin{ans}
+
+\end{ans}
+
 \item For $a \in \ZZ$, define 
 $$\sigma_a: Z_n \to Z_n \quad \text{ by } \quad \sigma_a(x) = x^a \text{ for all } x \in Z_n.$$
 Show that $\sigma_a$ is an automorphism of $Z_n$ if and only if $(a, n) = 1$. 
+
+\begin{proof}
+Suppose that $\sigma_a$ is an automorphism of $Z_n$. Then $\sigma_a$ is a bijective homomorphism from $Z_n \to Z_n$.
+\end{proof}
 \item Under what circumstances does there exist a non-trivial homomorphism $\f: Z_n \to G$? \\{\small[Note: $\f$ need not be injective or surjective; just well-defined, and not the map $g \mapsto 1$ for all $g$.]}
 \item For which $n \in \ZZ_{\ge 1}$ is $(\ZZ/2^n\ZZ)^\times$ cyclic? \hfill {\small[Hint: Try to find more than one subgroup of order 2. Why would this prove $(\ZZ/2^n\ZZ)^\times$ is \emph{not} cyclic? Start by doing some examples.]}
 \item Prove that $\QQ \times \QQ$ is not cyclic.
