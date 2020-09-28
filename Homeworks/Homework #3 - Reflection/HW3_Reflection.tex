@@ -1,0 +1,410 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{red}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{3 Reflection}
+\def\DUE{9/21/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math B4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+\section{Successes and Failures in Homework 3}
+
+I believe I made better use of whitespace in this assignment compared to Homework 1. I made a conscious effort to include more of my thoughts in paragraphs rather than breaking up each sentence with a new line operator.\\
+
+I also removed the shorthand that I had been using in my previous homeworks. Quantifiers such as $\forall, \exists, \iff$ were almost entirely removed. I think that this made my proofs in this homework easier to read when compared with my proofs in Homework 1 and Homework 2.\\
+
+I think I need to continue focusing on simplifying and refining proofs. Once I approach a problem from a certain direction, I sometimes find it difficult to think of new, simpler approaches and to recognize information in the proof that may be redundant or unnecessary. I believe that improving this aspect of my proof-writing would help make my arguments significantly clearer, more accurate, and easier to follow.
+
+\newpage
+\section{Marked-up Homework}
+
+\begin{enumerate}[1.]
+\item {\bf Group actions}
+
+\begin{enumerate}[(a)] 
+\item For some fixed $g \in G$, prove that conjugation by $g$ (i.e.\ the map $G \to G$ defined by $a \mapsto gag^{-1}$) is an automorphism of $G$. Deduce that $a$ and $gag^{-1}$ have the same order (by last week's work), and for any non-empty $S \subseteq G$, the map 
+$$S \to gSg^{-1} \quad \text{defined by} \quad s \mapsto gsg^{-1}$$
+is also a bijection, so that $|gSg^{-1}| = |S|$. \\
+{\small[Recall, even if $A$ and/or $B$ is infinite, we say $|A| = |B|$ exactly when there is a bijection  $A \leftrightarrow B$]}
+
+\begin{proof}
+\NOTE{Try to revise the logic in this proof}\\
+Fix $g \in G$. Define $\varphi_g(a) = gag^{-1}$ for every $a \in G$. In order to show that $\varphi_g$ is an automorphism of $G$, we must show that $\varphi_G$ is a bijection from to $G$ to $G$ and that
+\begin{align*}
+\varphi_g(ab) = \varphi_g(a)\varphi_g(b)
+\end{align*}
+
+for all $a, b \in G$.\\
+
+First, we have that $\phi_g$ is well-defined. This is true because $G$ is a group, so $gag^{-1} \in G$ for every $a \in G$.\\
+
+Now fix $a, b \in G$ and suppose $\varphi_g(a) = \varphi_g(b)$. Then we have,
+\begin{align*}
+&\varphi(a) = \varphi(b)\\
+&\implies gag^{-1} = gbg^{-1}
+\end{align*}
+
+Multiplying by $g^{-1}$ on the left and $g$ on the right on both sides of the equal signs yields
+\begin{align*}
+a = b
+\end{align*}
+
+Hence, $\varphi_g$ is injective.\\
+
+Now fix $c \in G$. Since $G$ is a group, we have $g^{-1}cg \in G$. Hence this gives us that,
+\begin{align*}
+\varphi_g(g^{-1}cg) &= g(g^{-1}cg)g^{-1}\\
+&= c
+\end{align*}
+
+Since $c$ was arbitrary, this holds for every element in $G$. Hence, $\varphi$ is surjective as well and is thus a bijection from $G$ to $G$.\\
+
+Now we will check the homomorphism property. Fix $a, b \in G$. Then,
+\begin{align*}
+\varphi_g(ab) &= gabg^{-1}\\
+&= ga(g^{-1}g)bg^{-1}\\
+&= (gag^{-1})(gbg^{-1})\\
+&= \varphi_g(a)\varphi_g(b)
+\end{align*}
+
+Hence, $\varphi_g$ is a bijective homorphism and thus an autmorphism of $G$. From problem 2b(iii) on Homework 2, we have that 
+\begin{align*}
+|a| = |gag^{-1}|
+\end{align*}
+
+as a consequence of $\varphi_g$ being an automorphism.\\
+
+Now for any non-empty $S \subset G$ we consider the map
+\begin{align*}
+S \to gSg^{-1} \; \text{defined by} \; s \to gsg^{-1}
+\end{align*}
+
+Since every element of $S$ is an element of $G$ and $G$ is a group, we have that $gsg^{-1} \in G$ for every $g \in G$ and $s \in S$. Hence, for every $g$, we have that
+\begin{align*}
+gSg^{-1} \subset G
+\end{align*}
+
+So our map sends the subsets of $G$ to the subsets of $G$. Let $S, R \in \mathcal{P}(G) \setminus \emptyset$. Suppose $gSg^{-1} = gRg^{-1}$. Then we have
+\begin{align*}
+&(g^{-1}g)S(g^{-1}g) = (g^{-1}g)R(g^{-1}g)\\
+&\implies S = R
+\end{align*}
+
+So our map is injective. Now let $S \in \mathcal{P}(G) \setminus \emptyset$. Observe, that since $G$ is a group, for every $s \in S$, there exists an element $g^{-1}sg \in G$. Hence, we can define the set $R \subset G \setminus \emptyset$ such that every element $r \in R$ is defined to be $g^{-1}sg$ for some $s \in S$. Ensure that each $s$ is used to define exactly one $r$. Then, we have for all $r \in R$,
+\begin{align*}
+grg^{-1} &= g(g^{-1}sg)g^{-1}\\
+&= s
+\end{align*}
+
+Hence, we have that $gRg^{-1} = S$, and so our map is surjective and hence bijective.\\
+
+Now consider again sets $S, R \in \mathcal{P}(G) \setminus \emptyset$. Then we have
+\begin{align*}
+gSRg^{-1} &= gS(g^{-1}g)Rg^{-1}\\
+&= (gSg^{-1})(gRg^{-1})
+\end{align*}
+
+So the map is homomorphism and hence and isomorphishm. Thus, again from problem 2b(iii) on Homework 2, we can assert that 
+\begin{align*}
+|S| = |gSg^{-1}|
+\end{align*}
+
+for every $S \in \mathcal{P}(G) \setminus \emptyset$
+
+\end{proof}
+\newpage
+\item \label{subsets} 
+Let $A$ be a non-empty set and let $0<k \leq |A|$. Check that the action of the  symmetric group $S_A$  on the set of size $k$ subsets of $A$ by 
+$$\sigma\cdot \{a_1, \dots, a_k\} = \{\sigma(a_1), \dots, \sigma(a_k)\}$$
+satisfies the axioms of group actions. \hfill {\small[Similar to the action of $D_{2n}$ on sets from lecture.]}
+
+\begin{proof} \NOTE{Check that this proof is correct}\\
+Let $\sigma_1, \sigma_2 \in S_A$ and $a = \{a_1, \cdots a_k\} \subset A$. Then we have,
+\begin{align*}
+\sigma_2 \cdot (\sigma_1 \cdot a) &= \sigma_2 \cdot \{\sigma_1(a_1), \cdots \sigma_1(a_k)\}\\
+&= \{\sigma_2(\sigma_1(a)), \cdots, \sigma_2(\sigma_1(a_k))\}\\
+&= \{\sigma_2\sigma_1(a), \cdots, \sigma_2\sigma_1(a_k)\}\\
+&= \sigma_1 \sigma_2 \cdot \{a_1, \cdots, a_k\}\\
+&= \sigma_1 \sigma_2 \cdot a
+\end{align*}
+
+We also have,
+\begin{align*}
+1 \cdot a &= \{1 \cdot a_1, \cdots 1 \cdot a_k\}\\
+&= \{a_1, \cdots, a_k\}\\
+&= a
+\end{align*}
+
+Hence, this action satisfies the axioms of group actions.
+\end{proof}
+
+\item 
+ Let $G$ act on a set $A$. Prove that the relation $\sim$ on $A$ defined by 
+$$a \sim b \quad  \text{ if and only if } \quad  a = g \cdot b \text{ for some } g \in G$$
+is an equivalence relation. 
+
+\smallskip
+
+Note: the equivalence classes with respect to this relation are called \emph{\bf orbits}.
+
+\begin{proof}
+We need to check that this relation is reflexive, symmetric, and transitive. We will start with reflexivity. Since $G$ is a group, then $1 \in G$ and so we have 
+\begin{align*}
+a = 1 \cdot a
+\end{align*}
+
+Hence, we have $a \sim a$. Now let $a, b \in A$ and suppose $a \sim b$. Then,
+\begin{align*}
+a = g \cdot b
+\end{align*}
+
+for some $g \in G$. Since $G$ is a group, we have $g^{-1} \in G$ and hence
+\begin{align*}
+g^{-1} \cdot a &= g^{-1} \cdot (g \cdot b)
+\end{align*}
+
+By properties of group actions, we can write
+\begin{align*}
+g^{-1} \cdot a &= (g^{-1}g) \cdot b\\
+&= b
+\end{align*}
+
+So we have that $b \sim a$ since $g^{-1} \in G$. Hence, the relation is symmetric.\\
+
+Now let $a, b, c \in A$. Suppose $a \sim b$ and $b \sim c$. Then we have,
+\begin{align*}
+a = g _1 \cdot b
+\end{align*}
+
+and 
+\begin{align*}
+b = g_2 \cdot c
+\end{align*}
+
+for some $g_1, g_2 \in G$. We can use our equation for $b$ and the properties of group action to rewrite $a$ as
+\begin{align*}
+a = (g_1g_2) \cdot c
+\end{align*}
+
+Since $g_1g_2 \in G$, we have that $a \sim c$ and so the relation is transitive. Hence, this is an equivalence relation.
+\end{proof}
+
+\item Describe the orbits of the action of $S_4$ on $2$-element subsets of $\{1,2,3,4\}$ (as in problem \ref{subsets}).
+
+\begin{ans}
+The two element subsets of $\{1, 2, 3, 4\}$ are: $\{\{1, 2\}, \{1, 3\}, \{1, 4\}, \{2, 3\}, \{2, 4\}, \{3, 4\}\}$\\
+
+We have,
+\begin{align*}
+(2 \; 3) \cdot \{1, 2\} &= \{1, 3\}\\
+(3 \; 4) \cdot \{1, 3\} &= \{1, 4\}\\
+(1 \; 2) \cdot \{1, 4\} &= \{2, 4\}\\
+(3 \; 4) \cdot \{2, 4\} &= \{2, 3\}\\
+(2 \; 3) \cdot \{2, 4\} &= \{3, 4\}
+\end{align*}
+
+From the above equations, we have
+\begin{align*}
+\{1, 2\} &\sim \{1, 3\}\\
+&\sim \{1, 4\}\\
+&\sim \{2, 4\}\\
+&\sim \{2, 3\}, \{3, 4\}
+\end{align*}
+
+Hence, by transitivity, all of two element subsets of $\{1, 2, 3, 4\}$ belong to the same equivalence class under this relation. Thus, there is only one orbit for this relation.
+\end{ans}
+
+\end{enumerate}
+\newpage
+\item {\bf Cyclic groups}
+\begin{enumerate}
+\item If $x$ is an element of a finite group $G$ and $|x| = n = |G|$, prove that $G = \<x\>$. Give an explicit example to show $|x| = |G|$ does not imply $G = \<x\>$ if $G$ is an infinite group.
+
+\begin{proof}
+Suppose $G$ is a group with finite order and $x \in G$. Also suppose that $|x| = |G|$.\\
+
+Now suppose there exists $y \in G$ such that $y \neq x^k$ for some $k \in \ZZ$. Note that since we know $|x| = n$, we can list out a subset of the elements in $G$. Hence, we have
+\begin{align*}
+\{1, x, x^2, \cdots, x^{n-1}, y\} \subset G
+\end{align*}
+
+However, note that $\{1, x, x^2, \cdots, x^{n-1}, y\} = n + 1 > |G|$. But since this is a subset of $G$, we have that,
+\begin{align*}
+|\{1, x, x^2, \cdots, x^{n-1}, y\}| \leq G
+\end{align*}
+
+So we have a contradiction and thus, this $y \neq x^k$ cannot exist. Hence, $G = \<x\>$.\\
+
+Now consider the infinite group $(\mathbb{R}, +)$. We have that $|\mathbb{R}| = \infty = |2|$. However, $\mathbb{R} \neq \<1\>$ because $1 \in \mathbb{Z}$ and $\mathbb{Z}$ is closed under addition, so $\mathbb{R} \setminus \mathbb{Z}$ is not generated by $\<1\>$.
+\end{proof}
+
+\item Write $Z_{63} = \<x\>$. For which integers $a$ does the map $\psi_a$ defined by 
+$$\psi_a : \bar{1} \to x^a$$
+extend to a \emph{well defined homomorphism} from $\ZZ/147 \ZZ$ to $Z_{63}$? Can $\psi_a$ ever be a surjective homomorphism? 
+{\small[Take care to remember that the binary operation on the left is $+$ and the binary operation on the right is $\times$: if the image of  $\bar{1}$ is $x^a$, then the image of $\bar{1} + \bar{1} + \cdots + \bar{1} = \ell\bar{1}$ is $(x^{a})^{\ell}$.]}
+\begin{ans} \NOTE{Verify logic in this answer}\\
+Let $a = 1$. Then $\psi_a: \bar{1} \to x$. We can extend this definition to a well-defined homomorphism in the following manner,
+\begin{align*}
+\psi_1(y) = x^z
+\end{align*}
+
+where $z = y \bmod 63$. Then, for any $y_1, y_2 \in \ZZ/147 \ZZ$, we have,
+\begin{align*}
+\psi_1(y_1 + y_2) &= x^{(y_1 + y_2) \bmod 63}\\
+&= x^{(y_1 \bmod 63 \; + \; y_2 \bmod 63) \bmod 63}\\
+&= x^{y_1 \bmod 63}x^{y_2 \bmod 63}\\
+&= \psi_1(y_1)\psi_2(y_2)
+\end{align*}
+\end{ans}
+\newpage
+\item For $a \in \ZZ$, define 
+$$\sigma_a: Z_n \to Z_n \quad \text{ by } \quad \sigma_a(x) = x^a \text{ for all } x \in Z_n.$$
+Show that $\sigma_a$ is an automorphism of $Z_n$ if and only if $(a, n) = 1$. 
+
+\begin{proof} \NOTE{Complete this proof}\\
+Suppose that $\sigma_a$ is an automorphism of $Z_n$ and suppose $(a, n) = k \neq 1$.
+\end{proof} 
+\item Under what circumstances does there exist a non-trivial homomorphism $\f: Z_n \to G$? \\{\small[Note: $\f$ need not be injective or surjective; just well-defined, and not the map $g \mapsto 1$ for all $g$.]}
+\begin{ans} \NOTE{Check for other circumstances in this proof}\\
+Suppose $|G| = \<y\>$ with $|y| = k$ for some $k \in \NN$ such that $k | n$. Then there exists $m \in \NN$ such that $km = n$, and we have a non-trivial homomorphism $\varphi: Z_n \to G$. One such homomorphism is given by the following,
+\begin{align*}
+\varphi(1) &= 1\\
+\varphi(x) &= y\\
+&\vdots\\
+\varphi(x^{k-1}) &= y^{k-1}\\
+\varphi(x^k) &= 1\\
+&\vdots\\
+\varphi(x^{km-2}) &= y^{n-2}\\
+\varphi(x^{km-1}) &= y^{n-1}\\
+\end{align*}
+\end{ans}
+
+\item For which $n \in \ZZ_{\ge 1}$ is $(\ZZ/2^n\ZZ)^\times$ cyclic? \hfill {\small[Hint: Try to find more than one subgroup of order 2. Why would this prove $(\ZZ/2^n\ZZ)^\times$ is \emph{not} cyclic? Start by doing some examples.]}
+
+\NOTE{Complete this proof}\\ 
+
+\item Prove that $\QQ \times \QQ$ is not cyclic.
+\begin{proof} 
+Suppose $\QQ \times \QQ$ is cyclic. Since $|\QQ \times \QQ| = \infty$, then $\QQ \times \QQ = \<(ax, by)\>$ if and only if $a, b = \pm 1$. Without loss of generality, let us select $x, y \in \QQ$ such that $<(ax, by)> = |\QQ \times \QQ|$ with $a, b = 1$. Hence, every element $(c, d)$ of the set $\QQ \times \QQ$ can be written in the form,
+\begin{align*}
+(c, d) = (nx, my)
+\end{align*}
+
+for some $n, m \in \ZZ$. Now suppose $x, y > 0$ without loss of generality. Then,
+\begin{align*}
+\cdots < -2x < -1x < 0 = 0x < 1x < 2x < \cdots 
+\end{align*}
+
+Since the rational numbers are closed under multiplication, we can take $\frac{x}{2} < 1x$. There is no $n \in \ZZ$ such that $nx = \frac{x}{2}$, so $(x, y)$ cannot generate $(\frac{x}{2}, z)$ for any choice of $z \in \QQ$. Hence, $(x, y)$ cannot be the generator for $\QQ \times \QQ$ which is a contradiction. Thus, $\QQ \times \QQ$ is not cyclic.
+\end{proof}
+\end{enumerate}
+
+
+\end{enumerate}
+\end{document}
