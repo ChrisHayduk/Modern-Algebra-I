@@ -11,6 +11,7 @@
 
 \setlength\parindent{0pt}
 
+
 %%% Theorems %%%--------------------------------------------------------- 
 \theoremstyle{plain}
 	\newtheorem{thm}{Theorem}[section]
@@ -311,7 +312,7 @@ Hence, by transitivity, all of two element subsets of $\{1, 2, 3, 4\}$ belong to
 \end{ans}
 
 \end{enumerate}
-
+\newpage
 \item {\bf Cyclic groups}
 \begin{enumerate}
 \item If $x$ is an element of a finite group $G$ and $|x| = n = |G|$, prove that $G = \<x\>$. Give an explicit example to show $|x| = |G|$ does not imply $G = \<x\>$ if $G$ is an infinite group.
@@ -339,19 +340,57 @@ $$\psi_a : \bar{1} \to x^a$$
 extend to a \emph{well defined homomorphism} from $\ZZ/147 \ZZ$ to $Z_{63}$? Can $\psi_a$ ever be a surjective homomorphism? 
 {\small[Take care to remember that the binary operation on the left is $+$ and the binary operation on the right is $\times$: if the image of  $\bar{1}$ is $x^a$, then the image of $\bar{1} + \bar{1} + \cdots + \bar{1} = \ell\bar{1}$ is $(x^{a})^{\ell}$.]}
 \begin{ans}
+Let $a = 1$. Then $\psi_a: \bar{1} \to x$. We can extend this definition to a well-defined homomorphism in the following manner,
+\begin{align*}
+\psi_1(y) = x^z
+\end{align*}
 
+where $z = y \bmod 63$. Then, for any $y_1, y_2 \in \ZZ/147 \ZZ$, we have,
+\begin{align*}
+\psi_1(y_1 + y_2) &= x^{(y_1 + y_2) \bmod 63}\\
+&= x^{(y_1 \bmod 63 \; + \; y_2 \bmod 63) \bmod 63}\\
+&= x^{y_1 \bmod 63}x^{y_2 \bmod 63}\\
+&= \psi_1(y_1)\psi_2(y_2)
+\end{align*}
 \end{ans}
-
+\newpage
 \item For $a \in \ZZ$, define 
 $$\sigma_a: Z_n \to Z_n \quad \text{ by } \quad \sigma_a(x) = x^a \text{ for all } x \in Z_n.$$
 Show that $\sigma_a$ is an automorphism of $Z_n$ if and only if $(a, n) = 1$. 
 
 \begin{proof}
-Suppose that $\sigma_a$ is an automorphism of $Z_n$. Then $\sigma_a$ is a bijective homomorphism from $Z_n \to Z_n$.
+Suppose that $\sigma_a$ is an automorphism of $Z_n$ and suppose $(a, n) = k \neq 1$.
 \end{proof}
 \item Under what circumstances does there exist a non-trivial homomorphism $\f: Z_n \to G$? \\{\small[Note: $\f$ need not be injective or surjective; just well-defined, and not the map $g \mapsto 1$ for all $g$.]}
+\begin{ans}
+Suppose $|G| = \<y\>$ with $|y| = k$ for some $k \in \NN$ such that $k | n$. Then there exists $m \in \NN$ such that $km = n$, and we have a non-trivial homomorphism $\varphi: Z_n \to G$. One such homomorphism is given by the following,
+\begin{align*}
+\varphi(1) &= 1\\
+\varphi(x) &= y\\
+&\vdots\\
+\varphi(x^{k-1}) &= y^{k-1}\\
+\varphi(x^k) &= 1\\
+&\vdots\\
+\varphi(x^{km-2}) &= y^{n-2}\\
+\varphi(x^{km-1}) &= y^{n-1}\\
+\end{align*}
+\end{ans}
+
 \item For which $n \in \ZZ_{\ge 1}$ is $(\ZZ/2^n\ZZ)^\times$ cyclic? \hfill {\small[Hint: Try to find more than one subgroup of order 2. Why would this prove $(\ZZ/2^n\ZZ)^\times$ is \emph{not} cyclic? Start by doing some examples.]}
 \item Prove that $\QQ \times \QQ$ is not cyclic.
+\begin{proof}
+Suppose $\QQ \times \QQ$ is cyclic. Since $|\QQ \times \QQ| = \infty$, then $\QQ \times \QQ = \<(ax, by)\>$ if and only if $a, b = \pm 1$. Without loss of generality, let us select $x, y \in \QQ$ such that $<(ax, by)> = |\QQ \times \QQ|$ with $a, b = 1$. Hence, every element $(c, d)$ of the set $\QQ \times \QQ$ can be written in the form,
+\begin{align*}
+(c, d) = (nx, my)
+\end{align*}
+
+for some $n, m \in \ZZ$. Now suppose $x, y > 0$ without loss of generality. Then,
+\begin{align*}
+\cdots < -2x < -1x < 0 = 0x < 1x < 2x < \cdots 
+\end{align*}
+
+Since the rational numbers are closed under multiplication, we can take $\frac{x}{2} < 1x$. There is no $n \in \ZZ$ such that $nx = \frac{x}{2}$, so $(x, y)$ cannot generate $(\frac{x}{2}, z)$ for any choice of $z \in \QQ$. Hence, $(x, y)$ cannot be the generator for $\QQ \times \QQ$ which is a contradiction. Thus, $\QQ \times \QQ$ is not cyclic.
+\end{proof}
 \end{enumerate}
 
 
