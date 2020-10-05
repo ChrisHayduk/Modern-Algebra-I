@@ -148,15 +148,101 @@ October 4, 2020
 
 \hbox{\begin{minipage}{5in}
 \noindent {\bf Statement:} 
-%%% PUT STATEMENT HERE, with no line break in between. 
+Let $G$ be a group and let $x \in G$. If $|x| = n < \infty$, prove that the elements $1, x, x^2, \cdots, x^{n-1}$ are all distinct. Deduce that $|x| = |\langle x \rangle|$
 \end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
 \ProblemID
-		{0X}%PUT PROBLEM NUMBER HERE, e.g. 2A in place of 0X.
-		{0}%PUT NUMBER OF STARS HERE, e.g. 3 in place of 0.
+		{1C}%PUT PROBLEM NUMBER HERE, e.g. 2A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 3 in place of 0.
 \end{minipage}}}
 
 \begin{proof}
-%%% YOUR PROOF GOES HERE
+Let $|x| = n < \infty$. Now suppose that there are numbers $m, k \in \ZZ$ with $0 \leq k < m \leq n-1$ such that $x^m = x^k$.\\
+
+Then we have that,
+\begin{align*}
+x^k \cdot x &= x^m \cdot x\\
+x^k \cdot x^2 &= x^m \cdot x^2\\
+x^k \cdot x^3 &= x^m \cdot x^3\\
+&\vdots\\
+x^k \cdot x^{n-m} &= x^m \cdot x^{n-m}
+\end{align*}
+
+However, on the right side of the equality, we have
+\begin{align*}
+x^m \cdot x^{n-m} &= x^{m+n-m}\\
+&= x^n\\
+&= e
+\end{align*}
+
+This implies that,
+\begin{align*}
+x^k \cdot x^{n-m} &= x^{k+n-m}\\
+&= e
+\end{align*}
+
+where $k+n-m \in \ZZ$ and $0 < k+n-m < m+n-m = n$.\\
+
+However, we know that the order of $x$ is $n$, which is defined to be the smallest positive integer of $x$ that yields the identity element. Hence, we have a contradiction and thus $e, x, x^2, \dots, x^{n-1}$ are all distinct.\\
+
+Now consider $\langle x \rangle$. We know that each $x^c$ is distinct for every $c \in \ZZ$ such that $0 \leq k \leq n-1$. Now fix an $m \in \ZZ$ such that $m \geq n$. Choose $k \in \NN$ as the greatest positive integer such that $m \geq kn$. Then we have,
+\begin{align*}
+x^m &= x^{kn + (m - kn)}\\
+&= x^{kn}x^{m - kn}\\
+&= x^{m-kn}
+\end{align*}
+
+Note that $0 \leq m - kn$ since $m \geq kn$. In addition, $m - kn < n$ because, if $m - kn \geq n$, it would mean that $(k+1)n \leq m$. But we chose $k$ such that it was the greatest positive integer with $m \geq kn$, so this is not possible.\\
+
+Hence we have that $0 \leq m - kn < n$, and so $x^{m - kn} \in \{1, x, x^2, \cdots, x^{n-1}\}$. Since $m \geq n$ was an arbitrary integer, this holds for any $x^m$ with $m \geq n$. Thus, for any $a \in \ZZ$, we have that,
+\begin{align*}
+x^a \in \{1, x, x^2, \cdots, x^{n-1}\}
+\end{align*} 
+
+and so $| \langle x \rangle | = n = |x|$.
+\end{proof}
+
+\Rubric{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Show that if $s_1 =  s$ and $s_2 = sr$, then those together with the relations 
+$$s_1^2 = s_2^2 = (s_1s_2)^n = 1$$
+forms and alternative presentation of $D_{2n}$ 
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{1D}%PUT PROBLEM NUMBER HERE, e.g. 2A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 3 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+By the relations given above we have that,
+\begin{align*}
+s_1^2 = 1 = s^2
+\end{align*}
+
+Moreover, we have that
+\begin{align*}
+s_2^2 = 1 = srsr
+\end{align*}
+
+This implies that $sr = (sr)^{-1} = r^{-1}s^{-1}$.\\
+
+However, we know that $s^{-1} = s$ since $s^2 = 1$, so we have
+\begin{align*}
+sr = (sr)^{-1} &= r^{-1}s^{-1}\\
+&= r^{-1}s
+\end{align*}
+
+We are also given that $(s_1s_2)^n = 1$. That is,
+\begin{align*}
+(s_1s_2)^n &= (ssr)^n\\
+&= r^n\\
+&= 1
+\end{align*}
+
+Hence, the elements $s_1$ and $s_2$ together with the relations shown above fully describe the initial presentation of $D_{2n}$.
 \end{proof}
 
 \Rubric{}
@@ -164,5 +250,111 @@ October 4, 2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that if $H$ and $K$ are subgroups of $G$, then so is $H \cap K$. 
+On the other hand, prove $H \cup K$ is a subgroup if and only if $H \subseteq K$ or $K \subseteq H$.
+forms and alternative presentation of $D_{2n}$ 
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{2A}%PUT PROBLEM NUMBER HERE, e.g. 2A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 3 in place of 0.
+\end{minipage}}}
 
+\begin{proof}
+Suppose $H, K \leqslant G$. Consider $H \cap K$. Note that $1 \in H, K$ by the definition of groups, so $1 \in H \cap K$. Hence, $H \cap K \neq \emptyset$. Now let $x, y \in H \cap K$. Then $x, y \in H$ and $x, y \in K$, both of which are groups. Hence, $y^{-1} \in H$ and $y^{-1} \in K$, which implies $xy^{-1} \in H$ and $xy^{-1} \in K$. Thus, $xy^{-1} \in H \cap K$. As a result, $H \cap K$ satisfies the subgroup criterion and is hence a subgroup of $G$.\\
+
+Now consider $H \cup K$. Suppose for contraposition that $H \not\subset K$ and $K \not\subset H$. Then $\exists x \in H$ such that $x \not\in K$ and $\exists y \in K$ such that $y \not\in H$. Then we have $y^{-1} \not\in H$ and $x \not\in K$, so $xy^{-1} \not\in H, K$. Hence $xy^{-1} \not\in H \cup K$ and so $H \cup K$ does not satisfy the subgroup criterion. As a result, we have that if $H \cup K$ is a subgroup of $G$, then $H \subset K$ or $K \subset H$.\\
+
+Now for the other direction of the proof. Suppose $H \subset K$. Then $\forall \; x \in H$ we have $x \in K$. Hence, $H \cup K = K$. Since $K \leqslant G$, we have $H \cup K \leqslant G$ as well.\\
+
+Suppose $K \subset H$. Then $\forall \; x \in K$ we have $x \in H$. Hence, $H \cup K = H$. Since $H \leqslant G$, we have $H \cup K \leqslant G$ as well. Thus, we have proved that if $H \subset K$ or $K \subset H$, then $H \cup K$ is a subgroup of $G$.
+\end{proof}
+
+\Rubric{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that $\RR^\times$ is not isomorphic to $\CC^\times$,
+forms and alternative presentation of $D_{2n}$ 
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{2C}%PUT PROBLEM NUMBER HERE, e.g. 2A in place of 0X.
+		{1}%PUT NUMBER OF STARS HERE, e.g. 3 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+There are only $2$ elements in $\RR^\times$ with order less than $\infty$: $|1| = 1$ and $|-1| = 2$. However, there are $4$ in $\CC^\times$: $|1| = 1$, $|-1| = 2$, $|i| = 4$, $|-i| = 4$.\\
+
+Since there is no element $\RR^\times$ with order $4$, for any potential isomorphism $\varphi: \CC^\times \to \RR^\times$, we have
+\begin{align*}
+|i| \neq |\varphi(i)|
+\end{align*}
+
+Hence, $\RR^\times$ and $\CC^\times$ are not isomorphic.
+
+\end{proof}
+
+\Rubric{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+ Let $G$ act on a set $A$. Prove that the relation $\sim$ on $A$ defined by 
+$$a \sim b \quad  \text{ if and only if } \quad  a = g \cdot b \text{ for some } g \in G$$
+is an equivalence relation. 
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{3B}%PUT PROBLEM NUMBER HERE, e.g. 2A in place of 0X.
+		{1}%PUT NUMBER OF STARS HERE, e.g. 3 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+We need to check that this relation is reflexive, symmetric, and transitive. We will start with reflexivity. Since $G$ is a group, then $1 \in G$ and so we have 
+\begin{align*}
+a = 1 \cdot a
+\end{align*}
+
+Hence, we have $a \sim a$. Now let $a, b \in A$ and suppose $a \sim b$. Then,
+\begin{align*}
+a = g \cdot b
+\end{align*}
+
+for some $g \in G$. Since $G$ is a group, we have $g^{-1} \in G$ and hence
+\begin{align*}
+g^{-1} \cdot a &= g^{-1} \cdot (g \cdot b)
+\end{align*}
+
+By properties of group actions, we can write
+\begin{align*}
+g^{-1} \cdot a &= (g^{-1}g) \cdot b\\
+&= b
+\end{align*}
+
+So we have that $b \sim a$ since $g^{-1} \in G$. Hence, the relation is symmetric.\\
+
+Now let $a, b, c \in A$. Suppose $a \sim b$ and $b \sim c$. Then we have,
+\begin{align*}
+a = g _1 \cdot b
+\end{align*}
+
+and 
+\begin{align*}
+b = g_2 \cdot c
+\end{align*}
+
+for some $g_1, g_2 \in G$. We can use our equation for $b$ and the properties of group action to rewrite $a$ as
+\begin{align*}
+a = (g_1g_2) \cdot c
+\end{align*}
+
+Since $g_1g_2 \in G$, we have that $a \sim c$ and so the relation is transitive. Hence, this is an equivalence relation.
+\end{proof}
+
+\Rubric{}
 \end{document}
