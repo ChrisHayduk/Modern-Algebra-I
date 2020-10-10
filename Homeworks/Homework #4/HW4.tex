@@ -1,0 +1,363 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{4}
+\def\DUE{10/9/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math A4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+
+
+
+
+\begin{enumerate}[1.]
+\item {\bf Generating groups}
+\begin{enumerate}
+\item Prove that the subgroup of $\SL_2(\FF_3)$ generated by 
+$$a = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \quad \text{and} \quad 
+		b = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$$
+is isomorphic to $Q_8$.
+
+\begin{proof}
+We have the following relations for $a$,
+\begin{align*}
+a^2 &= a \cdot a\\
+&= \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \cdot \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}\\
+&= \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}
+\end{align*}
+
+\begin{align*}
+a^3 &= a \cdot a^2\\
+&= \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \cdot \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}\\
+&= \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} 
+\end{align*}
+
+\begin{align*}
+a^4 &= a \cdot a^3\\
+&=  \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \cdot \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}\\
+&= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \\
+&= I
+\end{align*}
+
+This gives us that $|a| = 4$. For $b$, we have,
+\begin{align*}
+b^2 &= b \cdot b\\
+&= \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \cdot \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}\\
+&= \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}\\
+&= \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}
+\end{align*}
+
+and so,
+\begin{align*}
+b^4 &= (b^2)^2\\
+&= \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}^2\\
+&= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}\\
+&= I
+\end{align*}
+
+In addition, we have that $|b| = 4$ since $2$ and $1$ both divide $4$, but $b^1, b^2 \neq I$.\\
+
+Now we check the orders of $ab$ and $ba$:
+\begin{align*}
+ab &= \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \cdot \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}\\
+&= \begin{pmatrix} -1 & 1 \\ 1 & 1 \end{pmatrix}
+\end{align*}
+
+\begin{align*}
+(ab)^2 &= \begin{pmatrix} -1 & 1 \\ 1 & 1 \end{pmatrix} \cdot \begin{pmatrix} -1 & 1 \\ 1 & 1 \end{pmatrix}\\
+&= \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}
+\end{align*}
+
+\begin{align*}
+(ab)^3 &= \begin{pmatrix} -1 & 1 \\ 1 & 1 \end{pmatrix} \cdot \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}\\
+&= \begin{pmatrix} 1 & -1 \\ -1 & -1 \end{pmatrix}
+\end{align*}
+
+\begin{align*}
+(ab)^4 &= \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \cdot \begin{pmatrix} 1 & -1 \\ -1 & -1 \end{pmatrix}\\
+&= \begin{pmatrix} 1 & 1 \\ 0 & -1 \end{pmatrix}
+\end{align*}
+\end{proof}
+
+\item A group is called \emph{finitely generated} if there is a finite set $A$ such that $H = \<A\>$. For example, every finite group and every cyclic group is finitely generated.
+
+\smallskip
+
+Prove that every finitely generated subgroup of $\QQ$ is cyclic. \\
+{\small [Show that if $H \leq \QQ$ is  generated by the finite set $A$, then $H \leq \<1/k\>$ where $k$ is the product of all the denominators that appear in $A$. Now, what do you know about subgroups of cyclic groups?]}
+
+\begin{proof}
+Let $H$ be a finitely generated subgroup of $\QQ$. That is, there is a finite set $A \subset \QQ$ such that $H = \<A\>$.
+\end{proof}
+
+\end{enumerate}
+
+\newpage
+\item {\bf Quotient groups}
+\begin{enumerate}[(a)]
+\item Define $\varphi:\CC^\times \to \RR^\times$ by $\varphi(a + ib) = a^2 + b^2 = |a + ib|^2$.\\
+{\small [Note: Remember that you know about polar coordinates for complex numbers. Namely,  $re^{ix} = r\cos(x) + i r\sin(x)$ and $a + bi = |a + ib| e^{i \arctan(b/a)}$.]}
+\begin{enumerate}[(i)]
+\item Prove $\varphi$ is a homomorphism, and compute its image.
+\begin{proof}
+Let $a, b \in \CC$. Then we can write $a = a_1 + ia_2$ and $b = b_1 + ib_2$ where $a_1, a_2, b_1, b_2 \in \RR$. Moreover, we have that,
+\begin{align*}
+a \cdot b &= (a_1 + ia_2) \cdot (b_1 + ib_2)\\
+&= a_1b_1 + ia_1b_2 + ia_2b_1 - a_2b_2\\
+&= a_1b_1 - a_2b_2 + i(a_1b_2 + a_2b_1)
+\end{align*}
+
+This gives us,
+\begin{align*}
+\varphi(ab) &= (a_1b_1 - a_2b_2)^2 + (a_1b_2 + a_2b_1)^2\\
+&= a_1^2b_1^2 - 2a_1b_1a_2b_2 + a_2^2b_2^2 + a_1^2b_2^2 + 2a_1b_2a_2b_1 + a_2^2b_1^2\\
+&= a_1^2b_1^2 + a_2^2b_2^2 + a_1^2b_2^2 + a_2^2b_1^2
+\end{align*}
+
+Now let us check $\varphi(a)\varphi(b)$,
+\begin{align*}
+\varphi(a) \cdot \varphi(b) &= (a_1^2 + a_2^2) \cdot (b_1^2 + b_2^2)\\
+&= a_1^2b_1^2 + a_1^2b_2^2 + a_2^2b_1^2 + a_2^2b_2^2\\
+&= \varphi(ab)
+\end{align*}
+
+So we have that $\varphi(a) \cdot \varphi(b) = \varphi(ab)$ for any $a, b \in \CC$, as required.\\
+
+The image of $\varphi$ is $\{x \in \RR: x \geq 0\}$. This true because $a^2 + b^2 \geq 0$ for any choice of $a, b \in \RR$. In addition, if we fix $b = 0$ and let $a$ range over $\RR$, we have that $\varphi$ maps to all the positive real numbers. Hence, the image of $\varphi$ as described above.
+\end{proof}
+\item Describe the fibers geometrically (as subsets of the complex plane).  
+{\small [Draw some pictures!]}
+\begin{ans}
+Observe that, for any $x \in \RR_{\geq 0}$, the pre-image of $x$ under $\varphi$ is the set $\{c = a + ib \in \CC : a^2 + b^2 = x\}$. Observe that $a, b \in \RR$ and $x \in \RR_{\geq 0}$. Hence, $a^2 + b^2 = x$ is precisely the equation for a circle in $\RR^2$ with radius $x$. We can map these circles onto $\CC$ by mapping $b$ to $ib$. Hence, the fibers of $\varphi$ are represented by circles in the complex plane, where the radius of each circle is the real number $x$ that these complex numbers map to.
+\end{ans}
+\newpage
+\item Express the non-empty fibers algebraically as left cosets of the kernel. 
+\begin{ans}
+Observe that,
+\begin{align*}
+K = \ker(\varphi) = \{c = a + ib \in \CC: a^2 + b^2 = 1\}
+\end{align*}
+
+Now fix $c_1 = a_1 + ib_1 \in \CC$ and $c_2 = a_2 + ib_2 \in K$. Then we have,
+\begin{align*}
+c_1 \cdot c_2 &= (a_1a_2 - b_1b_2) + i(a_1b_2 + a_2b_1)
+\end{align*}
+
+We also have that,
+\begin{align*}
+\varphi(c_1c_2) &= \varphi(c_1) \cdot \varphi(c_2)\\
+&= \varphi(c_1) \cdot 1\\
+&= \varphi(c_1)\\
+&= a_1^2 + b_1^2
+\end{align*}
+
+So for any $c \in \CC$, we have that $cK$ maps every element of $K$ into an element in the pre-image of $\varphi(c)$
+\end{ans}
+\end{enumerate} 
+
+\item Let $m, d \in \ZZ_{\ge 2}$ and let $n = md$. Define $\f: \ZZ/n\ZZ \to \ZZ/m\ZZ$ by $\bar{a} \to \bar{a}$. 
+\begin{enumerate}[(i)]
+\item Show that $\f$ is a well-defined, surjective homomorphism. 
+\begin{proof}
+Observe that $n > m$. Hence, we will first check the case where $\bar{a} < m$. Consider $\varphi(\bar{a})$. Since $\bar{a} < m$, we have that $\bar{a} \equiv \bar{a} \mod m$ by definition. Thus, we have $\bar{a} = \varphi(\bar{a})$ and so $\varphi$ is defined here. In addition, this actually gives us surjectivity. Take $\bar{0}, \bar{1}, \cdots \overline{m-1} \in \ZZ/n\ZZ$. Then we have $\varphi(\bar{0}) = \bar{0}, \varphi(\bar{1}) = \bar{1}, \cdots, \varphi(\overline{m-1}) = \overline{m-1}$. These are precisely all the equivalence classes in $\ZZ/m\ZZ$, so $\varphi$ is surjective.\\
+
+Now consider $\bar{a} \geq m$. By the definition of equivalence classes in $\ZZ/m\ZZ$, we have $\overline{b} \in \overline{a}$ with $b < a$. Hence, $\varphi(\overline{a}) = \overline{a}$ is well-defined here as well. As a result, we have that $\varphi$ is well-defined and surjective. Now we need to show that $\varphi$ is a homomorphism.\\
+
+Let $\overline{a}, \overline{b} \in \ZZ/n\ZZ$. Then we have,
+\begin{align*}
+\overline{a} + \overline{b} = \overline{a + b} \in \ZZ/n\ZZ
+\end{align*}
+
+Thus, we have,
+\begin{align*}
+\varphi(\bar{a} + \bar{b}) &= \bar{a} + \bar{b}\\
+&= \overline{a + b}\\
+&= \varphi(\overline{a + b})
+\end{align*}
+
+Since $\bar{a}, \bar{b} \in \ZZ/n\ZZ$ were arbitrary, we have that $\varphi$ is a homomorphism.
+\end{proof}
+
+\newpage
+\item Show that $\ker(\f) \cong \ZZ/d\ZZ$. Describe the fibers, and express them as left cosets of the kernel. \\
+{\small [Note: since $\ZZ/n\ZZ$ is an additive group, the cosets will look like $x + K$, not $xK$.\\
+Don't know where to start? Do some examples! Draw some pictures!]}
+\begin{proof}
+We have that,
+\begin{align*}
+K = \ker(\varphi) = \{\bar{x} \in \ZZ/n\ZZ: \bar{x} = \bar{0}\}
+\end{align*}
+
+We have that $\varphi(\bar{0}) = \bar{0}$ by definition, so $\bar{0} \in K$. Now observe that, for any $\bar{x} \in \ZZ/n\ZZ$ (with $x \neq 0$), $\varphi(\bar{x}) \in K$ if and only if $m|x$. We know $n = md$ where $d \geq 2$, so the equivalence classes of $\ZZ/n\ZZ$ are $\bar{0}, \bar{1}, \cdots, \overline{md - 1}$. Thus, we have that the possible multiples of $m$ in $\ZZ/n\ZZ$ are $\overline{m}, \overline{2m}, \cdots, \overline{m(d-1)}$. Hence, we now have that,
+\begin{align*}
+K = ker(\varphi) = \{\overline{0m} = \overline{0}, \overline{m}, \overline{2m}, \cdots, \overline{m(d-1)}\}
+\end{align*}
+
+Now define $\varphi_1: K \to \ZZ/d\ZZ$ by the $\varphi(\overline{xm}) = \overline{x}$. Since every element in the set $K$ as defined above has an associated $x$, this function is well-defined. Now let $\bar{a} = \overline{x_1m}, b = \overline{x_2m} \in K$. Then,
+\begin{align*}
+\overline{a} + \overline{b} &= \overline{x_1m + x_2m}\\
+&= \overline{m(x_1 + x_2}
+\end{align*}
+
+And so we have that,
+\begin{align*}
+\varphi_1(\overline{a + b}) &= \overline{m(x_1 + x_2)}\\
+&= \overline{x_1m} + \overline{x_2m}\\
+&= \varphi_1(\bar{a}) + \varphi_1(\bar{b})
+\end{align*}
+
+Thus, $\varphi_1$ is a homomorphism. We have that $\varphi_1$ is surjective because the equivalence classes for $\ZZ/d\ZZ$ are $\bar{0}, \bar{1}, \cdots, \bar{d-1}$, and all of these numbers appear as a multiple of $m$ in $K$. Now let us show injectivity. Let $\bar{a} = \overline{x_1m}, \bar{b} = \overline{x_2m} \in K$ with $a \neq b$ and suppose $\varphi_1(\bar{a}) = \varphi_1(\bar{b})$. Then we have,
+\begin{align*}
+\overline{x_1} = \overline{x_2}
+\end{align*}
+
+Since every $\overline{x_1m}, \overline{x_2m} \in K$ are distinct, we have that $\overline{x_1} = \overline{x_2}$ if and only if $\overline{x_1m} = \overline{x_2m}$. Hence, $\varphi_1$ is injective and is thus an isomorphism. As a result, we have that $\ker(\f) \cong \ZZ/d\ZZ$ , as required.
+\end{proof}
+\item Show that $(\ZZ/n\ZZ) / (\ZZ/d\ZZ) \cong \ZZ/m\ZZ$. 
+\begin{proof}
+We know that $(\ZZ/n\ZZ) / (\ZZ/d\ZZ)$ is the group whose elements are the fibers of $\f$ with the following group operation: if $X$ is the fiber of $\overline{a}$ and $Y$ is the fiber above $b$, then the sum of $X$ and $Y$ is defined to be the fiber above $\overline{a + b}$
+\end{proof}
+\end{enumerate} 
+
+\newpage
+\item Show $\SL_n(F) \normeq \GL_n(F)$, and describe $\GL_n(F)/\SL_n(F)$.\\
+{\small[Hint: What homomorphism out of $\GL_n(F)$ is $\SL_n(F)$ the kernel of? Use the 1st isomorphism thm.]}
+\begin{ans}
+Note that,
+\begin{align*}
+\GL_n(F) = \{A: A \; \text{is an} \; n \times n \; \text{matrix with entries from} \; F \; \text{and} \; \det(A) \neq 0\}
+\end{align*}
+
+where $F$ is a field. We also have,
+\begin{align*}
+\SL_n(F) = \{A \in \GL_n(F): \det(A) = 1\}
+\end{align*}
+\end{ans}
+
+\item If $N \normeq G$, we know $G/N$ is a group. Is it necessarily true that $G/N$ is isomorphic to a subgroup of $G$? If yes, prove it; if no, give a counterexample. 
+\end{enumerate}
+
+
+\item {\bf Normal subgroups}
+\begin{enumerate}[(a)]
+\item Show that if $N \normeq G$ and $H \le G$, then $H \cap N \normeq H$. Give an example showing that it's not necessarily true that $H \cap N \normeq G$.
+\begin{proof}
+Let $N \normeq G$ and let $H \le G$. Now consider $H \cap N$. Since $N \normeq G$ and $H \le G$, we have $H \cap N \subset G$. In addition, we have that $1 \in H \cap N$ since $1$ is in every subgroup and $N, H$ are both subgroups. Hence, $H \cap N \neq \emptyset$.\\
+
+Now fix $x, y \in H \cap N$. We have that $x, y \in H, N$ by definition. Since $H, N$ are both groups, then $y^{-1} \in H, N$ by closure under inverses of subgroups and $xy^{-1} \in H, N$ by closure under multiplication of subgroups. Now,, since $xy^{-1} \in H, N$, we have $xy^{-1} \in H \cap N$ by the definition of intersections. Hence, $H \cap N$ satisfies the subgroup criterion and thus $H \cap N \leq G$.\\
+
+Now we need to show that $H \cap N \normeq G$
+\end{proof}
+\item Let $N$ be a finite subgroup of $G$ and assume $N = \<S\>$ for some subset $S \subseteq G$. Prove that $g \in N_G(N) $ if and only if $g S g^{-1} \subseteq N$. 
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+\end{document}
