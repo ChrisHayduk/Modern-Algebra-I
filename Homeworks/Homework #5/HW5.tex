@@ -1,0 +1,192 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{5}
+\def\DUE{10/16/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math A4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+
+
+
+
+\begin{enumerate}[1.]
+\item  {\bf Properties of quotient groups.}
+\begin{enumerate}[(a)]
+\item Prove that in the quotient group $G/N$, (i) $(gN)^\alpha = g^\alpha N$ for all $\alpha \in \ZZ$, and (ii) that $|gN| = n$, where $n$ is the smallest positive integer such that $g^n \in N$ (or is infinite if $g^\alpha \notin N$ for all $\alpha$).
+\item Prove that if $G/Z(G)$ is cyclic, then $G$ is abelian. \\
+	{\small [Hint: If $G/Z(G)$ is cyclic, with generator $x Z(G)$, show that every element of $G$ can be written in the form $x^a z$ for some integer $a \in \ZZ$ and some element $z \in Z(G)$.]}
+\item Let $N \normeq G$ and let $\overline{G} = G/N$. Prove that $\overline{x}$ and $\overline{y}$ commute in $\overline{G}$ if and only if $x^{-1} y^{-1} xy \in N$. 
+
+\smallskip
+
+Note: The element $x^{-1} y^{-1} xy$ is called the \emph{commutator} of $x$ and $y$, denoted $[x,y]$.
+\end{enumerate}
+
+\item {\bf Orders and indices.} 
+
+\begin{enumerate}[(a)]
+\item Show that if $|G| = pq$ for some primes $p$ and $q$ (not necessarily distinct) then either $G$ is abelian, or $Z(G) = 1$. \hfill {\small[Hint: See 1(b).]}
+\item Prove that if $H$ and $K$ are finite subgroups of $G$ whose orders are relatively prime, then $H \cap K = 1$. 
+\item Let $H \leq K \leq G$. Prove that $|G:H| = |G:K||K:H|$ (\textbf{do not} assume $G$ is finite).
+\item Prove that if $H \normeq G$ and $|G:H| = p$ a prime, then for all $K \leq G$, either 
+$$K \leq H \qquad \text{ or } \qquad G = HK \text{ and } |K : K \cap H| = p.$$
+
+\end{enumerate}
+
+%\item Suppose $M, N \normeq G$ such that $G = MN$. Prove that 
+%$$G/(M \cap N) \cong (G/M) \times (G/N).$$
+%{[Hint: You can either use the first or the second isomorphism theorem to get at this.]}
+
+\item {\bf Composition series.} In a group $G$, a sequence of subgroups 
+$$1 = N_0 \leq N_1 \leq N_2 \leq \cdots \leq N_{\ell-1} \leq N_\ell = G$$
+is called a (finite) \emph{composition series} for $G$ if, for $1 \leq i \leq \ell$, we have
+$$N_{i-1} \normeq N_{i} \quad \text{ and } \quad N_{i}/N_{i-1} \text{ is simple.}$$
+ For a composition series, we call the quotient groups $N_{i}/N_{i-1}$  \emph{composition factors} of $G$.\\$\quad$ \hfill{\footnotesize[Note:  
+$N_{i-1} \normeq N_{i} \text{ and } N_i \normeq N_{i+1} \text{ \emph{does not} imply } N_{i-1} \normeq N_{i+1}.$]}
+\begin{enumerate}
+\item Briefly explain why $N_{i}/N_{i-1}$ being simple means that $N_{i-1}$ is ``maximally'' normal in $N_{i}$, i.e.\  there are no normal subgroups $N$ such that $N_{i} \lneq N \lneq N_{i+1}$ and $N \normeq N_{i+1}$. 
+\item The \emph{Jordan-H\"{o}lder Theorem} (see Thm.\ 3.4.22) says that if $G$ is finite, then compositions series exist and are essentially unique. Namely,
+\begin{enumerate}[(I)]
+\item $G$ has a composition series, and 
+\item the collection of composition factors is unique; i.e.\ if 
+$$1 = N_0 \leq N_1 \leq N_2 \leq \cdots \leq N_{\ell-1} \leq N_\ell = G$$
+and 
+$$1 = M_0 \leq M_1 \leq M_2 \leq \cdots \leq M_{k-1} \leq M_k = G$$
+are two composition series for $G$, then $k = \ell$ and there is some permutation $\sigma$ of $\{1, \dots, \ell\}$ such that 
+$$N_i/ N_{i-1} \cong M_{\sigma(i)}/ M_{\sigma(i) - 1}, \quad \text{for } i = 1, \dots, \ell.$$
+\end{enumerate}
+Note that (I) is proven using a straightforward proof by (strong) induction on $|G|$. 
+\begin{enumerate}[(i)]
+\item Check that
+$$1 = N_0 \leq N_1 \leq N_2 \leq N_3 = D_8 \quad \text{and} \quad 
+	1 = M_0 \leq M_1 \leq M_2 \leq M_3 = D_8,$$
+where 
+$$N_1 = \<s\> \ \&\ N_2 = \<s, r^2\> \qquad \text{ and } \qquad M_1 = \<r^2\>  \ \&\ M_2 = \<r\>,$$
+both define composition series of $D_8$. Then show that, as (multi)sets, 
+$$\{N_3/N_2, N_2/N_1, N_1/N_0\} = \{M_3/M_2, M_2/M_1, M_1/M_0\}$$ 
+(up to isomorphism). 
+\item Prove the following special case of part (II) of Jordan-H\"{o}lder: Let $G$ be a finite group, and assume that 
+\begin{equation}\tag{$*$}\label{comp-series-1}
+1 = N_0 \leq N_1 \leq N_2 \leq \cdots \leq N_{\ell-1} \leq N_\ell = G
+\end{equation}
+and 
+\begin{equation}\tag{$**$}\label{comp-series-2}
+1 = M_0 \leq M_1 \leq M_2 = G.
+\end{equation}
+are both composition series of $G$. Use the Diamond Isomorphism Theorem to show that $\ell = 2$ and that the collection of composition factors are the same.
+
+{\footnotesize[Note: The proof of the general version of part (II) now follows from this special case by induction on $\min\{k, \ell\}$.]}
+\end{enumerate}
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+\end{document}
