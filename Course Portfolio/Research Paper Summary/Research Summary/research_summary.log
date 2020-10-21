@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.19)  16 OCT 2020 22:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.19)  19 OCT 2020 23:43
 entering extended mode
-**./HW5.tex
-(HW5.tex
+**./research_summary.tex
+(research_summary.tex
 LaTeX2e <2018-12-01>
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\amsart.cls"
 Document Class: amsart 2017/10/31 v2.20.4
@@ -1035,8 +1035,8 @@ LaTeX Font Info:    Redeclaring math symbol \bracelu on input line 907.
 LaTeX Font Info:    Redeclaring math symbol \braceru on input line 909.
 LaTeX Font Info:    Redeclaring math accent \widehat on input line 944.
 LaTeX Font Info:    Redeclaring math accent \widetilde on input line 946.
-)) (HW5.aux)
-\openout1 = `HW5.aux'.
+)) (research_summary.aux)
+\openout1 = `research_summary.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
 LaTeX Font Info:    ... okay on input line 105.
@@ -1097,7 +1097,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 Configuring pdfsync
 \PDFSYNC@ut=\write4
-\openout4 = `HW5.pdfsync'.
+\openout4 = `research_summary.pdfsync'.
 
 \PDFSYNCf@li@=\count150
 \PDFSYNC@rder=\count151
@@ -1126,11 +1126,12 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 105.
 LaTeX Info: Redefining \pageref on input line 105.
 LaTeX Info: Redefining \nameref on input line 105.
- (HW5.out) (HW5.out)
+ (research_summary.out) (research_summary.out)
 \@outlinefile=\write5
-\openout5 = `HW5.out'.
+\openout5 = `research_summary.out'.
 
- ABD: EveryShipout initializing macros
+
+ABD: EveryShipout initializing macros
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
 df.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1160,65 +1161,64 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+) [1{C:/Users/chris/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<lambek_pregroup.png, id=52, 939.51pt x 116.8365pt>
+File: lambek_pregroup.png Graphic file (type png)
+<use lambek_pregroup.png>
+Package pdftex.def Info: lambek_pregroup.png  used on input line 161.
+(pdftex.def)             Requested size: 516.7321pt x 64.26027pt.
+
+Overfull \hbox (76.97708pt too wide) in paragraph at lines 160--162
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
-[1{C:/Users/chris/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
-
- []
-
-[2] [3pdfTeX warning (ext4): destination with the same identifier (name{equatio
-n.0.1}) has been already used, duplicate ignored
-
-\PDFSYNC@@utput ...\PDFSYNCship@ut@ld \box \@cclv 
-                                                  
-l.242 \end{document}
-                    ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 242.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 242.
- (HW5.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 242.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 242.
-Package rerunfilecheck Info: File `HW5.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+[2 <./lambek_pregroup.png>]
+<vector_space.png, id=65, 467.94826pt x 360.74776pt>
+File: vector_space.png Graphic file (type png)
+<use vector_space.png>
+Package pdftex.def Info: vector_space.png  used on input line 169.
+(pdftex.def)             Requested size: 327.56154pt x 252.5217pt.
+ [3 <./vector_space.png>] [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 237.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 237.
+ (research_summary.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 237.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 237.
+Package rerunfilecheck Info: File `research_summary.out' has not changed.
+(rerunfilecheck)             Checksum: 6A22B94547465042247E6C53D5CC819E;258.
  ) 
 Here is how much of TeX's memory you used:
- 18629 strings out of 492895
- 346284 string characters out of 3123735
- 417078 words of memory out of 3000000
- 22021 multiletter control sequences out of 15000+200000
- 20553 words of font info for 72 fonts, out of 3000000 for 9000
+ 18641 strings out of 492895
+ 347004 string characters out of 3123735
+ 415451 words of memory out of 3000000
+ 22034 multiletter control sequences out of 15000+200000
+ 17177 words of font info for 61 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,18n,52p,846b,593s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,18n,52p,1451b,358s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\chris\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi6
-00\matha9.pk> <C:\Users\chris\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/m
-athabx/dpi600\matha6.pk> <C:\Users\chris\AppData\Local\MiKTeX\2.9\fonts/pk/ljfo
-ur/public/mathabx/dpi600\matha8.pk> <C:\Users\chris\AppData\Local\MiKTeX\2.9\fo
-nts/pk/ljfour/public/mathabx/dpi600\matha10.pk> <C:\Users\chris\AppData\Local\M
-iKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi657\matha10.pk><C:/Users/chris/AppD
-ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Use
-rs/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi1
-0.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmmi6.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi7.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/chris/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/chris/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/chr
-is/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C
-:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr8.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr9.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmti10.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/chris/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/chris/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pf
-b>
-Output written on HW5.pdf (3 pages, 175838 bytes).
+57\matha10.pk><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmbx10.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/chris/AppData/Local/Programs
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/chris/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/chr
+is/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr8.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr9.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/chris/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/chris/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/User
+s/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb>
+Output written on research_summary.pdf (4 pages, 218536 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 156 PDF objects out of 1000 (max. 8388607)
+ 22 named destinations out of 1000 (max. 500000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

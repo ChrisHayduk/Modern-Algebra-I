@@ -1,0 +1,181 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{6}
+\def\DUE{10/23/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math A4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+
+
+
+
+\begin{enumerate}[1.]
+\item  {\bf Symmetric and alternating groups.}
+\begin{enumerate}[(a)]
+\item In class we showed that $S_n$ is generated by $T = \{(i\ j) ~|~ 1 \leq i < j \leq n \}$, the set of transpositions in $S_n$. Show by induction on $|j-i|$, that for $i<j$, 
+$$(i\ j) = (i\ i+1) (i+1 \ i+2) \cdots (j-2\ j-1) (j-1 \ j) (j-2\ j-1) \cdots   (i+1 \ i+2)  (i\ i+1),$$
+and conclude $S_n$ is generated by $T' =  \{(i\ i+1) ~|~ 1 \leq i < n \}$, the set of adjacent transpositions.
+\item Let $x, y$ be distinct 3-cycles in $S_n$. \\
+{[\emph{Hint:} Give their entries names so you can reference them. Like, if $x = (a\  b\  c)$ is a three-cycle, you know $a, b$, and $c$ are distinct, and you know $x = (b\  c\ a) = (c\ a\  b) \ne (a\  c\  b)$. So you can assume without loss of generality things like $a$ is the smallest of the three, but \emph{not} things like $a < b < c$.]}
+\begin{enumerate}[(i)]
+\item Set $n=4$ and assume $x \neq y^{-1}$. Show $\<x, y\> = A_4$.\\
+{[\emph{Hint:} $x = (a\  b\ c)$ and $y = (\alpha\ \beta\  \gamma)$, then what does $x \ne y$ and $x \ne y^{-1}$ tell you about $\{a, b, c\} \cap \{\alpha, \beta, \gamma\}$?.]}
+\item Set $n=5$ and assume $x \neq y^{-1}$. Show that either\\
+\centerline{
+	$x$ and $y$ both fix some common elements of $[5]$}
+	\centerline{(there is some $i \in [5]$ such that $x(i) =i$ and $y(i) = i$)}
+\centerline{
+	and $\<x,y\> \cong A_4$,}
+	or\\
+\centerline{
+	$x$ and $y$ do not fix any common elements of $[5]$}
+	\centerline{(for all $i \in [5]$, if  $x(i) =i$ then $y(i) \neq i$)}
+\centerline{
+	and $\<x,y\> = A_5$.}
+{[\emph{Hint:} Try some examples.]}
+\item Show, for all $n$, that $\<x,y\>$ is isomorphic to one of $Z_3$, $A_4$, $A_5$, or $Z_3 \times Z_3$. \\
+{[\emph{Hint:} If a group is generated by two commuting elements $x$ and $y$ that otherwise satisfy no relations between them, then $\<x,y\> \cong \<x\>\times\<y\>$.]}
+\end{enumerate}
+\end{enumerate}
+
+
+\item {\bf Group actions.}
+\begin{enumerate}[(a)]
+\item Let $G \acts A$. Prove that if $a, b \in A $ and $b = g\cdot a$ for some $g \in G$, then 
+$G_b = g G_a g^{-1}$. \\
+Deduce that if $G$ acts transitively on $A$, then the kernel of the action is $\bigcap_{g \in G} g G_a g^{-1}$. 
+\item Let $S_3$ act on the set of ordered triples $A=\{(i, j, k) ~|~ i, j, k \in [3]\}$. 
+\begin{enumerate}[(i)]
+\item Find the orbits of $S_3 \acts A$. \\
+{[\emph{Hint}: Break into cases like $i=j=k$, $i=j \neq k$, etc. \emph{Avoid} writing out all the orbits explicitly.]}
+\item For each orbit $\cO$, choose one representative $a \in \cO$ and calculate $G_a$. Verify that $|G: G_a| = |\cO|$. 
+\end{enumerate}
+\item Suppose $G$ acts transitively on a finite set $A$ (i.e.\ $[a] = A$ for all $a \in A$), and let $H \normeq G$. Note that the action of $G$ on $A$ restricts to an action of $H$ on $A$, which is not \emph{necessarily} transitive anymore. {[\emph{Example}: $G = D_8$ acts transitively on $A = \{1,2,3,4\}$, but $H = \<r^2\>$ does not. The orbits under the action of $H$ are $\{1,3\}$ and $\{2,4\}$.]}
+
+\smallskip
+
+Let $\cO_1 = [a_1]_H$, $\cO_2= [a_2]_H$, \dots, $\cO_r= [a_r]_H$ be the distinct orbits of the action of $H$ on $A$. \\
+{[\emph{Hint}: It may be helpful to use set action notation. Namely, if $a \in A$, then the orbit of $a$ under the action of $H$ can be written as $H \cdot a = \{h\cdot a ~|~ h \in H \}$, whereas $G \cdot a$ is the orbit under the action of $G$.]}
+\begin{enumerate}[(i)]
+\item Show that for each $a \in A$, $H_a = G_a \cap H$. 
+\item Prove that $G$ permutes $\cO_1$, $\cO_2$, \dots, $\cO_r$, i.e.
+	\begin{itemize}
+	\item for each $g \in G$, $i \in [r]$, we have $g \cdot \cO_i = \cO_j$  for some  $j \in [r]$ \\
+		(where $g \cdot \cO_i := \{g \cdot a ~|~ a \in \cO_i\}$); and 
+	\item $\sigma_g: \{\cO_1, \cO_2, \dots, \cO_r\} \to \{\cO_1, \cO_2, \dots, \cO_r\}$ defined by $ \cO_i \mapsto g \cdot \cO_i$ is a bijection for each $g \in G$.
+	\end{itemize}
+\item Deduce that $G$ acts on the set $\cA = \{\cO_1, \cO_2, \dots, \cO_r\}$. Show that this action is transitive, and deduce that $|\cO_i| = |\cO_j|$ for all $i, j \in [r]$. 
+\item Fix $\cO \in \cA$, and let $a \in \cO$ (so that $\cO = H \cdot a$). Show that $|\cO| = |H: H \cap G_a|$ and that $r = |G :  HG_a|$ (where $r = |\cA|$ as above).\\
+\end{enumerate}
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}

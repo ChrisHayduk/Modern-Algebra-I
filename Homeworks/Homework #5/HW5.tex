@@ -119,8 +119,24 @@ Homework \HW\\
 \item  {\bf Properties of quotient groups.}
 \begin{enumerate}[(a)]
 \item Prove that in the quotient group $G/N$, (i) $(gN)^\alpha = g^\alpha N$ for all $\alpha \in \ZZ$, and (ii) that $|gN| = n$, where $n$ is the smallest positive integer such that $g^n \in N$ (or is infinite if $g^\alpha \notin N$ for all $\alpha$).
+
+\begin{proof} Let $G/N$ be a quotient group.
+\begin{enumerate}[(i)]
+
+\item 
+
+\item
+
+\end{enumerate}
+\end{proof}
+
 \item Prove that if $G/Z(G)$ is cyclic, then $G$ is abelian. \\
 	{\small [Hint: If $G/Z(G)$ is cyclic, with generator $x Z(G)$, show that every element of $G$ can be written in the form $x^a z$ for some integer $a \in \ZZ$ and some element $z \in Z(G)$.]}
+	
+\begin{proof}
+Note that $Z(G) = \{g \in G | gx = xg \; \text{for all} \; x \in G\}$. Suppose $G/Z(G)$ is cyclic. That is, $G/Z(G) = \langle xZ(G) \rangle$ for some $x \in G$.
+\end{proof}
+
 \item Let $N \normeq G$ and let $\overline{G} = G/N$. Prove that $\overline{x}$ and $\overline{y}$ commute in $\overline{G}$ if and only if $x^{-1} y^{-1} xy \in N$. 
 
 \smallskip
@@ -132,10 +148,44 @@ Note: The element $x^{-1} y^{-1} xy$ is called the \emph{commutator} of $x$ and 
 
 \begin{enumerate}[(a)]
 \item Show that if $|G| = pq$ for some primes $p$ and $q$ (not necessarily distinct) then either $G$ is abelian, or $Z(G) = 1$. \hfill {\small[Hint: See 1(b).]}
+\begin{proof}
+Suppose $|G| = pq$ where $p$ and $q$ are prime. Suppose that $p \neq q$. By Cauchy's Theorem, since $|G| = pq$ is finite and the prime $p$ divides $|G|$, we have that there exists an element $x \in G$ such that $|x| = p$. In addition, we have that there exists an element $y \in G$ such that $|y| = q$.
+\end{proof}
+
 \item Prove that if $H$ and $K$ are finite subgroups of $G$ whose orders are relatively prime, then $H \cap K = 1$. 
+
+\begin{proof}
+Suppose $H$ and $K$ are finite subgroups of $G$ where $|H| = p$, $|K| = q$ with $q$ and $p$ relatively prime. By Proposition 13 on page 93 of Dummit \& Foote, we have that,
+\begin{align*}
+|HK| &= \frac{|H||K|}{|H \cap K|}\\
+&= \frac{pq}{|H \cap K|}
+\end{align*}
+
+Suppose without loss of generality that $p \geq q$. Then we have that $|H \cap K| \leq |K| = q$. Now note that $\frac{pq}{|H \cap K|}$ must yield an integer answer. However, we have that there are no common factors of $p$ and $q$ in the set $\{2, 3, 4, \cdots, q-1\}$. Thus, our choices for $|H \cap K|$ are $1$ and $q$. We know that $|H \cap K| = q$ if $K \le H$. However, if $K \le H$, then by Lagrange's Theorem, $|K| = q$ divides $|H| = p$. Since $p, q$ are relatively prime, this is not possible. Hence, $|H \cap K| = 1$.\\
+
+Now, since both $H$ and $K$ are subgroups of $G$, we know that they must both contain the identity element $1$. Hence, $1 \in H \cap K$. Since $|H \cap K| = 1$, we have that the identity must be the only element of $H \cap K$. Thus, $H \cap K = 1$.
+\end{proof}
+
 \item Let $H \leq K \leq G$. Prove that $|G:H| = |G:K||K:H|$ (\textbf{do not} assume $G$ is finite).
+
+\begin{proof}
+Suppose $H \leq K \leq G$.
+\end{proof}
+
 \item Prove that if $H \normeq G$ and $|G:H| = p$ a prime, then for all $K \leq G$, either 
 $$K \leq H \qquad \text{ or } \qquad G = HK \text{ and } |K : K \cap H| = p.$$
+
+\begin{proof}
+Assume $K$ is not a subgroup of $H$. Note that since $H \normeq G$, we have that $N_G(H) = \{g \in G | gHg^{-1} = H\} = G$ by Theorem 6 on page 82. Since $K \leq G$, we have that $K \leq N_G(H)$. Now let $h \in H$ and $k \in K$. Then $khk^{-1} \in H$. Thus, we have $kh \in KH$, but also,
+\begin{align*}
+kh = (khk^{-1})k \in HK
+\end{align*}
+
+Hence, $KH \subset HK$. We also have $hk = k(k^{-1}hk) \in KH$. Thus, $HK \subset KH$. Hence, $HK = KH$. We can then apply Proposition 14 on page 94, which states that $HK$ is a subgroup of $G$.\\
+
+Now fix $g \in G$.
+Note that since $H \normeq G$, we have that $N_G(H) = \{g \in G | gHg^{-1} = H\} = G$ by Theorem 6 on page 82. Since $K \leq G$, we have that $K \leq N_G(H)$. Hence, we can apply the Diamond Isomorphism Theorem, which states that $HK \leq G$
+\end{proof}
 
 \end{enumerate}
 
