@@ -1,0 +1,276 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+
+
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+\newcommand{\ProblemID}[2]{{\def\arraystretch{1.5}
+	\begin{tabular}{|lr|}\hline
+	Problem: & \bf #1\\\hline
+	No.\ stars:& \bf #2\\\hline\end{tabular}}}
+
+
+\newcommand{\Rubric}[1]{$~$\\\vfill \hfill{\def\arraystretch{1.75}\begin{tabular} {|c|c|} \hline
+#1 & Points Possible  \\ \hline \hline
+complete & \hspace{3mm} 0 \hspace{3mm} 1 \hspace{3mm} 2 \hspace{3mm} 
+			3 \hspace{3mm} 4 \hspace{3mm} 5 \hspace{3mm} \\ \hline
+mathematically valid & \hspace{3mm} 0 \hspace{3mm} 1 \hspace{3mm} 2 \hspace{3mm} 
+			3 \hspace{3mm} 4 \hspace{3mm} 5 \hspace{3mm} \\ \hline
+readable/fluent & \hspace{3mm} 0 \hspace{3mm} 1 \hspace{3mm} 2 \hspace{3mm} 
+			3 \hspace{3mm} 4 \hspace{3mm} 5 \hspace{3mm} \\ \hline
+Total:& \qquad\qquad\qquad(out of 15)\\
+\hline
+\end{tabular}}
+\pagebreak}
+
+\title{Proof portfolio draft, round 2 -- \IDNUMBER}
+\author{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\IDNUMBER}
+\lhead{Proof portfolio draft, round 2}
+\rfoot{\thepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\def\IDNUMBER{5152}%replace "YOUR-ID-NUMBER" with the ID number given to you by Prof Daugherty (NOT your CCNY emplid, or any other number).
+
+\begin{document}
+\begin{flushright}
+\fbox{ID: {\bf \IDNUMBER}}\\\smallskip
+Math A4900\\
+Proof portfolio draft, Round 2\\
+November 15, 2020
+\end{flushright}
+\medskip
+\hrule
+\medskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Copy and past one of these %%%%%%%%%
+%%%%%%%%% for each problem you rewrite %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that every finitely generated subgroup of $\QQ$ is cyclic.\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{4A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{1}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Let $H$ be a finitely generated subgroup of $\QQ$ and suppose that there is a finite set $\QQ$ such that $H = \langle A \rangle$. Now consider $k$, the product of all the denominators that appear in $A$. Then every element $a/b \in A$ can be re-written as $\frac{a \cdot k/b}{b \cdot k/b} = \frac{a \cdot k/b}{k}$ since $b$ is in the product that yields $k$ and hence is a divisor of $k$. Thus, we can rewrite every fraction in $A$ as a fraction with denominator $k$. That is, every fraction in $A$ can be written as $n/k$ for some $n \in \ZZ$. This lets us conclude that, $$H = \langle A \rangle \leq \langle 1/k \rangle$$
+
+Thus, by Theorem 7 in $\S 2.3$ of DF, we have that $H$ is cyclic since $\langle 1/k \rangle$ is cyclic.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that if $G/Z(G)$ is cyclic, then $G$ is abelian.
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{5A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Suppose $G/Z(G)$ is cyclic. That is, there is an element $x \in G$ such that $G/Z(G) = \langle xZ(G) \rangle$. That is, for every $g \in G$, we can rewrite $gZ(G)$ as $x^{\ell}Z(G)$ for some $\ell \in \ZZ$. Hence, $gZ(G) = x^{\ell}Z(G)$. By Proposition 4, we then have,
+\begin{align*}
+x^{-\ell}g \in Z(G)
+\end{align*}
+
+But if $x^{-\ell}g \in Z(G)$, then,
+\begin{align*}
+x^{\ell}(x^{-\ell}g) = g \in x^{\ell}Z(G)
+\end{align*}
+
+Hence, $g = x^{\ell}z$ for some $z \in Z(G)$ (in particular, $z = x^{\ell}g$). Since $g$ and $\ell$ were arbitrary, this holds for every element $g \in G$. Now let us fix $g_1, g_2 \in G$ such that $g_1 = x^az_1$ and $g_2 = x^bz_2$ where $z_1, z_2 \in Z(G)$. Since $Z(G)$ is the set of elements that commute with everything in $G$, we have,
+\begin{align*}
+g_1g_2 &= x^az_1 \cdot x^bz_2\\
+&= x^ax^bz_1z_2\\
+&= x^{a+b}z_2z_1\\
+&= x^{b+a}z_2z_1\\
+&= x^bx^az_2z_1\\
+&= x^bz_2x^az_1\\
+&= g_2g_1
+\end{align*}
+
+Thus, $G$ is an abelian group.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that if $H$ and $K$ are finite subgroups of $G$ whose orders are relatively prime, then $H \cap K = 1$.
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{5B}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{1}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Suppose $H$ and $K$ are finite subgroups of $G$ where $|H| = p$, $|K| = q$ with $q$ and $p$ relatively prime. By Proposition 13 on page 93 of Dummit \& Foote, we have that,
+\begin{align*}
+|HK| &= \frac{|H||K|}{|H \cap K|}\\
+&= \frac{pq}{|H \cap K|}
+\end{align*}
+
+Suppose without loss of generality that $p \geq q$. Then we have that $|H \cap K| \leq |K| = q$. Now note that $\frac{pq}{|H \cap K|}$ must yield an integer answer. However, we have that there are no common factors of $p$ and $q$ in the set $\{2, 3, 4, \cdots, q-1\}$. Thus, our choices for $|H \cap K|$ are $1$ and $q$. We know that $|H \cap K| = q$ if $K \le H$. However, if $K \le H$, then by Lagrange's Theorem, $|K| = q$ divides $|H| = p$. Since $p, q$ are relatively prime, this is not possible. Hence, $|H \cap K| = 1$.
+
+\par
+Now, since both $H$ and $K$ are subgroups of $G$, we know that they must both contain the identity element $1$. Hence, $1 \in H \cap K$. Since $|H \cap K| = 1$, we have that the identity must be the only element of $H \cap K$. Thus, $H \cap K = 1$.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Let $x, y$ be distinct $3$-cycles in $S_5$. Show that $\langle x, y \rangle$ is isomorphic to one of $Z_3$, $A_4$, or $A_5$.
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{6B.I}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Let $x, y$ be distinct $3$-cycles in $S_5$. There are $3$ possible cases: $y = x^{-1}$, $y \neq x^{-1}$ and they overlap at one element, in which case they permute all $5$ elements, or $y \neq x^{-1}$ and they overlap at two elements, in which case they permute $4$ elements and fix the fifth element.
+
+\par
+Let us examine the first case, $y = x^{-1}$. Since $y = x^{-1}$, we must have that $y^{-1} \in \langle x \rangle$. Hence, $\langle x, y \rangle = \langle x \rangle$. Note that if we let $x = (a \ b \ c)$, we have that,
+\begin{align*}
+x^2 &= (a \ c \ b)\\
+x^3 &= 1
+\end{align*}
+
+So $\langle x \rangle$ is a cyclic group of order $3$. $Z_3$ is also a cyclic group of order $3$ and, by Theorem 4 in $\S 2.3$ of Dummit and Foote, we have that any two cyclic groups of the same order are isomorphic. Hence, in this case, $\langle x, y \rangle = \langle x \rangle \cong Z_3$.
+
+\par
+Now assume $y \neq x^{-1}$ and that $x, y$ overlap at one element. Hence, $x$ and $y$ permute all $5$ elements in $\{1, 2, 3, 4, 5\}$.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Show that if $H$ has finite index $n$ in $G$, then there is a normal subgroup $K \normeq G$ with $K \leq H$ and $|G : K| \leq n!$.
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{7A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Suppose $H$ has finite index $n$ in $G$.
+\end{proof}
+
+\Rubric{}
+\end{document}

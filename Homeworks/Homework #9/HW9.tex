@@ -1,0 +1,402 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+
+\def\fN{\mathfrak{N}}
+
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\img{\mathrm{img}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{9}
+\def\DUE{11/13/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math A4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+
+
+
+
+\begin{enumerate}[1.]
+\item {\bf Rings.}
+\begin{enumerate}[(a)]
+\item The \emph{center} of a ring $R$ is $Z(R) = \{z \in R ~|~ zr = rz \text{ for all } r \in R\}$ (i.e.\ the center of the underlying multiplicative semigroup).
+\begin{enumerate}[(i)]
+\item Show that $Z(R)$ is a subring of $R$ containing $0$ and $1$ (if it exists).
+
+\begin{proof}
+We know $Z(R) \subset R$ by definition by the set. In addition, we have that $Z(R) \neq \emptyset$ because $0r = 0 = r0$ for all $r \in R$. Hence, $0 \in Z(R)$. Moreover, if $1$ exists, then $1r = r = r1$ for all $r \in R$, so $1 \in Z(R)$ as well. Now fix $a, b \in Z(R)$. Then $ar = ra$ and $br = rb$ for all $r \in R$. Hence,
+\begin{align*}
+(a-b)r &= ar - br\\
+&= ra - rb\\
+&= r(a - b)
+\end{align*}
+
+for all $r \in R$. Thus, $a - b \in Z(R)$ as well, and so $Z(R)$ is closed under addition. Now, we will check multiplication,
+\begin{align*}
+(ab)r &= a(br)\\
+&= a(rb)\\
+&= (ar)b\\
+&= (ra)b\\
+&= r(ab)
+\end{align*}
+
+So for all $r \in R$, we have $(ab)r = r(ab)$. Hence, $ab \in Z(R)$ and $Z(R)$ is closed under multiplication. Thus, $Z(R)$ is a subring of $R$
+\end{proof}
+
+\item Is $Z(R)$ necessarily an ideal of $R$?
+
+\begin{proof}
+Recall that $Z(R)$ is an ideal of $R$ if $$rZ(R), Z(R)r \subset Z(R)$$ for every $r \in R$.
+
+Let $r \in R$ such that there exists $r' \in R$ which $r$ does not commute with. That is, $r \not\in Z(R)$. If such an $r$ exists, then consider $rZ(R)$. Fix $a \in Z(R)$ and consider $ra$. We have that $r'(ra) \neq (ra)r'$ because $r$ and $r'$ do not commute. Hence, $ra \not\in Z(R)$ and so $rZ(R) \not\subset Z(R)$. Thus, $Z(R)$ is not necessarily an ideal of $R$.
+
+\par
+$Z(R)$ is an ideal of $R$ if $Z(R) = \{0\}$ (i.e. the only element that commutes with everything in $R$ is $0$) or $Z(R) = R$ (i.e. $R$ is a commutative ring).
+\end{proof}
+
+\item Show that the center of a division ring is a field.
+
+\begin{proof}
+Recall that division ring $R$ is a ring with identity $1$, where $1 \neq 0$, and with the property that every nonzero element $a \in R$ has a multiplicative inverse, i.e. there exists $b \in R$ such that $ab = ba = 1$. Since every element commutes with its inverse, we have that $Z(R)$ is closed under multiplication, subtraction, and inverses.
+
+\par
+Now recall $Z(R)$ is a field if $(Z(R), +)$ is an abelian group and $(Z(R) - \{0\}, \cdot)$ is also an abelian group, and the following distributive law holds: $$a \cdot (b + c) = (a \cdot b) + (a \cdot c)$$ for all $a, b, c \in Z(R)$.
+
+\par
+We have that $(Z(R), +)$ is an abelian group based on the definition of rings and the fact that $Z(R)$ is a subring of $R$. Now consider $(Z(R) - \{0\}, \cdot)$. From properties of rings, we know that $\cdot$ is a well-defined operation and that is is associative. Hence, we just need to check that $(Z(R) - \{0\}, \cdot)$ has an identity element and is closed under inverses in order to show that it is a group.
+
+\par
+In part $(i)$, we proved that if $1$ exists, we have that $1 \in Z(R)$. Hence, $1 \in Z(R) - \{0\}$. 
+\end{proof}
+\end{enumerate}
+\item Decide which of the following are  ideals in $\ZZ \times \ZZ$:
+$$\{ (a,a) ~|~ a \in \ZZ\}, \qquad \{(a, -a) ~|~ a \in \ZZ\}, \qquad \{(2a, 0) ~|~ a \in \ZZ\}.$$
+
+\begin{proof}
+$\{(a, a) \ | \ a \in \ZZ\}$ is not an ideal in $\ZZ \times \ZZ$ because $(2, 3) \in \ZZ \times \ZZ$ and $(1, 1) \in \{(a, a) \ | \ a \in \ZZ\}$ but $(2, 3) \cdot (1, 1) = (2, 3) \not\in \{(a, a) \ | \ a \in \ZZ\}$. Hence, $$(2, 3) \cdot \{(a, a) \ | \ a \in \ZZ\} \not \subset \{(a, a) \ | \ a \in \ZZ\}$$
+
+\par
+$\{(a, -a) \ | \ a \in \ZZ\}$ is also not an ideal in $\ZZ \times \ZZ$ because $(2, 3) \in \ZZ \times \ZZ$ and $(1, -1) \in \{(a, -a) \ | \ a \in \ZZ\}$ but $(2, 3) \cdot (1, -1) = (2, -3) \not\in \{(a, -a) \ | \ a \in \ZZ\}$. Hence, $$(2, 3) \cdot \{(a, -a) \ | \ a \in \ZZ\} \not \subset \{(a, -a) \ | \ a \in \ZZ\}$$
+
+\par
+$\{(2a, 0 \ | \ a \in \ZZ\}$ is an ideal in $\ZZ \times \ZZ$. Fix $ (b_1, b_2) \in \ZZ \times \ZZ$ and fix $(2a, 0) \in \{(2a, 0 \ | \ a \in \ZZ\}$. Then we have,
+\begin{align*}
+(b_1, b_2) \cdot (2a, 0) &= (b_1 \cdot 2a, b_2 \cdot 0)\\
+&= (2(b_1a), 0)
+\end{align*}
+
+We are able to make the last change because multiplication in $\ZZ$ is commutative. In addition, since $b_1, a$ in $\ZZ$ and $\ZZ$ is closed under multiplication, we have that $b_1a \in \ZZ$ as well. Hence, $(2(b_1a), 0) \in \{(2a, 0 \ | \ a \in \ZZ\}$. Since $b_1, b_2, a \in \ZZ$ were chosen to be arbitrary in $\ZZ$, we have that $\{(2a, 0 \ | \ a \in \ZZ\}$ is a left ideal of $\ZZ \times \ZZ$.
+
+\par
+Now fix $(a, b), (c, d) \in \ZZ \times \ZZ$. Then we have,
+\begin{align*}
+(a, b) \cdot (c, d) &= (a \cdot c, b \cdot d)\\
+&= (c \cdot a, d \cdot b)\\
+&= (c, d) \cdot (a, b)
+\end{align*}
+
+by the commutativity of multiplication in $\ZZ$. Hence, $\ZZ \times \ZZ$ is a commutative ring and we have that the notions of left ideals and right ideals are the same. As a result, we have shown that $\{(2a, 0 \ | \ a \in \ZZ\}$ is closed under left and right multiplication by elements from $\ZZ \times \ZZ$, and hence $\{(2a, 0 \ | \ a \in \ZZ\}$ is an ideal of $\ZZ \times \ZZ$.
+\end{proof}
+\end{enumerate}
+
+\item {\bf Nilpotent elements.} 
+We call an element $x \in R$ \emph{nilpotent} if $x^n = 0$ for some $n \in \ZZ_{>0}$.  
+\begin{enumerate}[(a)]
+\item Explain why the only nilpotent element of any integral domain is $0$. 
+
+\begin{proof}
+Recall that an integral domain is a commutative ring with identity $1 \neq 0$ and no zero divisors. That is, there are no nonzero elements $a,b$ in $R$ such that $ab = 0$ (so at least one of $a$ or $b$ must be $0$).
+
+\par
+Now let $x \in R$ and suppose $x$ is nilpotent. That is, $x^n = 0$ for some $n \in \ZZ_{>0}$. Since $R$ is closed under multiplication, we have $x^{n-1} \in R$. Moreover, 
+\begin{align*}
+x \cdot x^{n-1} &= x^n\\
+&= 0
+\end{align*}
+
+However, this implies that $x$ is a $0$ divisor in $R$ since $x \cdot x^{n-1} = 0$. But since $R$ is an integral domain, we know that either $x^{n-1}$ or $x$ is $0$. If $x = 0$ we are done, so let us assume that $x \neq 0$. Thus, by the fact that $R$ is an integral domain, we have $x^{n-1} = 0$. Since $n$ was arbitrary, this holds for any $n \in \ZZ_{>0}$. Thus, by induction we have,
+\begin{align*}
+x^2 = x \cdot x = 0
+\end{align*}
+
+And hence, $x = 0$. Thus, $0$ is the only nilpotent element in an integral domain.
+\end{proof}
+
+\item Prove that if $R$ is commutative, then the \emph{nilradical}, defined by 
+$$\fN(R) = \{ x\in R ~|~ x \text{ is nilpotent }\},$$
+is an ideal of $R$. {[You may use the Binomial Theorem given in Exercise 7.3.25 without proof to show closure under addition or subtraction.]}
+
+\begin{proof}
+Let $x, y \in \fN(R)$. Then $x^n = y^m = 0$ for some $n, m$. We need to show that $(x-y)^{\ell} = 0$ for some $\ell$ in order to show that $\fN(R)$ is closed under subtraction. Let us reformulate this as $(x + (-y))^{\ell}$ and apply the Binomial Theorem from Exercise 7.3.25,
+\begin{align*}
+(x + (-y))^{\ell} &= \sum_{k=0}^{\ell} {\ell \choose k} x^k (-y)^{\ell - k}
+\end{align*}
+\end{proof}
+
+\item Prove that if $R$ is commutative, then the only nilpotent element of $R/\fN(R)$ is 0. Conclude that $\fN(R/\fN(R)) = 0$. {[Namely, modding out by the nilradical removes all nilpotent elements.]}
+
+\begin{proof}
+Let $r \in R$ and suppose,
+\begin{align*}
+\bar{0} &= \bar{r}^{\ell}\\
+&= (r + \fN(R))^{\ell}\\
+&= r^{\ell} + \fN(R)
+\end{align*}
+
+for some $\ell \in \ZZ_{>0}$.
+
+\par
+Since $0 + \fN(R) = r^{\ell} + \fN(R)$, we have that $r^{\ell} \in \fN(R)$. Hence, there exists $n \in \ZZ_{> 0}$ such that $(r^{\ell})^n = r^{\ell n} = 0$. Since $\ell, n \in \ZZ_{> 0}$, we have that $\ell n \in \ZZ_{> 0}$. Thus, $r$ is nilpotent and hence is in $\fN(R)$. As a result, $\bar{r} = \bar{0}$ and the only nilpotent element of $\fN(R/\fN(R))$ is $\bar{0}$.
+\end{proof}
+
+\item Show that, in $M_2(\RR)$, 
+$$x = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \quad \text{ and } \quad y = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$$
+are both nilpotent, but $x + y$ is not. Conclude that the nilradical $\fN(R)$ is not necessarily an ideal if $R$ is not commutative.  
+
+\begin{proof}
+We have,
+\begin{align*}
+x^2 &= \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \cdot \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \\
+&= \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
+\end{align*}
+
+and,
+\begin{align*}
+y^2 &= \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} \cdot \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}\\
+&= \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
+\end{align*}
+
+Hence, both $x$ and $y$ are nilpotent. Now let us consider,
+\begin{align*}
+x + y = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+\end{align*}
+
+Now we will check the powers of $x+y$ to see if $(x+y)^n = 0$ for any $n \in \ZZ_{>0}$,
+\begin{align*}
+(x + y)^2 &= \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \cdot \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\\
+&= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}\\
+&= I_2
+\end{align*}
+
+and so,
+\begin{align*}
+(x + y)^3 &= (x + y) \cdot (x + y)^2\\
+&= (x  + y) \cdot I_2\\
+&= x + y
+\end{align*}
+
+\begin{align*}
+(x + y)^4 &= (x + y) \cdot (x + y)^3\\
+&= (x  + y) \cdot (x + y)\\
+&= I_2
+\end{align*}
+
+Hence, $(x + y)^n = x + y, I_2$ for any $n \in \ZZ_{n > 0}$. Thus, $x + y$ is not nilpotent.
+\end{proof}
+\end{enumerate}
+
+
+\item {\bf Homomorphisms.}
+\begin{enumerate}[(a)]
+\item Show that $2\ZZ$ and $3\ZZ$ are isomorphic as groups but not as rings. {[Hint: Note that any ring homomorphism has to also be an additive group homomorphism. So the additive generators of $2\ZZ$ have to map to additive generators of $3\ZZ$.]}
+
+\begin{proof}
+Define $\varphi: 2\ZZ \to 3\ZZ$ by $x \mapsto 3/2 \cdot x$. Now fix $a, b \in 2\ZZ$. We have,
+\begin{align*}
+\varphi(a + b) &= 3/2 \cdot (a + b)\\
+&= 3/2 \cdot a + 3/2 \cdot b\\
+&= \varphi(a) + \varphi(b)
+\end{align*}
+
+As a result, we have that $\varphi$ is a group homomorphism on the additive groups. Now let $b \in 3\ZZ$. Then $b = 3x$ for some $x \in 3\ZZ$. Let $a = 2/3 \cdot b = 2/3 \cdot 3x = 2x$. Then $a \in 2\ZZ$ and we have $\varphi(a) = 3/2 \cdot a = 3/2 \cdot 2/3 b = b$. Hence, $\varphi$ is surjective.
+
+\par
+Now fix $a_1, a_2 \in 2\ZZ$ and assume $\varphi(a_1) = \varphi(a_2)$. Then we have,
+\begin{align*}
+&3/2 \cdot a_1 = 3/2 \cdot a_2\\
+\implies &a_1 = a_2
+\end{align*}
+
+Thus, $\varphi$ is also injective and hence is a bijection. As a result, we have that $\varphi$ is an isomorphism of the additive groups. However, note now that,
+\begin{align*}
+\varphi(ab) &= 3/2(ab)\\
+&\neq (3/2)^2 ab\\
+&= \varphi(a) \cdot \varphi(b)
+\end{align*}
+
+Hence, $\varphi$ is not a ring isomorphism.
+\end{proof}
+
+\item Let $R$ be the set of (weakly) upper-triangular matrices in $M_2(\ZZ)$. Prove that 
+$$\varphi: R \to \ZZ \times \ZZ \quad \text{ defined by } \quad \begin{pmatrix} a & b \\ 0 & d \end{pmatrix} \mapsto (a,d)$$
+is a surjective homomorphism and calculate its kernel. 
+
+\begin{proof}
+Fix $a, b \in R$ with,
+\begin{align*}
+a = \begin{pmatrix} a_1 & a_2 \\ 0 & a_3 \end{pmatrix}
+\end{align*}
+
+and,
+\begin{align*}
+b = \begin{pmatrix} b_1 & b_2 \\ 0 & b_3 \end{pmatrix}
+\end{align*}
+
+Then, we have,
+\begin{align*}
+a + b = \begin{pmatrix} a_1 + b_1 & a_2 + b_2\\ 0 & a_3 + b_3 \end{pmatrix}
+\end{align*}
+
+and,
+\begin{align*}
+ab &= \begin{pmatrix} a_1b_1 & a_1b_2 + a_2b_3 \\ 0 & a_3b_3 \end{pmatrix}
+\end{align*}
+
+Now we will check the additive homomorphism property,
+\begin{align*}
+\varphi(a + b) &= (a_1 + b_1, a_3 + b_3)\\
+&= (a_1, a_3) + (b_1, b_3)\\
+&= \varphi(a) + \varphi(b)
+\end{align*}
+
+And the multiplication property,
+\begin{align*}
+\varphi(ab) &= (a_1b_1, a_3b_3)\\
+&= (a_1, a_3) \cdot (b_1, b_3)\\
+&= \varphi(a) \cdot \varphi(b)
+\end{align*}
+
+Now let $(a, d) \in \ZZ \times \ZZ$ and define $\begin{pmatrix} a & b \\ 0 & d \end{pmatrix}$ where $a, b, d \in \ZZ$. Then $\begin{pmatrix} a & b \\ 0 & d \end{pmatrix} \in R$ and $$\varphi\left(\begin{pmatrix} a & b \\ 0 & d \end{pmatrix}\right) = (a, d)$$
+
+Hence, $\varphi$ is surjective. Now we need to find the kernel of $\varphi$, which is the set of elements that map to $(0, 0) \in \ZZ \times \ZZ$. Note that, in the general matrix, $$\begin{pmatrix} a & b \\ 0 & d \end{pmatrix}$$
+
+we must have $a, d = 0$ in order for $\varphi\left(\begin{pmatrix} a & b \\ 0 & d \end{pmatrix}\right) = (0, 0)$. Thus,
+\begin{align*}
+\text{ker}(\varphi) = \left\{\begin{pmatrix} 0 & b \\ 0 & 0 \end{pmatrix} \ | \ b \in \ZZ\right\}
+\end{align*}
+\end{proof}
+
+\item Let $R$ and $S$ be rings with identities $1_R$ and $1_S$, respectively. Let $\varphi: R \to S$ be a non-zero ring homomorphism. Prove that if $\varphi(1_R) \neq 1_S$, then $\varphi(1_R)$ is a zero divisor in $S$. 
+
+\begin{proof}
+Suppose $\varphi: R \to S$ is a non-zero ring homomorphism and $\varphi(1_R) \neq 1_S$.
+\end{proof}
+
+\end{enumerate}
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

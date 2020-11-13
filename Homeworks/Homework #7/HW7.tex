@@ -1,0 +1,205 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{7}
+\def\DUE{10/30/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math A4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+
+
+
+
+\begin{enumerate}[1.]
+\item {\bf Left actions of groups on themselves}
+\begin{enumerate}[(a)]
+\item Show that if $H$ has finite index $n$ in $G$, then there is a normal subgroup $K \normeq G$ with $K \leq H$ and $|G:K| \leq n!$. 
+\begin{proof}
+Suppose $H$ has finite index $n$ in $G$. As described in DF, \S 4.2, p. 119, let us label the left cosets of $H$ with integers $1, 2, \ldots, n$. Thus, we can list the distinct left cosets of $H$ in $G$ as $a_1H, a_2H, \ldots, a_mH$ and for each $g \in G$ the permutation $\sigma_g$ may be described as a permutation of the indices $1, 2, \ldots, n$ as follows:
+\begin{align*}
+\sigma_g(i) = j \ \text{if and only if} \ ga_iH = a_jH
+\end{align*}
+
+Hence if we let $\pi_H = \{\sigma_g \ | \ g \in G\}$. That is, $\pi_H$ is the permutation representation afforded by the action. Then, by DF, \S 4.2, Theorem 3, we have that the kernel of the action (i.e. the kernel of $\pi_H$) is $\cap_{x \in G} xHx^{-1}$, and $\ker \pi_H$ is the largest normal subgroup of $G$ contained in $H$. Hence, we know that $\ker \pi_H \normeq G$ and $\ker \pi_H \leq H$. Thus, this normal subgroup exists and we will call it $K$. Now we need to show that $|G:K| \leq n!$.\\
+
+We know $|G \ : \ H| = n$.
+\end{proof}
+
+\item Prove that every non-abelian group of order 6 has a non-normal subgroup of order 2. Use this to classify all groups over order 6 (up to isomorphism). {[Hint: What are the possible orders of elements? For the second part, what are the abelian groups of order 6? For a non-abelian order-6 group, produce an injective homomorphism into $S_3$.]}
+
+\begin{proof}
+Let $G$ be a group such that $G$ is non-abelian and $|G| = 6$. Since $|G| < \infty$, we have that $G$ is a finite group. In addition, note $2 \divides 6$ and $2$ is prime. Hence, we can apply Cauchy's Theorem which states that $G$ has an element of order $2$. Let us call this element $x \in G$. Then,
+\begin{align*}
+H = \langle x \rangle = \{e, x\}
+\end{align*}
+
+Note that $e, x \in H, G$, so $H \subset G$ and $H \neq \emptyset$. In addition, 
+\begin{align*}
+xe^{-1} &= xe\\
+&= x \in H
+\end{align*}
+
+and,
+\begin{align*}
+ex^{-1} &= ex\\
+&= x \in H
+\end{align*}
+
+Hence, for every $x, y \in H$, we have that $xy^{-1} \in H$. Thus, $H$ satisfies the subgroup criterion and so $H \le G$. Now fix $y \in G$ such that $y \neq x, e$. We know such an element exists since $|G| = 6$. Furthermore, since $G$ is non-abelian, we can fix $y$ such that $xy \neq yx$. If we could not, then it would mean that $x$ commutes with all elements of $G$. Consider $yxy^{-1}$ and suppose $yxy^{-1} \in H$. Then $yxy^{-1} = x$ or $yxy^{1} = e$. In the first case, note that $yxy^{-1} = x$ implies that $yx = xy$, a contradiction. In the second case, we have that $yxy^{1} = e$ implies that $yx = y$, which implies that $x = e$. However, we know $x \neq e$, so this also a contradiction. Hence, $yxy^{-1} \not\in H$ and thus $H$ is a non-normal subgroup of order $2$.
+\end{proof}
+
+\end{enumerate}
+
+\item {\bf Conjugacy classes}
+\begin{enumerate}
+\item If the center of $G$ is of index $n$, prove that every conjugacy class has at most $n$ elements. 
+
+\begin{proof}
+Recall that the center of $G$ is defined as $Z(G) = \{g \in G \ | \ gx = xg \ \text{for all} \ x \in G\}$. We have that $|G \ : \ Z(G)| = n$. Now fix $s \in G$. Then $C_G(s) = \{g \in G \ | \ gsg^{-1} = s\}$. If $gsg^{-1} = s$, then we can multiply by $g$ on the right and get $gs = sg$. Thus, we can reformulate the above definition as $C_G(s) = \{g \in G \ | \ gsg^{-1} = s\}$. Now observe that if $g \in Z(G)$, then $gx = xg$ for all $x \in G$. Hence, we have that $g \in C_G(s$ and so $Z(G) \subset C_G(S)$. Thus, $|Z(G)| \leq |C_G(s)|$. Thus, by Lagrange's Theorem we have,
+\begin{align*}
+|G \ : \ C_G(s)| = \frac{|G|}{|C_G(s)|} \leq \frac{|G|}{|Z(G)|} = |G \ : \ Z(G)| = n
+\end{align*}
+
+Thus, by DF, \S 4.3, Proposition 6, we have that the number of conjugates of $s$ in $G$ is less than or equal to $n$. Hence, the conjugacy class of $s$ (i.e. orbit of $s$ in $G$ acting on itself of conjugation) has at most $n$ elements. Since $s$ was arbitrary, this holds for every $s \in G$.
+\end{proof}
+
+\item A subgroup $M \le G$ is \emph{maximal} if $M \ne G$ and if $M \le H \le G$, then $H = M$ of $H = G$.  (Assume $G$ is finite).
+
+(i) Prove that if $M < G$ is maximal, then  $N_G(M) = M$ or $G$. (ii) Deduce that if a maximal subgroup $M$ is not normal, then the number of non-identity elements of $G$ that are contained in conjugates of $M$ is at most $(|M|-1)|G:M|$, i.e.
+$$\left| \left(\bigcup_{g \in G} g M g^{-1} \right) - \{1\} \right| \le (|M|-1)|G:M|$$
+(iii) Deduce further that for any $H < G$, the set $\{gHg^{-1} ~|~ g \in G\}$ does \emph{not} partition $G$ (in contrast to the set of left cosets).
+\begin{proof}
+
+\textbf{(i)} Suppose $M < G$ is maximal and consider $N_G(M) = \{g \in G \ | \ gMg^{-1} = M\}$. Suppose $M$ is normal. Then by DF, \S 3.1, Theorem 6, we have that $N_G(M) = G$. Now suppose $M$ is not normal.
+
+
+\textbf{(ii)}
+
+
+\textbf{(iii)} 
+\end{proof}
+\item Suppose $G$ is a finite group with $r$ conjugacy classes. Let $g_1, \dots, g_r$ be representatives of those $r$ distinct conjugacy classes. Show that if these representatives all pairwise commute, then $G$ is abelian.
+
+\begin{proof}
+Suppose $G$ is a finite group with $r$ conjugacy classes. Suppose that the representatives for these classes, $g_1, g_2, \ldots, g_r$ pairwise commute. Fix $i, j \in \{1, \ldots, r\}$ with $i \neq j$. Then, $g_ig_j = g_jg_i$. Now fix $a$ in the conjugacy class of $g_i$ and $b$ in the conjugacy class of $g_j$. Then there exists $g, g' \in G$ such that $gag^{-1} = g_i$ and $g'bg'^{-1} = g_j$. Hence, we have that $g_ig_j = g_jg_i$ implies,
+\begin{align*}
+gag^{-1}g'bg'^{-1} &= g'bg'^{-1}gag^{-1}
+\end{align*}
+\end{proof}
+
+\item Let $G$ be a finite group of odd order. Prove that if $x \ne 1$, then $x$ and $x^{-1}$ are not conjugate. 
+
+\begin{proof}
+Suppose that $G$ is a finite group of odd order and that $x \in G$ such that $x \neq 1$. Suppose $x$ and $x^{-1}$ are conjugate in $G$. That is, there is some $g \in G$ such that $x^{-1} = gxg^{-1}$. This implies that $x^{-1}g = gx$ and hence $x^{-1}gx^{-1} = g$
+\end{proof}
+
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

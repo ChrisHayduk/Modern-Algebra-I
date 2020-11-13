@@ -1,0 +1,240 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\img{\mathrm{img}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{8}
+\def\DUE{11/06/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math A4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+
+
+
+
+\begin{enumerate}[1.]
+\item \textbf{Direct products.}
+\begin{enumerate}[(a)]
+\item Let $G = A_1 \times \cdots \times A_n$, and for each $i$, let $B_i$ be a normal subgroup of $A_i$. Prove that $B_1 \times \cdots \times B_n \normeq G$ and that 
+$$(A_1 \times \cdots \times A_n)/(B_1 \times \cdots \times B_n) \cong (A_1/B_1) \times \cdots \times (A_n/B_n).$$
+{[Hint: 
+You may use (without proof) the fact that, for groups $C_1, \dots, C_n$, if  for each $i$, you have a homomorphism $\varphi_i: A_i \to C_i$, then 
+$$\varphi_1 \times \cdots \times \varphi_n: A_1 \times \cdots \times A_n \to C_1 \times \cdots \times C_n$$
+defined by 
+$$(a_1, \dots, a_n) \mapsto (\varphi(a_1), \dots, \varphi(a_n))$$
+is a homomorphism as well.]}
+
+\begin{proof}
+Let $(a_1, a_2, \ldots, a_n) \in G$. We have that $a_i^{-1} \in A_i$ for every $i$ such that $1 \leq i \leq n$, so $a^{-1} = (a_1^{-1}, a_2^{-1}, \ldots, a_n^{-1}) \in G$. Now fix $b = (b_1, b_2, \cdots, b_n) \in B_1 \times \cdots \times B_n$. We know that, for every $i$ such that $1 \leq i \leq n$, we have that $B_i \normeq A_i$. Hence, $a_iba_i^{-1} \in B_i$ by the definition of normal subgroups. Thus, this gives us that,
+\begin{align*}
+aba^{-1} = (a_1b_1a_1^{-1}, \ldots, a_nb_na_n^{-1}) \in B
+\end{align*}
+
+Since $a$ was arbitrary in $G$ and $b$ was arbitrary in $B$, we have that $B \normeq G$.\\
+
+Now we have that, 
+$$(A_1 \times \cdots \times A_n)/(B_1 \times \cdots \times B_n) = \{a(B_1 \times \cdots \times B_n) \ | \ a \in G\}$$ 
+
+and, 
+$$(A_1/B_1) \times \cdots \times (A_n/B_n) = \{a_1B_1 \ | \ a_1 \in A_1\} \times \cdots \times \{a_nB_n \ | \ a_n \in A_n\}$$
+
+Define $\varphi: \{a(B_1, \ldots, B_n) \ | \ a \in G\} \to \{a_1B_1 \ | \ a_1 \in A_1\} \times \cdots \times \{a_nB_n \ | \ a_n \in A_n\}$ such that $\varphi(a(B_1 \times \cdots \times B_n))) = a_1B_1 \times \cdots \times a_nB_n$ where $a = (a_1, \ldots, a_n)$.\\
+
+Now let $a, a' \in A$ and suppose $\varphi(a(B_1 \times \cdots \times B_n))) = \varphi(a'(B_1 \times \cdots \times B_n)))$. Then,
+\begin{align*}
+a_1B_1 \times \cdots \times a_nB_n = a_1'B_1 \times \cdots \times a_n'B_n
+\end{align*}
+
+That is,
+\begin{align*}
+a_1B_1 &= a_1'B_1\\
+a_2B_2 &= a_2'B_2\\
+&\vdots\\
+a_nB_n &= a_n'B_n
+\end{align*}
+
+Since $B_i \normeq A_i$, we have that $a_i = a_i'$ for every $i$. Thus, $\varphi$ is injective. Now suppose $a_1' \in A_1, \ldots, a_n' \in A_n$ and consider $a_1'B_1, \ldots, a_n'B_n$. Since $a_1' \in A_1, \ldots, a_2' \in A_2$, we can define $a' = (a_1', \ldots, a_n') \in G$. Hence, it is clear that,
+\begin{align*}
+\varphi(a'(B_1 \times \cdots \times B_n)) = a_1'B_1 \times \cdots a_n'B_n
+\end{align*}
+
+Thus, $\varphi$ is surjective and hence is a bijection. 
+\end{proof}
+
+\item Let $G$ be a group, and let $G^n = G \times \cdots \times G$ ($n$ factors). Define an action of $S_n$ by 
+$$\sigma \cdot (g_1, g_2, \dots, g_n) = (g_{\sigma^{-1}(1)}, g_{\sigma^{-1}(2)},  \cdots, g_{\sigma^{-1}(n)}),$$
+for $g_i \in G$ and $\sigma \in S_n$. For example, for $n = 4$, we have 
+$$(124) \cdot (g_1, g_2, g_3, g_4) = (g_4, g_1, g_3, g_2).$$
+\begin{enumerate}[(i)]
+\item Check that this, indeed, defines a group action of $S_n$ on $G^n$. (Make a particular note here of why you need $\sigma^{-1}$ in the subscript, rather than $\sigma$.)
+
+\begin{proof}
+Let $\sigma, \tau \in S_n$ and let $g = (g_1, g_2, \ldots, g_n) \in G^n$. We have,
+\begin{align*}
+\tau(\sigma(g)) &= \tau(g_{\sigma^{-1}(1)}, g_{\sigma^{-1}(2)}, \ldots, g_{\sigma^{-1}(n)})\\
+&= (g_{\tau^{-1}(\sigma^{-1}(1))}, g_{\tau^{-1}(\sigma^{-1}(2))}, \ldots, g_{\tau^{-1}(\sigma^{-1}(n))})\\
+&= (\sigma \tau) \circ g
+\end{align*}
+
+Now let $1 \in S_n$ be the identity element. Observe that $1^{-1} = 1$. Then,
+\begin{align*}
+1(g) &= (g_{1}, \ldots, g_{n})\\
+&= g
+\end{align*}
+
+Hence, this defines a valid group action.
+\end{proof}
+
+\item For $g \in G$, let 
+$$g^{(i)} = (g_1, g_2, \dots, g_n), \quad \text{where } \begin{cases}
+	g_j = g & \text{if }j = i,\\
+	g_j = 1 & \text{otherwise.}
+	\end{cases}$$ 
+For example, if $n=4$, then $g^{(3)} = (1, 1, g, 1)$. Show $\sigma \cdot g^{(i)} = g^{(\sigma(i))}$.
+
+\begin{proof}
+Fix $g \in G$ and consider $g^{(i)} = (g_1, g_2, \ldots, g_n)$ where $g_i = g$ and all other entries are $1$. Now fix $\sigma \in S_n$. We have,
+\begin{align*}
+\sigma \cdot g^{(i)} &= (g_{\sigma^{-1}(1)}, g_{\sigma^{-1}(2)}, \ldots, g_{\sigma^{-1}(n)})
+\end{align*}
+
+Hence, we see that the element $g$ is moved to the position $\sigma^{-1}(i)$. All of the other entries remain $1$. Hence,
+\begin{align*}
+\sigma \cdot g^{(i)} = g^{\sigma^{-1}(i)}
+\end{align*}
+\end{proof}
+\item Show that 
+$$\f_\sigma: G^n \to G^n \quad \text{defined by} \quad \bar{g} \mapsto \sigma \cdot \bar{g}$$
+is an automorphism of $G^n$. Deduce that $\f: S_n \to \Aut(G^n)$ is an injective homomorphism.
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+\item \textbf{Semidirect products.} Let $A$ and $B$ be groups, and let $B \acts A$ via automorphisms of $A$. Define $A \rtimes B$ with respect to this action.
+\begin{enumerate}[(a)]
+\item Prove that $C_B(A) = \ker$, where $C_B(A) = \{b \in B ~|~ ba = ab \text{ for all }b \in B\}$ (and $\ker$ is the kernel of the action of $B$ on $A$). 
+
+\begin{proof}
+Let $b \in C_B(A)$. Then $ab = ba$ for for every $a \in A$. Hence, we have
+\begin{align*}
+&b^{-1}ab = a
+\end{align*}
+\end{proof}
+\item We showed that $A \normeq A \rtimes B$. Show $(A \rtimes B)/A \cong B$. \\
+{[Hint: Consider the map $(a,b) \mapsto b$ and set up a 1st isomorphism theorem argument.]}
+\item Let $Z= \<x\>$ be the infinite cyclic group.
+\begin{enumerate}[(i)]
+\item Compute $\Aut(Z)$. {[\emph{Hint.} $x$ must map to a generator of $Z$.]}
+\item Classify all actions of $Z$ on itself that correspond to automorphisms (i.e.\ actions where for each $z \in Z$, the map $\f_z: Z \to Z$ defined by $a \mapsto z \cdot a$ is an automorphism.)
+\item Classify all semidirect products of $Z$ with itself. {[i.e.\ How many examples are there of $Z \rtimes Z$, which depends intrinsically on the action of $Z$ on itself.]}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
