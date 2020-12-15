@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.19)  15 DEC 2020 00:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.19)  15 DEC 2020 04:00
 entering extended mode
 **./course_summary.tex
 (course_summary.tex
@@ -1180,12 +1180,12 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 133.
-<rubiks.png, id=103, 380.01974pt x 139.11975pt>
+<rubiks.png, id=111, 380.01974pt x 139.11975pt>
 File: rubiks.png Graphic file (type png)
 <use rubiks.png>
 Package pdftex.def Info: rubiks.png  used on input line 135.
 (pdftex.def)             Requested size: 380.01881pt x 139.1194pt.
-<Dihedral8.png, id=109, 712.6625pt x 196.735pt>
+<Dihedral8.png, id=117, 712.6625pt x 196.735pt>
 File: Dihedral8.png Graphic file (type png)
 <use Dihedral8.png>
 Package pdftex.def Info: Dihedral8.png  used on input line 143.
@@ -1196,7 +1196,7 @@ Overfull \hbox (23.47012pt too wide) in paragraph at lines 143--144
  []
 
 [2 <./rubiks.png> <./Dihedral8.png>] [3] [4]
-<cayleysubgroup.png, id=157, 398.08725pt x 160.80075pt>
+<cayleysubgroup.png, id=165, 398.08725pt x 160.80075pt>
 File: cayleysubgroup.png Graphic file (type png)
 <use cayleysubgroup.png>
 Package pdftex.def Info: cayleysubgroup.png  used on input line 248.
@@ -1205,7 +1205,7 @@ Package pdftex.def Info: cayleysubgroup.png  used on input line 248.
 
 LaTeX Warning: Citation `]' on page 6 undefined on input line 276.
 
-<homomorphism.png, id=168, 1284.8pt x 963.6pt>
+<homomorphism.png, id=176, 1284.8pt x 963.6pt>
 File: homomorphism.png Graphic file (type png)
 <use homomorphism.png>
 Package pdftex.def Info: homomorphism.png  used on input line 297.
@@ -1214,7 +1214,7 @@ Package pdftex.def Info: homomorphism.png  used on input line 297.
 LaTeX Warning: Citation `]' on page 6 undefined on input line 300.
 
 [6 <./homomorphism.png>] [7]
-<quotient.png, id=194, 399.29175pt x 318.59026pt>
+<quotient.png, id=202, 399.29175pt x 318.59026pt>
 File: quotient.png Graphic file (type png)
 <use quotient.png>
 Package pdftex.def Info: quotient.png  used on input line 353.
@@ -1229,27 +1229,33 @@ tha/m/n/10.95 []\OML/cmm/m/it/10.95 ; \U/matha/m/n/10.95 []\OML/cmm/m/it/10.9
 5 ; [] ; \U/matha/m/n/10.95 []$\OT1/cmr/m/n/10.95 ,
  []
 
-[10] [11] [12] [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 586.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 586.
+[10] [11] [12] [13] [14] [15] [16]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 745.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 745.
  (course_summary.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 586.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 586.
-Package rerunfilecheck Info: File `course_summary.out' has not changed.
-(rerunfilecheck)             Checksum: 14A606CEC0A0D81D8C5E10EC1592A8C9;876.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 745.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 745.
 
+
+Package rerunfilecheck Warning: File `course_summary.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `course_summary.out':
+(rerunfilecheck)             Before: 01FA50DA0C097F208D66116BFB9FD509;1035
+(rerunfilecheck)             After:  8DB40DEF3855A9AF1583624FA7F91AA3;1038.
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 19065 strings out of 492895
- 353440 string characters out of 3123735
- 425947 words of memory out of 3000000
- 22381 multiletter control sequences out of 15000+200000
+ 19102 strings out of 492895
+ 353735 string characters out of 3123735
+ 425951 words of memory out of 3000000
+ 22383 multiletter control sequences out of 15000+200000
  17177 words of font info for 61 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,19n,52p,1382b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,19n,52p,1382b,471s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\chris\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/mathabx/dpi6
 57\matha10.pk> <C:\Users\chris\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/
 mathabx/dpi600\matha8.pk><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/font
@@ -1268,9 +1274,9 @@ ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users
 fb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
 s/symbols/msam10.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on course_summary.pdf (13 pages, 579171 bytes).
+Output written on course_summary.pdf (16 pages, 601274 bytes).
 PDF statistics:
- 366 PDF objects out of 1000 (max. 8388607)
- 89 named destinations out of 1000 (max. 500000)
- 142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 435 PDF objects out of 1000 (max. 8388607)
+ 124 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 
