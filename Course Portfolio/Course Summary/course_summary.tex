@@ -130,7 +130,7 @@ With this historical context in mind, we now turn our attention to studying this
 \subsection{Groups}
 
 \par
-As mentioned in our introduction, groups are foundational to the modern study of algebra \cite{dummit, abstractwiki}. Groups are a quite general notion of an algebraic structure, consisting simply of a set with a binary operation on this set \cite{groupwiki}. Informally, a group consists of a set of elements and a method for combining those elements into new elements contained within the set \cite{pinter, carter}. We can visualize the concept of a basic group using a Rubik's cube, as shown in \textit{Visual Group Theory} [Carter, \S 1.1, p. 4]:
+As mentioned in our introduction, groups are foundational to the modern study of algebra \cite{dummit, abstractwiki}. Groups are a quite general notion of an algebraic structure, consisting simply of a set with a binary operation on this set \cite{groupwiki}. Informally, a group consists of a set of elements and a method for combining those elements into new elements contained within the set \cite{pinter, carter}. We can visualize the concept of a basic group using a Rubik's cube, as shown in \textit{Visual Group Theory} \cite[\S 1.1, p. 4]{carter}:
 
 \includegraphics[scale=1]{rubiks}
 
@@ -146,7 +146,7 @@ Each rotation and reflection changes the configuration of our stop sign, and we 
 
 \newpage
 \par
-Now that we have an intuitive sense of what groups are and how they work, let us formally define what a group is [DF, \S 1.1, p. 16]:
+Now that we have an intuitive sense of what groups are and how they work, let us formally define what a group is \cite[\S 1.1, p. 16]{dummit}:
 
 \par
 \textbf{Definition}
@@ -171,7 +171,7 @@ $(1)$ in the above definition provides a formalization of the intuitive notion o
 $(2)$ in the above definition introduces a new notion -- that of an abelian group. This type of group satisfies all of the axioms of definition $(1)$, with the addition that the binary operation defined on the group's elements must also be commutative. That is, performing action $a$ then action $b$ is equivalent to performing action $b$ then action $a$.
 
 \par
-Now equipped with this formal notion of groups, let us now discuss some of the properties of groups [DF, \S 1.1, p. 18]:
+Now equipped with this formal notion of groups, let us now discuss some of the properties of groups \cite[\S 1.1, p. 18]{dummit}:
 
 \par
 \textbf{Proposition 1.} If $G$ is a group under the operation $*$, then
@@ -187,13 +187,13 @@ Now equipped with this formal notion of groups, let us now discuss some of the p
 This proposition gives us quite a bit of machinery to work with in regards to groups. We now have the ability to assert that both the identity element and all inverse are unique. In addition, we can take inverse of inverses, as well as inverses of the combination of two elements. Lastly, we can extend associativity to any finite combination of elements in $G$. Note that operations on elements of groups are often written without the $*$. Hence, in many definitions and theorems from now on, we may see $ab$ instead of $a * b$. In addition, in additive groups, note that $ab$ is meant to denote $a + b$.
 
 \par
-In some of our above discussion on groups, we noted that multiple applications of the same element in a group can yield the identity element. For example, $4$ rotations of a particular face of the Rubik's cube gives us the original configuration for the cube. This notion of repeatedly applying an element of the group yielding the identity can be captured by the definition of the ``order'' of an element [DF, \S 1.1, p. 20]:
+In some of our above discussion on groups, we noted that multiple applications of the same element in a group can yield the identity element. For example, $4$ rotations of a particular face of the Rubik's cube gives us the original configuration for the cube. This notion of repeatedly applying an element of the group yielding the identity can be captured by the definition of the ``order'' of an element \cite[\S 1.1, p. 20]{dummit}:
 
 \par
 \textbf{Definition} For $G$ a group and $x \in G$, define the \textit{order} of $x$ to be the smallest positive integer $n$ such that $x^n = 1$ (where $1 = e$ from our earlier discussions), and the denote this integer by $|x|$. In this case, $x$ is said to be of order $n$. If no positive power of $x$ is the identity, the order of $x$ is defined to be infinity and $x$ is said to be of infinite order.
 
 \par
-Note that $|x|$ represents the smallest positive integer such that $x^n = 1$, while $|G|$ denotes the number of unique elements contained in $G$. This definition of the order of elements leads us naturally into a discussion of cyclic groups. These types of groups can be thought of as being constructed out of a single element and its ``iterates''. That is, if $G$ is a cyclic group, then there exists an element $x \in G$ such that every element $y \in G$ can be written as $x^k = y$ for some $k \in \mathbb{N}_0$. This is described formally as follows [DF, \S 2.3, p. 54]:
+Note that $|x|$ represents the smallest positive integer such that $x^n = 1$, while $|G|$ denotes the number of unique elements contained in $G$. This definition of the order of elements leads us naturally into a discussion of cyclic groups. These types of groups can be thought of as being constructed out of a single element and its ``iterates''. That is, if $G$ is a cyclic group, then there exists an element $x \in G$ such that every element $y \in G$ can be written as $x^k = y$ for some $k \in \mathbb{N}_0$. This is described formally as follows \cite[\S 2.3, p. 54]{dummit}:
 
 \par
 \textbf{Definition} A group $H$ is cyclic if $H$ can be generated by a single element, i.e., there is some element $x \in H$ such that $H = \{x^n \ | \ n \in \mathbb{Z}\}$ (where as usual the operation is multiplication)
@@ -207,7 +207,7 @@ In this case, we can write $H = \langle x \rangle$ and say that ``$H$ is generat
 \end{align*}
 
 \par
-From the above derivation, we have that $\ZZ/3\ZZ = \langle \bar{1} \rangle$. Hence, $\ZZ/3\ZZ$ is a cyclic group generated by $\bar{1}$. Now let us discuss some of the properties that these cyclic groups have [DF, \S 2.3, p. 55]:
+From the above derivation, we have that $\ZZ/3\ZZ = \langle \bar{1} \rangle$. Hence, $\ZZ/3\ZZ$ is a cyclic group generated by $\bar{1}$. Now let us discuss some of the properties that these cyclic groups have \cite[\S 2.3, p. 55]{dummit}:
 
 \par
 \textbf{Proposition 2.} If $H = \langle x \rangle$, the $|H| = |x|$ (where if one side of this equality is infinite, so is the other). More specifically
@@ -221,7 +221,7 @@ From the above derivation, we have that $\ZZ/3\ZZ = \langle \bar{1} \rangle$. He
 Hence, in the case where $|H|$ is finite, we have that every power of $x$ with the exponents in different equivalence classes of $\ZZ/n\ZZ$ are distinct. In the case where $|H|$ is infinite, every power of $x$ is distinct.
 
 \par
-In addition, this discussion of cyclic groups and the order of elements leads to the following conclusions [DF, \S 2.3, p.57]:
+In addition, this discussion of cyclic groups and the order of elements leads to the following conclusions \cite[\S 2.3, p.57]{dummit}:
 
 \par
 \textbf{Proposition 5.} Let $G$ be a group, let $x \in G$ and let $a \in \ZZ - \{0\}$.
@@ -243,12 +243,12 @@ Hence, Proposition 5 tells us that we can use the order of an element $x$ in ord
 Let us now shift our focus to subgroups. Consider a subset $S$ of a group $G$ with operation $*$. It may be true that $S$ is closed under multiplication, closed under inverses, and contains the identity element. That is, for any $a, b \in S$, we have $a * b \in S$, $a^{-1}, b^{-1} \in S$, and $1 \in S$ \cite{pinter}. If this is the case, we say that $S$ is a \textit{subgroup} of $G$. An example of such a structure would be the even integers under addition (i.e. $(2\ZZ, +)$), which is contained within the integers under addition (i.e. $(\ZZ, +)$). Note that in order to talk about a subgroup of another group, it must be a subset of the group \textit{and} have the same operation as the group. 
 
 \par
-We can examine a visual representation of this subgroup structure using Cayley diagrams [Carter, \S 6.2, p. 100]:
+We can examine a visual representation of this subgroup structure using Cayley diagrams \cite[\S 6.2, p. 100]{carter}:
 
 \includegraphics[scale=1]{cayleysubgroup}
 
 \par
-As shown in the image above, a subgroup is a subset of a group which retains a group structure under the same operation. For example, in the example on the left, we see a subset of the dihedral group (in this notation it is called $S_3$, whereas in Dummit \& Foote it would be denoted as $D_6$). We see that this subset of $D_6$ includes the elements generated by rotations of the polygon. Hence, we can see that this subset is closed under multiplication since $rr^2 = e = r^2r$, $rr = r^2$, $er = r = re$, and $r^2e = r^2 = er^2$. Lastly, we also have $ee = e$. In addition, we have shown that this subset is closed under inverses: $r = {r^2}^{-1}$, $r^2 = r^{-1}$, and $e = e^{-1}$. And finally, we see that $e$, the identity element, is contained in this subset. Thus, we can see that sometime of group structure has been retained here. Let us make this notion formal through the following definition [DF, \S 2.1, p. 46]:
+As shown in the image above, a subgroup is a subset of a group which retains a group structure under the same operation. For example, in the example on the left, we see a subset of the dihedral group (in this notation it is called $S_3$, whereas in Dummit \& Foote it would be denoted as $D_6$). We see that this subset of $D_6$ includes the elements generated by rotations of the polygon. Hence, we can see that this subset is closed under multiplication since $rr^2 = e = r^2r$, $rr = r^2$, $er = r = re$, and $r^2e = r^2 = er^2$. Lastly, we also have $ee = e$. In addition, we have shown that this subset is closed under inverses: $r = {r^2}^{-1}$, $r^2 = r^{-1}$, and $e = e^{-1}$. And finally, we see that $e$, the identity element, is contained in this subset. Thus, we can see that sometime of group structure has been retained here. Let us make this notion formal through the following definition \cite[\S 2.1, p. 46]{dummit}:
 
 \par
 \textbf{Definition} Let $G$ be a group. The subset $H$ of $G$ is a \textit{subgroup} of $G$ if $H$ is nonempty and $H$ is closed under products and inverses (i.e. $x, y \in H$ implies $x^{-1} \in H$ and $xy \in H$). If $H$ is a subgroup of $G$ we shall write $H \le G$.
@@ -257,7 +257,7 @@ As shown in the image above, a subgroup is a subset of a group which retains a g
 Note that $e \in H$ was not included here because it follows directly from the facts that $H$ is nonempty, closed under inverses, and closed under products. Since $H$ is nonempty, we have some element $a \in H$. Since $H$ is closed under inverses, we have $a^{-1} \in H$. And since $H$ is closed under products, we have $aa^{-1} = e \in H$ as required.
 
 \par
-Just as we condensed the subgroup criteria by removing the statement requiring the existence of $e$ in the group (since its existence is implied by the other properties), we can actually further condense the conditions that we need to check. In particular, we get the following proposition [DF \S 2.1, p. 47]:
+Just as we condensed the subgroup criteria by removing the statement requiring the existence of $e$ in the group (since its existence is implied by the other properties), we can actually further condense the conditions that we need to check. In particular, we get the following proposition \cite[\S 2.1, p. 47]{dummit}:
 
 \par
 \textbf{Proposition 1.} (\textit{The Subgroup Criterion}) A subset $H$ of a group $G$ is a subgroup if and only if
@@ -273,7 +273,7 @@ Furthermore, if $H$ is finite then it suffices to check that $H$ is nonempty and
 Hence, we can now show that a subset of a group $G$ is a subgroup if it satisfies just two properties -- it is nonempty and for every elements $x, y$ in the subset, we have $xy^{-1}$ in the subset as well.
 
 \par
-Now let us consider some specific families of subgroups [DF, \S 2.2, p. 49-50]:
+Now let us consider some specific families of subgroups \cite[\S 2.2, p. 49-50]]{dummit}:
 
 \par
 \textbf{Definitions:}
@@ -297,7 +297,7 @@ Now we turn our attention to functions between groups. We first start with homom
 \includegraphics[scale=0.25]{homomorphism}
 
 \par
-As we can see, the above homomorphism maps elements of $G$ into elements of $H$. However, note that the image of the homomorphism $h$ in $H$ is a proper subset of $H$. That is, there are elements in $H$ which $h$ does not map any element of $G$ to. In addition, note that every element of $G$ in the circle around $a$ maps to $h(a)$ in $H$. In other words, multiple elements of $G$ can map to a single element of $H$ under a homomorphism $h$. These will be the key differences between homomorphisms and isomorphisms when we turn to defining these concepts rigorously.. We will give the following definition for a homomorphism [DF, \S 1.6, p. 36]:
+As we can see, the above homomorphism maps elements of $G$ into elements of $H$. However, note that the image of the homomorphism $h$ in $H$ is a proper subset of $H$. That is, there are elements in $H$ which $h$ does not map any element of $G$ to. In addition, note that every element of $G$ in the circle around $a$ maps to $h(a)$ in $H$. In other words, multiple elements of $G$ can map to a single element of $H$ under a homomorphism $h$. These will be the key differences between homomorphisms and isomorphisms when we turn to defining these concepts rigorously.. We will give the following definition for a homomorphism \cite[\S 1.6, p. 36]]{dummit}:
 
 \par
 \textbf{Definition} Let $(G, *)$ and $(H, \diamond)$ be groups. A map $\varphi: G \to H$ such that 
@@ -309,7 +309,7 @@ As we can see, the above homomorphism maps elements of $G$ into elements of $H$.
 is called a \textit{homomorphism}. We will usually omit the operation signs and write $\varphi(xy) = \varphi(x)\varphi(y)$, but remember that the operation on the left of the equation is not necessarily the same operation on the right of the equation.
 
 \par
-Hence, we can see that a homomorphism preserves the group operation in some sense -- the image of the product of $x$ and $y$ is the same as the product of the images of $x$ and $y$. Isomorphisms extend this group preservation in the following way [DF, \S 1.6, p. 37]:
+Hence, we can see that a homomorphism preserves the group operation in some sense -- the image of the product of $x$ and $y$ is the same as the product of the images of $x$ and $y$. Isomorphisms extend this group preservation in the following way \cite[\S 1.6, p. 37]{dummit}:
 
 \par
 \textbf{Definition} The map $\varphi: G \to H$ is called an \textit{isomorphism} and $G$ and $H$ are said to be \textit{isomorphic} or of the same \textit{isomorphism} type, written $G \cong H$, if
@@ -322,7 +322,7 @@ Hence, we can see that a homomorphism preserves the group operation in some sens
 Thus, the homomorphism part of this definition ensures that the group operation is preserved (in the sense defined above), and the bijection part of the definition ensures that the groups $G$ and $H$ are the same size. Hence, two isomorphic groups can in some sense be considered the ``same'' group, just with potentially different names for the elements and operation.
 
 \par
-As we transition towards quotient groups, we must first discuss \textit{fibers} of homomorphisms. Let $\varphi: G \to H$ be a homomorphism and let $a \in H$. The \textit{fiber} of $\varphi$ over $a$ is the set of elements in $G$ which $\varphi$ maps to $a$. Hence, the kernel of $\varphi$ over $a$ is the same notion as the pre-image of $a$ under $\varphi$. We pay special attention to the fiber of $\varphi$ over $1$ (i.e. the identity element of $H$), which we call the \textit{kernel} of $\varphi$. We can define this formally as follows [DF, \S 3.1, p. 75]:
+As we transition towards quotient groups, we must first discuss \textit{fibers} of homomorphisms. Let $\varphi: G \to H$ be a homomorphism and let $a \in H$. The \textit{fiber} of $\varphi$ over $a$ is the set of elements in $G$ which $\varphi$ maps to $a$. Hence, the kernel of $\varphi$ over $a$ is the same notion as the pre-image of $a$ under $\varphi$. We pay special attention to the fiber of $\varphi$ over $1$ (i.e. the identity element of $H$), which we call the \textit{kernel} of $\varphi$. We can define this formally as follows \cite[\S 3.1, p. 75]{dummit}:
 
 \par
 \textbf{Definition} If $\varphi$ is a homomorphism $\varphi: G \to H$, the \textit{kernel} of $\varphi$ is the set
@@ -333,7 +333,7 @@ As we transition towards quotient groups, we must first discuss \textit{fibers} 
 and will be denoted by $\ker \varphi$ (here $1$ is the identity of $H$).
 
 \par
-Equipped with this definition of the kernel of a homomorphism, we can now assert the following properties for a homomorphism [DF, \S 3.1, 75]:
+Equipped with this definition of the kernel of a homomorphism, we can now assert the following properties for a homomorphism \cite[\S 3.1, 75]{dummit}:
 
 \textbf{Proposition 1.} Let $G$ and $H$ be groups and let $\varphi: G \to H$ be a homomorphism.
 \begin{enumerate}
@@ -348,7 +348,7 @@ Equipped with this definition of the kernel of a homomorphism, we can now assert
 \subsection{Quotient Groups}
 
 \par
-Quotient groups extend the notion of division to groups. We can think about ``dividing'' a group into smaller groups and studying the relations between elements in this smaller group. We can see this notion visually in the following diagram [Carter, \S 7.3, p. 133]:
+Quotient groups extend the notion of division to groups. We can think about ``dividing'' a group into smaller groups and studying the relations between elements in this smaller group. We can see this notion visually in the following diagram \cite[\S 7.3, p. 133]{carter}:
 
 \includegraphics[scale=1]{quotient}
 
@@ -359,7 +359,7 @@ We can see that $G$ is first divided up into two groups (called ``left cosets'',
 \textbf{Definition} Let $\varphi: G \to H$ be a homomorphism with kernel $K$. The \textit{quotient group} or \textit{factor group}, $G/K$ (read $G$ \textit{modulo} $K$ or simply $G$ \textit{mod} $K$), is the group whose elements are the fibers of $\varphi$ with group operation defined above: namely if $X$ is the fiber above $a$ and $Y$ is the fiber above $b$ then the product of $X$ with $Y$ is defined to be the fiber above the product $ab$.
 
 \par
-Hence, the group $G$ is divided into smaller subgroups (namely, the fibers of $\varphi$) by the kernel of $\varphi$. This connection between the kernel of $\varphi$ and its fibers over other elements will be captured by our work with cosets. Let us first define what a coset is [DF, \S 3.1, p. 77]:
+Hence, the group $G$ is divided into smaller subgroups (namely, the fibers of $\varphi$) by the kernel of $\varphi$. This connection between the kernel of $\varphi$ and its fibers over other elements will be captured by our work with cosets. Let us first define what a coset is \cite[\S 3.1, p. 77]{dummit}:
 
 \par
 \textbf{Definition} For any $N \le G$ and any $g \in G$ let
@@ -370,7 +370,7 @@ gN = \{gn \ | \ n \in N\} \;\; \text{and} \;\; Ng = \{ng \ | \ n \in N\}
 called respectively a \textit{left coset} and a \textit{right coset} of $N$ in $G$. Any element of a coset is called a \textit{representative} for the coset. 
 
 \par
-The relationship between this definition and the kernel of $\varphi$ is given by the following theorem [DF, \S 3.1, p. 77]:
+The relationship between this definition and the kernel of $\varphi$ is given by the following theorem \cite[\S 3.1, p. 77]{dummit}:
 
 \par
 \textbf{Theorem 3.} Let $G$ be a group and let $K$ be the kernel of some homomorphism from $G$ to another group. Then the set whose elements are the left cosets of $K$ in $G$ with operation defined by
@@ -383,10 +383,45 @@ forms a group, $G/K$. In particular, this operation is well defined in the sense
 \par
 Hence, we can see from this theorem that the set of left cosets of $K$ is equivalent to the group $G/K$. We know that $G/K$ is the group whose elements are the fibers of $\varphi$, and so we must have that the left cosets of $K$ are equivalent to the fibers of $\varphi$. Hence, we see that we can actually ignore the fibers of $\varphi$ other than the kernel $K$ and simply take left cosets of $K$ in order to obtain the other fibers.
 
+\subsection{More on Isomorphisms}
+
+In this section, we detail some important theorems relating quotient groups and homomorphisms. These theorems are known as ``The Isomorphism Theorems'' and are central to the discussion of this section. The First Isomorphism Theorem is given by the following \cite[\S 3.3, p. 97]{dummit}:
+
+\textbf{The First Isomorphism Theorem.} If $\varphi: G \to H$ is a homomorphism of groups, then $\text{ker} \varphi \normeq G$ and $G/\text{ker}\varphi \cong \varphi(G)$.
+
+\par
+The First Isomorphism Theorem allows us to assert that the kernel of a group homomorphism is a normal subgroup of the domain. This gives us the ability to discuss the quotient group $G/\text{ker}\varphi$, which we assert is congruent to the image of the domain under $\varphi$. The second isomorphism theorem is given by the following \cite[\S 3.3, p. 97]{dummit}:
+
+\textbf{The Diamond Isomorphism Theorem.} Let $G$ be a group, let $A$ and $B$ be subgroups of $G$ and assume $A \leq N_G(B)$. Then $AB$ is a subgroup of $G$, $B \normeq AB$, $A \cap B \normeq A$, and $AB/B \cong A/A \cap B$.
+
+\par
+This is called The Diamond Isomorphism Theorem due to the section of the lattice of subgroups of $G$ that is considered. The final two isomorphism theorems are given as follows \cite[\S 3.3, p. 98-99]{dummit}:
+
+\textbf{The Third Isomorphism Theorem.} Let $G$ be a group and let $H$ and $K$ be normal subgroups of $G$ with $H \leq K$. Then $K/H \normeq G/H$ and 
+\begin{align*}
+(G/H)/(K/H) \cong G/K.
+\end{align*}
+
+If we denote the quotient by $H$ with a bar, this can be written
+\begin{align*}
+\overline{G}/\overline{K} \cong G/K
+\end{align*}
+
+\textbf{The Lattice Isomorphism Theorem.} Let $G$ be a group and let $N$ be a normal subgroup of $G$. Then there is a bijection from the set of subgroups $A$ of $G$ which contain $N$ onto the set of subgroups $\overline{A} = A/N$ of $G/N$. In particular, every subgroup of $\overline{G}$ is of the form $A/N$ for some subgroup $A$ of $G$ containing $N$ (namely, its preimage in $G$ under the natural projection homomorphism from $G$ to $G/N$). This bijection has the following properties: for all $A, B \leq G$ with $N \leq A$ and $N \leq B$.
+\begin{enumerate}
+\item $A \leq B$ if and only if $\overline{A} \leq \overline{B}$
+\item if $A \leq B$, then $|B : A| = |\overline{B} : \overline{A}|$
+\item $\overline{\langle A, B \rangle} = \langle \overline{A}, \overline{B} \rangle$
+\item $\overline{A \cap B} = \overline{A} \cap \overline{B}$
+\item $A \normeq G$ if and only if $\overline{A} \normeq \overline{G}$
+\end{enumerate}
+
+The Third Isomorphism Theorem examines taking quotients of quotient groups, while The Lattice Isomorphism Theorem looks at the relationship between the lattice of subgroups of a quotient group (e.g. $G/N$) and the lattice of subgroups of the underlying group (e.g. $G$).
+
 \subsection{Group Actions}
 
 \par
-As discussed in the introduction, group actions are when groups act upon sets. We define them as follows [DF, \S 1.7, p. 41]:
+As discussed in the introduction, group actions are when groups act upon sets. We define them as follows \cite[\S 1.7, p. 41]{dummit}:
 
 \par
 \textbf{Definition} A \textit{group action} of a group $G$ on a set $A$ is a map from $G \times A$ to $A$ (written as $g \cdot a$, for all $g \in G$ and $a \in A$) satisfying the following properties:
@@ -395,7 +430,7 @@ As discussed in the introduction, group actions are when groups act upon sets. W
 \item $1 \cdot a = a$ for all $a \in A$
 \end{enumerate}
 
-We can extend these discussions of group actions using the language of homomorphisms as follows [DF, \S 4.1, p. 112]:
+We can extend these discussions of group actions using the language of homomorphisms as follows \cite[\S 4.1, p. 112]{dummit}:
 
 \par
 \textbf{Definition}
@@ -404,6 +439,107 @@ We can extend these discussions of group actions using the language of homomorph
 \item For each $a \in A$, the \textit{stabilizer} of $a$ in $G$ is the set of elements of $G$ that fix the element $a$: $\{g \in G \ | \ g \cdot a = a\}$ and is denoted by $G_a$
 \item An action is \textit{faithful} if its kernel is the identity
 \end{enumerate}
+
+\subsection{Direct and Semidirect Products}
+
+Quotient groups allowed us to construct smaller groups from larger groups by ``removing'' unnecessary information. In this section, we will instead look at how to create larger groups from smaller groups through the use of direct and semidirect products. We will start by defining direct products in both the finite and countable cases \cite[\S 5.1, p. 152]{dummit}:
+
+\par
+\textbf{Definition.}
+\begin{enumerate}
+\item The \textit{direct product} $G_1 \times G_2 \times \cdots \times G_n$ of the groups $G_1, G_2, \ldots, G_n$ with operation $*_1, *_2, \ldots, *_n$, respectively, is the set of $n$-tuples $(g_1, g_2, \ldots, g_n)$ where $g_i \in G_i$ with operation defined componentwise:
+\begin{align*}
+(g_1, g_2, \ldots, g_n) * (h_1, h_2, \ldots, h_n) = (g_1 *_1 h_1, g_2 *_2 h_2, \ldots, g_n *_n h_n)
+\end{align*}
+
+\item Similarly, the \textit{direct product} $G_1 \times G_2 \times \cdots$ of the groups $G_1, G_2, \ldots$ with operations $*_1, *_2, \ldots$, respectively, is the set of sequences $(g_1, g_2, \ldots)$ where $g_i \in G_i$ with operation defined componentwise:
+\begin{align*}
+(g_1, g_2, \ldots) * (h_1, h_2, \ldots) = (g_1 * h_1, g_2 * h_2, \ldots)
+\end{align*}
+\end{enumerate}
+
+The direct product of a set of groups actually preserves the information from each of the component groups. In fact, we can recover this information from the direct product group. The next proposition makes this notion formal \cite[\S 5.1, p. 154]{dummit}:
+
+\newpage
+\par
+\textbf{Proposition 2.} Let $G_1, G_2, \ldots, G_n$ be groups and let $G = G_1 \times \cdots \times G_n$ be their direct product.
+\begin{enumerate}
+\item For each fixed $i$ the set of elements of $G$ which have the identity of $G_j$ in the $j^{\text{th}}$ position for all $j \neq i$ and arbitrary elements of $G_i$ in position $i$ is a subgroup of $G$ isomorphic to $G_i$:
+\begin{align*}
+G_i \cong \{(1, 1, \ldots, 1, g_i, 1, \ldots 1) \ | \ g_i \in G_i\},
+\end{align*}
+
+(here $g_i$ appears in the $i^{\text{th}}$ position). If we identify $G_i$ with this subgroup, then $G_i \normeq G$ and 
+\begin{align*}
+G/G_i \cong G_1 \times \cdots \times G_{i-1} \times G_{i+1} \times \cdots \times G_n
+\end{align*}
+
+\item For each fixed $i$ define $\pi_i: G \to G_i$ by
+\begin{align*}
+\pi_i((g_1, g_2, \ldots, g_n)) = g_i
+\end{align*}
+
+Then $\pi_i$ is a surjective homomorphism with
+\begin{align*}
+\text{ker}\pi_i &= \{(g_1, \ldots, g_{i-1}, 1, g_{i+1}, \ldots, g_n) \ | \ g_j \in G_j \text{ for all } j \neq i\}\\
+&\cong G_1 \times \cdots \times G_{i-1} \times G_{i+1} \times \cdots \times G_n
+\end{align*}
+\end{enumerate}
+
+We will now introduce the notion of a semidirect product, which generalizes direct products by relaxing the constraint that the constituent groups are normal. We start with the following theorem to set the stage \cite[\S 5.5, p. 176]{dummit}:
+
+\par
+\textbf{Theorem 10.} Let $H$ and $K$ be groups and let $\varphi$ be a homomorphism from $K$ into $\text{Aut}(H)$. Let $\cdot$ denote the (left) action of $K$ on $H$ determined by $\varphi$. Let $G$ be the set of ordered pairs $(h, k)$ with $h \in H$ and $k \in K$ and define the following multiplication on $G$:
+\begin{align*}
+(h_1, k_1)(h_2, k_2) = (h_1 k_1 \cdot h_2, k_1k_2)
+\end{align*}
+
+\begin{enumerate}
+\item This multiplication makes $G$ into a group of order $|G| = |H||K|$
+\item The sets $\{(h, 1) \ | \ h \in H\}$ and $\{(1, k) \ | \ k \in K\}$ are subgroups of $G$ and the maps $h \mapsto (h, 1)$ for $h \in H$ and $k \mapsto (1, k)$ for $k \in K$ are isomorphisms of these subgroups with the groups $H$ and $K$ respectively:
+\begin{align*}
+H \cong \{(h, 1) \ | \ h \in H\} \text{  and  } K \cong \{(1, k) \ | \ k \in K \}
+\end{align*}
+\end{enumerate}
+
+Identifying $H$ and $K$ with their isomorphic copies in $G$ described in (2) we have
+\begin{enumerate}
+\setcounter{enumi}{2}
+
+\item $H \normeq G$
+\item $H \cap K = 1$
+\item for all $h \in H$ and $k \in K$, $khk^{-1} = k \cdot h = \varphi(k)(h)$
+\end{enumerate}
+
+Equipped with this background information, we can now precisely define what a semidirect product is \cite[\S 5.5, p. 177]{dummit}:
+
+\par
+\textbf{Definition.} Let $H$ and $K$ be groups and let $\varphi$ be a homomorphism from $K$ into $\text{Aut}(H)$. The group described in Theorem 10 is called the \textit{semidirect product} of $H$ and $K$ with respect to $\varphi$ and will be denoted by $H \rtimes_{\varphi} K$ (when there is no danger of confusion we shall simply write $H \rtimes K$).
+
+\par
+The following proposition and theorem provide us with useful tools for working with semidirect products \cite[\S 5.5, p. 177, 180]{dummit}:
+
+\par
+\textbf{Proposition 11.} Let $H$ and $K$ be groups and let $\varphi: K \to \text{Aut}(H)$ be a homomorphism. Then the following are equivalent:
+\begin{enumerate}
+\item the identity (set) map between $H \rtimes K$ and $H \times K$ is a group homomorphism (hence an isomorphism)
+\item $\varphi$ is the trivial homomorphism from $K$ into $\text{Aut}(H)$
+\item $K \normeq H \rtimes K$
+\end{enumerate}
+
+\par
+\textbf{Theorem 12.} Suppose $G$ is a group with subgroups $H$ and $K$ such that
+\begin{enumerate}
+\item $H \normeq G$
+\item $H \cap K = 1$
+\end{enumerate}
+
+Let $\varphi: K \to \text{Aut}(H)$ be the homomorphism defined by mapping $k \in K$ to the automorphism of left conjugation by $k$ on $H$. Then $HK \cong H \rtimes K$. In particular, if $G = HK$ with $H$ and $K$ satisfying $(1)$ and $(2)$, then $G$ is the semidirect product of $H$ and $K$.
+
+\subsection{Rings and Ideals}
+
+
+\subsection{Euclidean Domains and Principal Ideal Domains}
 
 \section{Conclusion}
 

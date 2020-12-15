@@ -252,6 +252,7 @@ So $\langle x \rangle$ is a cyclic group of order $3$. $Z_3$ is also a cyclic gr
 
 \par
 Now assume $y \neq x^{-1}$ and that $x, y$ overlap at one element. Hence, $x$ and $y$ permute all $5$ elements in $\{1, 2, 3, 4, 5\}$.
+
 \end{proof}
 
 \Rubric{}
@@ -269,7 +270,10 @@ Show that if $H$ has finite index $n$ in $G$, then there is a normal subgroup $K
 \end{minipage}}}
 
 \begin{proof}
-Suppose $H$ has finite index $n$ in $G$.
+Suppose $H$ has finite index $n$ in $G$. That is, $|G : H| = n$ or, equivalently, $|G/H| = n$. Note that $G/H$ is the set of left cosets of $H$ in $G$. Now, since $|G : H| = n$, we can label the distinct left cosets of $H$ in $G$ by $a_1H, a_2H, \ldots, a_nH$. For each $g \in G$, we can then think of the action of left multiplication as a permutation $\sigma_g$ of the indices $1, \ldots, n$. That is, $\sigma_g \in S_n$. Then if we define the homomorphism $\varphi: g \mapsto \sigma_g$, we have that $\varphi: G \to S_{n}$. Now the kernel of $\varphi$ is given by $K = \{g \in G \ | \ gaH = aH \text{ for all } a \in G\}$.
+
+\par
+Suppose $g \in K$. Then we have $g1H = gH = H$, and hence $g \in H$. This gives us that $K \subset H$. Moreover, by the First Isomorphism Theorem, we now have that $K \normeq G$ and $G/K \cong \varphi(G)$. Since $\varphi: G \to S_n$, we have that $\varphi(G) \leq S_n$. In addition, $|S_n| = n!$, so we have that $\varphi(G) \leq |S_n| = n!$. Lastly, by Corollary 17 in $\S 3.3$ of Dummit and Foote, we have $|G/K| = |\varphi(G)| \leq n!$, as required.
 \end{proof}
 
 \Rubric{}

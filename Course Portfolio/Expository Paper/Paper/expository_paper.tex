@@ -1,0 +1,250 @@
+\documentclass[11pt, a4paper, oneside]{article}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+\usepackage{enumitem}
+
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\title{Expository Paper: Galois Groups of Polynomials}
+\author{Chris Hayduk}
+\date{December 15, 2020}
+\maketitle
+
+\begin{abstract}
+Abstract goes here
+\end{abstract}
+
+\newpage
+\section{Preliminaries}
+
+\subsection{Polynomials}
+
+Introduce solving polynomial equations:
+\begin{enumerate}
+\item \cite[Sec. 1.3]{stewart}
+\item \cite[Ch. 1]{jorg}
+\end{enumerate}
+
+Solution by radicals:
+\begin{enumerate}
+\item \cite[Sec. 1.4]{stewart}
+\item \cite[Ch. 1, 2]{jorg}
+\end{enumerate}
+
+Example of solutions to cubic and quartic polynomials: \cite[Ch. 1]{juliusz}
+
+Problem of polynomials with degree $\geq 5$:
+\begin{enumerate}
+\item \cite[Ch. 1]{jorg}
+\item \cite{galoiswiki}
+\end{enumerate}
+
+The Fundamental Theorem of Algebra: 
+\begin{enumerate}
+\item \cite[Section 2.2]{stewart}
+\item \cite[Ch. 4]{jorg} 
+\end{enumerate}
+
+\subsection{Field Theory}
+
+Define field: \cite[Sec. 7.1]{dummit}
+
+Define characteristic of a field: \cite[Sec. 13.1]{dummit}
+
+Define prime subfield: \cite[Sec. 13.1]{dummit}
+
+Define field extension: \cite[Sec. 13.1]{dummit}
+
+Discuss field extension properties:
+\begin{enumerate}
+\item \cite[Sec. 13.1]{dummit}
+\item \cite[Ch. 4]{stewart}
+\end{enumerate}
+
+Discuss simple extensions: \cite[Ch. 5]{stewart}
+
+Discuss the degree of extensions \cite[Ch. 6]{stewart}
+
+\newpage
+\section{Galois Theory}
+
+\subsection{Basics}
+
+Overview of Galois theory: \cite{galoiswiki}
+
+Define automorphism: \cite[Sec. 14.1]{dummit}
+
+Define Galois extension: \cite[Sec. 14.1]{dummit}
+
+Define Galois group: \cite[14. 1]{dummit}
+
+\subsection{The Fundamental Theorem of Galois Theory}
+
+Summarize the Fundamental Theorem of Galois Theory: \cite{fundamentaltheoremwiki}
+
+Define character of a group: \cite[Sec. 14.2]{dummit}
+
+Define linearly independent characters: \cite[Sec. 14.2]{dummit}
+
+State and prove linear independence of characters theorem: \cite[Sec. 14.2]{dummit}
+
+State and prove Fundamental Theorem of Galois Theory:
+\begin{enumerate}
+\item \cite[Sec. 14.2]{dummit}
+\item \cite[Ch. 9]{juliusz}
+\item \cite[Ch. 12]{stewart}
+\end{enumerate} 
+
+Compute some examples using Galois Extensions and the Fundamental Theorem of Galois Theory:
+\begin{enumerate}
+\item \cite[Sec. 14.2]{dummit}
+\item \cite[Ch. 9]{juliusz}
+\item \cite[Ch. 13]{stewart}
+\end{enumerate} 
+
+\subsection{Soluble Groups}
+
+Define soluble group: \cite[Sec. 14.1]{stewart}
+
+State and prove theorem about solubility of subgroups: \cite[Sec. 14.1]{stewart}
+
+\subsection{The General Polynomial Equation}
+
+Define symmetric polynomials: \cite[Sec. 18.2]{stewart}
+
+State elementary symmetric polynomial theorem: \cite[18.2]{stewart}
+
+State and prove theorem that a polynomial is soluble by radicals if and only if it has a soluble Galois group: \cite[18.4]{stewart}
+
+\subsection{Finite Fields}
+
+Summarize properties of finite fields:
+\begin{enumerate}
+\item \cite[Sec. 14.3]{dummit}
+\item \cite[Ch. 19]{stewart}
+\end{enumerate}
+
+\subsection{Galois Groups of Polynomials}
+
+Give examples of Galois groups of polynomials of degree 2, 3, 4: \cite[Sec. 14.6]{dummit}
+
+\newpage
+\section{Conclusion}
+
+Summarize key ideas here.
+
+\newpage
+\begin{thebibliography}{9}
+
+\bibitem{jorg}
+Bewersdorff, Jorg. \textit{Galois Theory for Beginners}. American Mathematical Society, 2006. 
+
+\bibitem{juliusz}
+Brzeziński, Juliusz. \textit{Galois Theory Through Exercises}. Springer, 2018. 
+
+\bibitem{dummit}
+Dummit, David Steven., and Richard M. Foote. \textit{Abstract Algebra}. 3rd ed., John Wiley \& Sons, 2004.
+
+\bibitem{stewart}
+Stewart, Ian. \textit{Galois Theory}. Chapman \& Hall/CRC, 2015.  
+
+\bibitem{galoiswiki} 
+``Wikipedia -- Galois Theory.” \textit{Wikipedia}, Wikimedia Foundation,\\ \texttt{https://en.wikipedia.org/wiki/Galois\_theory}. 
+
+\bibitem{fundamentaltheoremwiki}
+``Wikipedia -- Fundamental Theorem of Galois Theory.” \textit{Wikipedia}, Wikimedia Foundation,\\ \texttt{https://en.wikipedia.org/wiki/Fundamental\_theorem\_of\_Galois\_theory}. 
+\end{thebibliography}
+
+\end{document}

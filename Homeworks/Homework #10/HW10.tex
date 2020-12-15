@@ -1,0 +1,178 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+\setlength\parindent{0pt}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+
+\def\fN{\mathfrak{N}}
+
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\img{\mathrm{img}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\HW{10}
+\def\DUE{11/20/2020}
+
+\title[Homework \HW]{Homework \HW \\
+Math A4900/44900\\
+\small Due: \DUE}
+\author{}
+
+\begin{document}
+%\maketitle %%% COMMENT THIS LINE OUT (add a % to the beginning of the line) and UNCOMMENT the following (delete the % symbols) to give yourself a good assignment header:
+\begin{flushright}
+Chris Hayduk\\
+Math A4900\\
+Homework \HW\\
+\DUE
+\end{flushright}
+
+
+
+
+
+\begin{enumerate}[1.]
+\item \textbf{Prime and maximal ideals}
+\begin{enumerate}
+\item Prove that if $M$ is an ideal such that $R/M$ is a field then $M$ is a maximal ideal (do not assume $R$ is commutative). 
+
+
+\item Let $\varphi: R \to S$ be a homomorphism of commutative rings. 
+\begin{enumerate}[(i)]
+\item Prove that if $P$ is a prime ideal of $S$ then either $\varphi^{-1}(P) = R$ or $\varphi^{-1}(P)$ is a prime ideal of $R$. Apply this to the special case when $R$ is a subring of $S$ and $\varphi$ is the inclusion homomorphism to deduce that if $P$ is a prime ideal of $S$, then $P \cap R$ is either $R$ or a prime ideal of $R$. 
+\item Prove that if $M$ is a maximal ideal of $S$ and $\varphi$ is surjective then $\varphi^{-1}(M)$ is a maximal ideal of $R$. Give an example to show that this need not be the case if $\varphi$ is not surjective. 
+\end{enumerate}
+
+
+\end{enumerate}
+
+\item \textbf{Principal ideal domains.}
+\begin{enumerate}
+\item Prove that if $R$ is a PID, then so is $R/I$ for any ideal $I \subseteq R$. 
+\item Let $R$ be an integral domain and suppose that every prime ideal in $R$ is principal. This exercise proves that $R$ must be a PID.
+\begin{enumerate}[(i)]
+\item Assume that the set of ideals of $R$ that are not principal is nonempty and prove that this set has \emph{at least one} maximal element under inclusion (which by hypothesis is not prime). {[Use Zorn's lemma.]}
+
+\item Let $I$ be an ideal that is maximal with respect to being nonprincipal, and let $a, b \in R$ with $ab \in I$ but $a, b \notin I$ (which exist because prime ideals are all principal, but $I$ is not principal and hence is not prime). Let $I_a = (I, a)$ and $I_b = (I, b)$, and define $J = \{ r\in R ~|~ rI_a \subseteq I\}$. 
+
+\smallskip
+
+Prove that $I_a$ and $I_b$ are principal, writing 
+$$\text{$I_a = (\alpha)$ \quad and \quad $J = (\beta)$,}$$
+and that they satisfy $I \subsetneq I_b \subseteq J$ and $I_a J = (\alpha \beta) \subseteq I$. 
+
+
+\item If $x \in I$, show that $x = s\alpha$ for some $s \in J$. Deduce that $I = I_aJ$ is principal, a contradiction, and conclude that $R$ is a PID. 
+
+
+\end{enumerate}
+\end{enumerate}
+\item \textbf{Euclidean domains.}
+\begin{enumerate}[(a)]
+\item Let $R$ be a Euclidean domain with norm $N$. Let 
+$$\Lambda = N(R - 0) = \{n  \in \ZZ_{\ge 0} ~|~ N(r) = n \text{ for some non-zero } r \in R\},$$
+and let $m = \min(\Lambda)$ (which exists by the well-ordering of $\ZZ$). \\
+{\footnotesize [For example, in $\ZZ$ with $N(a) = |a|$ for each $a \in \ZZ$, then $m = 1$; or in a field $F$ with $N(a) = 0$ for all $a \in F$, then $m = 0$.]}
+
+\smallskip
+
+Prove that if $r \in R$ with $N(r) = m$, then $a$ is a unit. Deduce that if $r \in R - 0$ and $N(r) = 0$, then $r$ is a unit. 
+
+\item Let $D = 2$ (so that $\omega_D = \sqrt{2}$). Prove that $\ZZ[\sqrt{2}]$ is a Euclidean domain (with norm $N(a + b\sqrt{2}) = |a^2 - b^2\sqrt{2}|$.
+\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+\end{document}

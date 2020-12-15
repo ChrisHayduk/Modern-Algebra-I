@@ -1,0 +1,584 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+
+
+
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{lemma}[thm]{Lemma}
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+	\newtheorem*{defn}{Definition}
+	\newtheorem{remark}{Remark}
+\theoremstyle{example}
+	\newtheorem*{example}{Example}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+
+
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SL}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+
+
+\newcommand{\ProblemID}[2]{{\def\arraystretch{1.5}
+	\begin{tabular}{|lr|}\hline
+	Problem: & \bf #1\\\hline
+	No.\ stars:& \bf #2\\\hline\end{tabular}}}
+
+
+\newcommand{\Rubric}[1]{$~$\\\vfill \hfill{\def\arraystretch{1.75}\begin{tabular} {|c|c|} \hline
+#1 & Points Possible  \\ \hline \hline
+complete & \hspace{3mm} 0 \hspace{3mm} 1 \hspace{3mm} 2 \hspace{3mm} 
+			3 \hspace{3mm} 4 \hspace{3mm} 5 \hspace{3mm} \\ \hline
+mathematically valid & \hspace{3mm} 0 \hspace{3mm} 1 \hspace{3mm} 2 \hspace{3mm} 
+			3 \hspace{3mm} 4 \hspace{3mm} 5 \hspace{3mm} \\ \hline
+readable/fluent & \hspace{3mm} 0 \hspace{3mm} 1 \hspace{3mm} 2 \hspace{3mm} 
+			3 \hspace{3mm} 4 \hspace{3mm} 5 \hspace{3mm} \\ \hline
+Total:& \qquad\qquad\qquad(out of 15)\\
+\hline
+\end{tabular}}
+\pagebreak}
+
+
+
+
+\def\NAME{YOUR-NAME}%replace "YOUR-NAME" with your full name.
+
+
+
+\title{Final proofs portfolio}
+\author{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\NAME}
+\lhead{Final proofs portfolio}
+\rfoot{\thepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+\begin{flushright}
+\NAME
+\\\smallskip
+Math A4900\\
+Final proofs portfolio\\
+December 15, 2020
+\end{flushright}
+
+\vspace{1in}
+{\def\arraystretch{1.5}
+\begin{center}
+\begin{tabular}{|c|c||c|c|}\hline
+\textbf{Problem} & $\quad$\textbf{$\star$s}$\quad$ & \textbf{Points} & \textbf{Tot}\\\hline\hline
+	% Include lines per problem that you complete (adding more if needed),
+	% replacing "0X" with the problem number, and 
+	% ??? with the number of stars. For example,
+	% 4A 	& 2 	&&\\\hline
+	1A 	& 2 	&&\\\hline
+	2A 	& 2 	&&\\\hline
+	4A 	& 2 	&&\\\hline
+	5A 	& 2 	&&\\\hline
+	3A 	& 2 	&&\\\hline
+	2B 	& 2 	&&\\\hline
+	7B 	& 1 	&&\\\hline
+	9B 	& 1 	&&\\\hline
+	10A 	& 1 	&&\\\hline
+	3C 	& 2 	&&\\\hline
+	%%%
+\hline&&&$\qquad\qquad$\\\hline
+\end{tabular}
+\end{center}}
+
+
+\vfill
+
+
+
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Copy and past one of these %%%%%%%%%
+%%%%%%%%% for each problem you rewrite %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Let $G$ be a group and let $x \in G$. If $|x| = n < \infty$, prove that the elements $1, x, x^2, \cdots, x^{n-1}$ are all distinct. Deduce that $|x| = |\langle x \rangle|$
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{1A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Let $|x| = n < \infty$. Now suppose that there are numbers $m, k \in \ZZ$ with $0 \leq k < m \leq n-1$ such that $x^m = x^k$.\\
+
+Then we have that,
+\begin{align*}
+x^k \cdot x &= x^m \cdot x\\
+x^k \cdot x^2 &= x^m \cdot x^2\\
+x^k \cdot x^3 &= x^m \cdot x^3\\
+&\vdots\\
+x^k \cdot x^{n-m} &= x^m \cdot x^{n-m}
+\end{align*}
+
+However, on the right side of the equality, we have
+\begin{align*}
+x^m \cdot x^{n-m} &= x^{m+n-m}\\
+&= x^n\\
+&= e
+\end{align*}
+
+This implies that,
+\begin{align*}
+x^k \cdot x^{n-m} &= x^{k+n-m}\\
+&= e
+\end{align*}
+
+where $k+n-m \in \ZZ$ and $0 < k+n-m < m+n-m = n$. However, we know that the order of $x$ is $n$, which is defined to be the smallest positive integer of $x$ that yields the identity element. Hence, we have a contradiction and thus $e, x, x^2, \dots, x^{n-1}$ are all distinct.\\
+
+Now consider $\langle x \rangle$. We know that each $x^c$ is distinct for every $c \in \ZZ$ such that $0 \leq k \leq n-1$. Now fix an $m \in \ZZ$ such that $m \geq n$. Choose $k \in \NN$ as the greatest positive integer such that $m \geq kn$. Then we have,
+\begin{align*}
+x^m &= x^{kn + (m - kn)}\\
+&= x^{kn}x^{m - kn}\\
+&= x^{m-kn}
+\end{align*}
+
+Note that $0 \leq m - kn$ since $m \geq kn$. In addition, $m - kn < n$ because, if $m - kn \geq n$, it would mean that $(k+1)n \leq m$. But we chose $k$ such that it was the greatest positive integer with $m \geq kn$, so this is not possible.\\
+
+Hence we have that $0 \leq m - kn < n$, and so $x^{m - kn} \in \{1, x, x^2, \cdots, x^{n-1}\}$. Since $m \geq n$ was an arbitrary integer, this holds for any $x^m$ with $m \geq n$. Thus, for any $a \in \ZZ$, we have that,
+\begin{align*}
+x^a \in \{1, x, x^2, \cdots, x^{n-1}\}
+\end{align*} 
+
+and so $| \langle x \rangle | = n = |x|$.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that if $H$ and $K$ are subgroups of $G$, then so is $H \cap K$. 
+On the other hand, prove $H \cup K$ is a subgroup if and only if $H \subseteq K$ or $K \subseteq H$.
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{2A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Suppose $H, K \leqslant G$. Consider $H \cap K$. Note that $1 \in H, K$ by the definition of groups, so $1 \in H \cap K$. Hence, $H \cap K \neq \emptyset$. Now let $x, y \in H \cap K$. Then $x, y \in H$ and $x, y \in K$, both of which are groups. Hence, $y^{-1} \in H$ and $y^{-1} \in K$, which implies $xy^{-1} \in H$ and $xy^{-1} \in K$. Thus, $xy^{-1} \in H \cap K$. As a result, $H \cap K$ satisfies the subgroup criterion and is hence a subgroup of $G$.\\
+
+Now consider $H \cup K$. Suppose for contraposition that $H \not\subset K$ and $K \not\subset H$. Then $\exists x \in H$ such that $x \not\in K$ and $\exists y \in K$ such that $y \not\in H$. Then we have $y^{-1} \not\in H$ and $x \not\in K$, so $xy^{-1} \not\in H, K$. Hence $xy^{-1} \not\in H \cup K$ and so $H \cup K$ does not satisfy the subgroup criterion. As a result, we have that if $H \cup K$ is a subgroup of $G$, then $H \subset K$ or $K \subset H$.\\
+
+Now for the other direction of the proof. Suppose $H \subset K$. Then $\forall \; x \in H$ we have $x \in K$. Hence, $H \cup K = K$. Since $K \leqslant G$, we have $H \cup K \leqslant G$ as well.\\
+
+Suppose $K \subset H$. Then $\forall \; x \in K$ we have $x \in H$. Hence, $H \cup K = H$. Since $H \leqslant G$, we have $H \cup K \leqslant G$ as well. Thus, we have proved that if $H \subset K$ or $K \subset H$, then $H \cup K$ is a subgroup of $G$.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that every finitely generated subgroup of $\QQ$ is cyclic.\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{4A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Let $H$ be a finitely generated subgroup of $\QQ$ and suppose that there is a finite set $\QQ$ such that $H = \langle A \rangle$. Now consider $k$, the product of all the denominators that appear in $A$. Then every element $a/b \in A$ can be re-written as $\frac{a \cdot k/b}{b \cdot k/b} = \frac{a \cdot k/b}{k}$ since $b$ is in the product that yields $k$ and hence is a divisor of $k$. Thus, we can rewrite every fraction in $A$ as a fraction with denominator $k$. That is, every fraction in $A$ can be written as $n/k$ for some $n \in \ZZ$. This lets us conclude that, $$H = \langle A \rangle \leq \langle 1/k \rangle$$
+
+Thus, by Theorem 7 in $\S 2.3$ of DF, we have that $H$ is cyclic since $\langle 1/k \rangle$ is cyclic.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that if $G/Z(G)$ is cyclic, then $G$ is abelian.
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{5A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Suppose $G/Z(G)$ is cyclic. Then there exists an $a \in G$ such that $G/Z(G) = \langle aZ(G) \rangle$. Now, by Proposition 4 from Section 3.1 in Dummit and Foote, we have that the set of left cosets of $Z(G)$ forms a partition of $G$. Hence, each $g \in G$ occurs in one and only of the left cosets of $Z(G)$. Thus, every $g \in G$ can written in the form $a^kz$ for some $z \in Z(G)$ and for some $k$ such that $1 \leq k \leq |a|$.\\
+
+Now let us fix $g_1, g_2 \in G$. From the above, we can write $g_1 = a^kz_1$ and $g_2 = a^mz_2$. Then we have,
+\begin{align*}
+g_1g_2 &= a^kz_1a^mz_2
+\end{align*}
+
+Since every element in $Z(G)$ commutes with all elements of $G$ and powers of $a$ commute with each other, we derive the following equality,
+\begin{align*}
+g_1g_2 &= a^kz_1a^mz_2\\
+&= a^mz_2a^kz_1\\
+&= g_2g_1
+\end{align*}
+
+Since $g_1, g_2$ were arbitrary in $G$, this holds for all elements of $G$ and hence it is an abelian group.
+
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+For some fixed $g \in G$, prove that conjugation by $g$ (i.e.\ the map $G \to G$ defined by $a \mapsto gag^{-1}$) is an automorphism of $G$. Deduce that $a$ and $gag^{-1}$ have the same order, and for any non-empty $S \subseteq G$, the map 
+$$S \to gSg^{-1} \quad \text{defined by} \quad s \mapsto gsg^{-1}$$
+is also a bijection. \\
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{3A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Fix $g \in G$. Define $\varphi_g(a) = gag^{-1}$ for every $a \in G$. In order to show that $\varphi_g$ is an automorphism of $G$, we must show that $\varphi_G$ is a bijection from to $G$ to $G$ and that
+\begin{align*}
+\varphi_g(ab) = \varphi_g(a)\varphi_g(b)
+\end{align*}
+
+for all $a, b \in G$.\\
+
+First, we have that $\phi_g$ is well-defined. This is true because $G$ is a group, so $gag^{-1} \in G$ for every $a \in G$.\\
+
+Now fix $a, b \in G$ and suppose $\varphi_g(a) = \varphi_g(b)$. Then we have,
+\begin{align*}
+\varphi_g(a) &= \varphi_g(b)\\
+\implies gag^{-1} &= gbg^{-1}
+\end{align*}
+
+Multiplying by $g^{-1}$ on the left and $g$ on the right on both sides of the equal signs yields
+\begin{align*}
+a = b
+\end{align*}
+
+Hence, $\varphi_g$ is injective.\\
+
+Now fix $c \in G$. Since $G$ is a group, we have $g^{-1}cg \in G$. Hence this gives us that,
+\begin{align*}
+\varphi_g(g^{-1}cg) &= g(g^{-1}cg)g^{-1}\\
+&= c
+\end{align*}
+
+Since $c$ was arbitrary, this holds for every element in $G$. Hence, $\varphi$ is surjective as well and is thus a bijection from $G$ to $G$.\\
+
+Now we will check the homomorphism property. Fix $a, b \in G$. Then,
+\begin{align*}
+\varphi_g(ab) &= gabg^{-1}\\
+&= ga(g^{-1}g)bg^{-1}\\
+&= (gag^{-1})(gbg^{-1})\\
+&= \varphi_g(a)\varphi_g(b)
+\end{align*}
+
+Hence, $\varphi_g$ is a bijective homorphism and thus an automorphism of $G$. So we have $|a| = |\varphi_g(a)| = |gag^{-1}|$ as a consequence of $\varphi_g$ being an automorphism.\\
+
+Now for any non-empty $S \subset G$ we consider the map
+\begin{align*}
+S \to gSg^{-1} \; \text{defined by} \; s \to gsg^{-1}
+\end{align*}
+
+Since every element of $S$ is an element of $G$ and $G$ is a group, we have that $gsg^{-1} \in G$ for every $g \in G$ and $s \in S$. Hence, for every $g$, we have that
+\begin{align*}
+gSg^{-1} \subset G
+\end{align*}
+
+So our map sends the subsets of $G$ to the subsets of $G$. Let $S, R \in \mathcal{P}(G) \setminus \emptyset$. Suppose $gSg^{-1} = gRg^{-1}$. Then we have
+\begin{align*}
+&(g^{-1}g)S(g^{-1}g) = (g^{-1}g)R(g^{-1}g)\\
+&\implies S = R
+\end{align*}
+
+So our map is injective. Now let $S \in \mathcal{P}(G) \setminus \emptyset$. Observe, that since $G$ is a group, for every $s \in S$, there exists an element $g^{-1}sg \in G$. Hence, we can define the set $R \subset G \setminus \emptyset$ such that every element $r \in R$ is defined to be $g^{-1}sg$ for some $s \in S$. Ensure that each $s$ is used to define exactly one $r$. Then, we have for all $r \in R$,
+\begin{align*}
+grg^{-1} &= g(g^{-1}sg)g^{-1}\\
+&= s
+\end{align*}
+
+Hence, we have that $gRg^{-1} = S$, and so our map is surjective and hence bijective.\\
+
+Now consider again sets $S, R \in \mathcal{P}(G) \setminus \emptyset$. Then we have
+\begin{align*}
+gSRg^{-1} &= gS(g^{-1}g)Rg^{-1}\\
+&= (gSg^{-1})(gRg^{-1})
+\end{align*}
+
+So the map is homomorphism and hence an isomorphism.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Let $G$ be a group. Show that the map
+$$\varphi: G \to G \qquad \text{ defined by } \quad  \varphi: g \mapsto g^{-1}$$ is a homomorphism if and only if $G$ is abelian. Now, verify that 
+$$\psi: D_{2n} \to D_{2n}  \text{ defined by } \quad  \psi(s) = s^{-1} \text{ and } \psi(r) = r^{-1}$$
+extends to a well-defined homomorphism, and explain why this does not contradict the first statement.
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{2B}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Suppose $\varphi$ is a homomorphism. Then $\varphi(xy) = \varphi(x)\varphi(y)$ for every $x, y \in G$. By the definition of $\varphi$ we have
+\begin{align*}
+\varphi(xy) &= y^{-1}x^{-1}\\
+&= \varphi(x)\varphi(y)\\
+&= x^{-1}y^{-1}
+\end{align*}
+
+Hence $y^{-1}x^{-1} = x^{-1}y^{-1}$ for every $x, y \in G$. Thus, $G$ is abelian. Now suppose $G$ is abelian. Then for every $x, y \in G$, we have that $xy = yx$.
+
+Define the map $\varphi: G \to G$ by $\varphi: g \to g^{-1}$. Then we have,
+\begin{align*}
+\varphi(xy) &= (xy)^{-1}\\
+&= y^{-1}x^{-1}
+\end{align*}
+
+and
+\begin{align*}
+\varphi(x)\varphi(y) &= x^{-1}y^{-1}
+\end{align*}
+
+Since $G$ is abelian, we can rewrite 
+\begin{align*}
+\varphi(x)\varphi(y) &= x^{-1}y^{-1}\\
+&= y^{-1}x^{-1}
+\end{align*}
+
+Hence we have that $\varphi(xy) = \varphi(x)\varphi(y)$ for all $x, y \in G$, so $\varphi$ is a homomorphism.\\
+
+Now consider the map $\psi$ as described above.
+
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+If the center of $G$ is of index $n$, prove that every conjugacy class has at most $n$ elements. 
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{7B}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{1}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Suppose the center of $G$, $Z(G) = \{g \in G \ | \ gx = gx \text{ for all } x \in G\}$, is of index $n$. That is, the number of left cosets of $Z(G)$ in $G$ is $n$. Now fix $a \in G$. By Proposition 6 in Section 4.3 of Dummit and Foote, we have that the number of conjugates of $a$ is $|G \ : \ C_G(a)|$. Note that $C_G(a) = \{g \in G \ | \ gag^{-1} = a\} = \{g \in G \ | \ ga = ag\}$. In other words, $C_G(s)$ is the set of elements in $G$ which commute with $s$. Since all of the elements of $Z(G)$ commute with every element of $G$, we must have that $Z(G) \subset C_G(a)$. Hence, we have that $|G/C_G(a)| \leq |G/Z(G)| = n$ and so the number of conjugates of $a$ is at most $n$. Since $a$ was arbitrary in $G$, this holds for all elements of $G$ and thus for all conjugacy classes, as required.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Show that $2\ZZ$ and $3\ZZ$ are isomorphic as groups but not as rings. 
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{9B}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{1}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+We have that $2\ZZ$ is an infinite cyclic group with generator $\langle 2 \rangle$ and $3\ZZ$ is an infinite cyclic group with generator $\langle 3 \rangle$. Hence, any isomorphism from $2\ZZ$ to $3\ZZ$ must map $\pm 2$ to $\pm 3$. Without loss of generality, let us thus define $\varphi: 2\ZZ \to 3\ZZ$ by $\varphi(2k) = 3k$. Let us show that this defines a group isomorphism. Fix $x, y \in 2\ZZ$ and suppose $\varphi(x) = \varphi(y)$. Then $x = 2n$ and $y = 2m$ for some $n, m \in \mathbb{Z}$ and we have,
+\begin{align*}
+\varphi(x) &= \varphi(y)\\
+\implies \varphi(2n) &= \varphi(2m)\\
+\implies 3n &= 3m\\
+\implies n &= m\\
+\implies x &= y
+\end{align*}
+
+Hence, we have that $\varphi$ is injective. Now let $z \in 3\ZZ$. Hence, $z = 3k$ for some $k \in \ZZ$. Then we have that $\varphi(2k) = 3k$, and so $\varphi$ is surjective. Thus, $\varphi$ is a bijective. Again consider $x = 2n$ and $y = 2m$. Then we have,
+\begin{align*}
+\varphi(x + y) &= \varphi(2n + 2m)\\
+&= \varphi(2(n+m))\\
+&= 3(n+m)\\
+&= 3n + 3m\\
+&= \varphi(2n)\varphi(2m)\\
+&= \varphi(x)\varphi(y)
+\end{align*}
+
+Now fix $2, 4 \in 2\ZZ$. We have $2 = 2\cdot 1$ and $4 = 2 \cdot 2$. Thus, applying $\varphi$ yields,
+\begin{align*}
+\varphi(2 \cdot 4) &= \varphi(8)\\
+&= \varphi(2 \cdot 4)\\
+&= 3 \cdot 4\\
+&= 12
+\end{align*}
+
+However, $\varphi(2)\varphi(4) = (3 \cdot 1) \cdot (3 \cdot 2) = 18$. Hence, $\varphi(2 \cdot 4) \neq \varphi(2)\varphi(4)$ and so $\varphi$ is not a ring isomorphism.
+
+Thus, $\varphi$ is a group isomorphism.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that if $M$ is an ideal such that $R/M$ is a field then $M$ is a maximal ideal (do not assume $R$ is commutative).  
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{10A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{1}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Suppose $M$ is an ideal such that $R/M$ is a field. Recall that a field is a commutative ring with identity in which every nonzero element has an inverse. That is, for every $x + M \in R/M$ with $x \neq 0$, there exists a $y + M \in R/M$ such that $(x + M)(y + M) = 1 + M$. Now let $N$ be an ideal such that $M \subset N$. Also let $x \in N$ such that $x \not\in M$. As a result, we have that $x + M \neq 0 + M \in R/M$. Since $R/M$ is a field, there is a $y + M \in R/M$ such that $(x + M)(y + M) = 1 + M$. Now, by Proposition 6 in Section 7.3 of DF, we can reformulate $(x+M)(y+M)$ as $xy + M$. Hence, we have,
+\begin{align*}
+xy + M = 1 + M
+\end{align*}
+
+Since $xy = 1$ from the above, we know that $y = x^{-1}$. Since $x \in N$ and $N$ is an ideal, we must have that $y = x^{-1} \in N$ as well.\\
+
+Now, because $R/M$ is a group under addition (as a consequence of being a field), we can apply Proposition 4 from Section 3.1 of DF and state,
+\begin{align*}
+xy - 1 \in M
+\end{align*}
+
+That is, there exists an $m \in M$ such that $xy - 1 = m$. This implies that $1 = xy - m$. But note that $x, y, m \in N$. As a result, we have that $1 = xy - m \in N$. By Proposition 9(1) in Section 7.4 of DF, this gives us that $N = R$. Hence, the only ideal of $R$ which contains $M$ is $R$ itself. We now need to show that $M \neq R$ in order to show that it is a maximal ideal. If $M = R$, then $R/M = R/R = 0$. Since a field must have two distinct identities, one additive and one multiplicative, $R/R$ is not a field. Thus, we have a contradiction and so $M \neq R$, as required. As a result, $M$ is a maximal ideal of $R$.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+For which $n \in \ZZ_{\ge 1}$ is $(\ZZ/2^n\ZZ)^\times$ cyclic? Prove your claim.\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{3C}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Let $n \geq 3$ and consider $2^{n-1}+1$ and $2^{n-1}-1$. We have,
+\begin{align*}
+(2^{n-1}+1)^2 = 2^{2n-2} + 2^n + 1 &\equiv 1 \mod 2^n\\
+(2^n(n-1)-1)^2 = 2^{2n-2} - 2^n + 1 &\equiv 1 \mod 2^n
+\end{align*}
+
+Thus, we have that $2^{n-1}+1 \mod 2^n \neq 2^{n+1}-1 \mod 2^n$ (i.e. they are distinct elements), but both elements have order $2$.  Note that $(\ZZ/2^n\ZZ)^{\times}$ can be represented by a subset of the following equivalence classes: $\{\bar{1}, \ldots, \overline{2^n-1}\}$. That is, the group is finite with size at most $2^n-1$. Let us assume that $(\ZZ/2^n\ZZ)^{\times}$ is cyclic. Hence, there exists an $x \in (\ZZ/2^n\ZZ)^{\times}$ such that $2^{n-1}+1 = x^\ell$ and $2^{n-1}-1 = x^m$ for some $\ell, m \in \ZZ$. Since $(\ZZ/2^n\ZZ)^{\times}$ is a finite group, we can apply Proposition 2 from Section 2.3 in DF, which states that $x^{2^n-1} = 1$ and $1, x, x^2, \ldots, x^{2^n-2}$ are all distinct elements. Thus, we know $\ell, m \in \{1, 2, 3, \ldots, 2^{n}-1\}$ and $\ell \neq m$ since $2^{n-1}+1 \mod 2^n \neq 2^{n+1}-1 \mod 2^n$.\\
+
+Now recall that we have $|x^{\ell}| = |x^m| =  2$. This implies that,
+\begin{align*}
+(2^n - 1) |\ 2\ell \text{ and } (2^n - 1) |\ 2m
+\end{align*}
+
+But since $1 \leq \ell, m \leq 2^n - 1$, we have that $2 \leq 2\ell, 2m \leq 2(2^n -1) < 2 \cdot 2^n$. Hence, the only way for $|x^{\ell}| = 2 = |x^m|$ is if $2\ell, 2m = 2^{n}-1$. But this implies that $\ell, m = 2^{n-1} - 1/2$ and so $x^m = x^\ell$. This is a contradiction since $2^{n-1}+1 \mod 2^n \neq 2^{n+1}-1 \mod 2^n$, so $(\ZZ/2^n\ZZ)^{\times}$ is not cyclic when $n \geq 3$.\\
+
+Now let us examine $(\ZZ/2^2\ZZ)^{\times} = (\ZZ/4\ZZ)^{\times}$. This group has the following elements: $\{\bar{1}, \bar{3}\}$. We have that $\bar{3}^2 = \bar{9} = \bar{1}$ and $\bar{3}^1 = \bar{3}$, so this group is generated by $\langle \bar{3} \rangle$.\\
+
+Finally, we will examine $(\ZZ/2^1\ZZ)^{\times} = (\ZZ/2\ZZ)^{\times}$. This group has the following elements: $\{\bar{1}\}$. We have that $\bar{1}^1 = \bar{1}$, so this group is generated by $\langle \bar{1} \rangle$. Hence, $(\ZZ/2^n\ZZ)^\times$ is cyclic when $n = 1$ or $n = 2$.
+\end{proof}
+
+\Rubric{}
+
+
+\end{document}
