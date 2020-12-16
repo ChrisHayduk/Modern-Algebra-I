@@ -95,7 +95,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\HW{5}
-\def\DUE{10/18/2020}
+\def\DUE{12/15/2020}
 
 \title[Homework \HW]{Homework \HW \\
 Math A4900/44900\\
@@ -126,12 +126,12 @@ Their paper, \textit{Lambek vs. Lambek: functorial vector space semantics and st
 In this paper, the authors construct a form of categorial grammar using Lambek's pregroup grammar. They begin with a description of Lambek calculus. It consists of a non-commutative binary operation on partially ordered sets. The authors then go on to define a residuated monoid as follows,
 
 \par
-\textbf{Definition 2.1} \cite{lambekvlambek} A residuated monoid is a partially ordered set $(L, \leq)$ equipped with a monoid structure $(L, \cdot, 1)$ that preserves the partial order, that is for all $a, b, c \in L$, we have,
+\textbf{Definition 2.1} \cite[\S 2.1]{lambekvlambek} A residuated monoid is a partially ordered set $(L, \leq)$ equipped with a monoid structure $(L, \cdot, 1)$ that preserves the partial order, that is for all $a, b, c \in L$, we have,
 \begin{align*}
 \text{If} \; a \leq b \; \text{then} \; a \cdot c \leq b \cdot c \; \text{and} \; c \cdot a \leq c \cdot b
 \end{align*}
 
-Note that a monoid has a single associative binary operation and an identity element \cite{monoid}. A partially ordered residuated monoid is called a Lambek monoid in the context of this paper \cite{lambekvlambek}. In addition, we have the following definitions for a natural language and a Lambek grammar,
+Note that a monoid has a single associative binary operation and an identity element \cite{monoid}. A partially ordered residuated monoid is called a Lambek monoid in the context of this paper \cite[\S 2.1]{lambekvlambek}. In addition, we have the following definitions for a natural language and a Lambek grammar,
 \par
 \textbf{Definition 2.2} \cite{lambekvlambek} For $\Sigma$ the set of words of a natural language and $\mathcal{B}$ a set of basic grammatical types, a Lambek type-dictionary is binary relation $D$ defined as
 \begin{align*}
@@ -141,7 +141,7 @@ D \subset \Sigma \times T(\mathcal{B})
 where $T(B)$ is the free Lambek monoid generated over $\mathcal{B}$
 
 \par
-\textbf{Definition 2.3} \cite{lambekvlambek} A Lambek grammar $G$ is a pair $\langle D, S \rangle$, where $D$ is a Lambek type-dictionary and $S \subset \mathcal{B}$ is a set of designated types, containing types such as that of a declarative sentence $s$ and a question $q$.
+\textbf{Definition 2.3} \cite[\S 2.1]{lambekvlambek} A Lambek grammar $G$ is a pair $\langle D, S \rangle$, where $D$ is a Lambek type-dictionary and $S \subset \mathcal{B}$ is a set of designated types, containing types such as that of a declarative sentence $s$ and a question $q$.
 
 \par
 Thus, as we can see, a Lambek-type dictionary assigns each word in the language a structure from the free Lambek monoid generated over $\mathcal{B}$. The Lambek grammar then assigns another type to each ordered pair in $D$.
@@ -150,33 +150,34 @@ Thus, as we can see, a Lambek-type dictionary assigns each word in the language 
 Lambek later developed a simplification for his Lambek grammar in which he used a pregroup structure. The definition is as follows,
 
 \par
-\textbf{Definition 2.5} \cite{lambekvlambek} A Lambek pregroup is a partially ordered unital monoid where each element has a left and a right adjoint $(P, \leq, \cdot, 1, (-)^{\ell}, (-)^r)$. That is, for every $p \in P$, there is a $p^r$ and a $p^{\ell}$ in $P$, which satisfy the following four inequalities:
+\textbf{Definition 2.5} \cite[\S 2.1.1]{lambekvlambek} A Lambek pregroup is a partially ordered unital monoid where each element has a left and a right adjoint $(P, \leq, \cdot, 1, (-)^{\ell}, (-)^r)$. That is, for every $p \in P$, there is a $p^r$ and a $p^{\ell}$ in $P$, which satisfy the following four inequalities:
 \begin{align*}
 p \cdot p^r \leq &1 \leq p^r \cdot p\\
 p^{\ell} \cdot p \leq &1 \leq p \cdot p^{\ell}
 \end{align*}
 
 \par
-The authors gave the following example for a Lambke pregroup grammar,\\
+The authors gave the following example for a Lambek pregroup grammar,\\
 \includegraphics[scale=0.55]{lambek_pregroup}
 
 \par
-Each word in the language is assigned a specific grammatical role, represented by some combination of elements in the Lambek pregroup. The meaning of a sentence can then be determined by composing these elements together as functions in the order in which they appear in the sentence.
+Each word in the language is assigned a specific grammatical role, represented by some combination of elements in the Lambek pregroup. The meaning of a sentence can then be determined by composing these elements together as functions in the order in which they appear in the sentence \cite[\S 2.1.1]{lambekvlambek}.
 
 \par
-The authors then went on to describe distributional models of meaning, which model words based on their meaning in context. The language is depicted as a vector space, and usually several important words are selected in order to form a basis for the vector space in which each word vector lives. The angle between word vectors is used as a proxy for the closeness in meaning between those two words, as the angle is smaller for words that appear in similar context. For example, the word vectors ``cat'' and ``dog'' would have a smaller angle than the word vectors ``cat'' and ``democracy'' because ``cat'' and ``dog'' appear in very similar contexts. The authors give the following image on p. 7 of the paper in order to graphically explain this concept,\\
+The authors then went on to describe distributional models of meaning, which model words based on their meaning in context. The language is depicted as a vector space, and usually several important words are selected in order to form a basis for the vector space in which each word vector lives. The angle between word vectors is used as a proxy for the closeness in meaning between those two words, as the angle is smaller for words that appear in similar context. For example, the word vectors ``cat'' and ``dog'' would have a smaller angle than the word vectors ``cat'' and ``democracy'' because ``cat'' and ``dog'' appear in very similar contexts \cite[\S 3]{lambekvlambek}. The authors give the following image on p. 7 of the paper in order to graphically explain this concept,\\
 
 \includegraphics[scale=0.7]{vector_space}
 
 \par
-These models ignore the grammatical structure of the language, unlike the Lambek pregroup grammar discussed previously. There is also an issue with sentences of differing lengths. For example, a distributional model of meaning cannot compare the sentences ``I walk the dog'' and ``I walk'' because they live in different spaces. The authors discuss that a way to resolve these issues is to combine the pregroup grammar with a distributional model. This allows the model to produce vectors for the meanings of sentences, taking into account both the grammatical structure of the sentence and the word vectors contained within it. The paper proposes the following definition for their DisCoCat model,
+These models ignore the grammatical structure of the language, unlike the Lambek pregroup grammar discussed previously \cite[\S 3]{lambekvlambek}. There is also an issue with sentences of differing lengths. For example, a distributional model of meaning cannot compare the sentences ``I walk the dog'' and ``I walk'' because they live in different spaces \cite[\S 3]{lambekvlambek}. The authors discuss that a way to resolve these issues is to combine the pregroup grammar with a distributional model. This allows the model to produce vectors for the meanings of sentences, taking into account both the grammatical structure of the sentence and the word vectors contained within it \cite[\S 4]{lambekvlambek}. The paper proposes the following definition for their DisCoCat model,
 
 \par
-\textbf{Definition 4.1} \cite{lambekvlambek} The distributional compositional categorical (DisCoCat) model of meaning is a category $FVect \times Preg$, equipped with a tensor product given by pointwise tensor of $Preg$ and $FVect$, that is $(V, p) \otimes (W, q) = (V \otimes W, p \cdot q)$, whose unit is $(\RR, 1)$.
+\textbf{Definition 4.1} \cite[\S 4.1]{lambekvlambek} The distributional compositional categorical (DisCoCat) model of meaning is a category $FVect \times Preg$, equipped with a tensor product given by pointwise tensor of $Preg$ and $FVect$, that is $(V, p) \otimes (W, q) = (V \otimes W, p \cdot q)$, whose unit is $(\RR, 1)$.
 
 \par
-where $FVect$ is the finite dimensional vector space of word meanings and $Preg$ is he pregroup grammar. Both the pregroup grammar and the finite dimensional vector space form compact closed categories \cite{lambekvlambek}.
+where $FVect$ is the finite dimensional vector space of word meanings and $Preg$ is he pregroup grammar. Both the pregroup grammar and the finite dimensional vector space form compact closed categories \cite[\S 4.1]{lambekvlambek}. The authors evaluated the DisCoCat model on sentence data sets, performing tasks such as ``disambiguation'', which when the model was distinguish between multiple possible meanings for a word within a sentence \cite[\S 5.2]{lambekvlambek}. DisCoCat performed very well in this setting, showing the promise of this approach to natural language processing  \cite[\S 5.2]{lambekvlambek}.
 
+\newpage
 \section{Reflection}
 
 \par
@@ -193,7 +194,7 @@ In the paper, \textit{A generalised quantifier theory of natural language in cat
 
 \par
 In the paper, \textit{Generalized Relations in Linguistics and Cognition}, the authors expand the categorical compositional models of natural language which were discussed in \textit{Lambek vs. Lambek} to conceptual space models of cognition \cite{relations}. This builds on what was stated in \textit{Lambek vs. Lambek}, that the categorical compositional model described a generalized approach which could be applied to other domains \cite{lambekvlambek}. The authors of this paper included Bob Coecke, who was included on the \textit{Lambek vs. Lambek} paper. In addition, the authors included Fabrizio Genovese, who was a PhD student at the University of Oxford at the time of the paper's publication \cite{genovese}. We also have Martha Lewis, a research assistant at Oxfrod with research interests in modeling how humans represent and use concepts in their minds \cite{lewis}. Lastly, Dan Marsden is a research assistant at Oxford whose research interests include category theoretic techniques to model systems in areas such as quantum computation and natural language semantics \cite{marsden}.
-
+\newpage
 \begin{thebibliography}{9}
 \bibitem{lambekvlambek} 
 Coecke, Bob;  Grefenstette, Edward; Sadrzadeh, Mehrnoosh. \textit{Lambek vs. Lambek: functorial vector space semantics and string diagrams for Lambek calculus}. Ann. Pure Appl. Logic  164  (2013),  no. 11, 1079--1100.

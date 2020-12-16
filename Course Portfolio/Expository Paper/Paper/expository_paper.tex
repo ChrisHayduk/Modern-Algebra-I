@@ -9,6 +9,19 @@
 \usepackage{multicol}
 \usepackage[pdftex,bookmarks]{hyperref}
 \usepackage{enumitem}
+\usepackage{amsthm}
+\theoremstyle{plain}
+	\newtheorem*{thm*}{Theorem}
+	
+\theoremstyle{plain}
+	\newtheorem*{prop*}{Proposition}
+	
+\theoremstyle{plain}
+	\newtheorem*{lemma*}{Lemma}
+
+
+\renewcommand{\baselinestretch}{1.25}
+
 
 
 \setlength\parindent{0pt}
@@ -97,133 +110,168 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\title{Expository Paper: Galois Groups of Polynomials}
+\title{Expository Paper: Galois Theory and Polynomials}
 \author{Chris Hayduk}
 \date{December 15, 2020}
 \maketitle
 
 \begin{abstract}
-Abstract goes here
+Galois theory has been a fundamental topic in the overarching field of algebra. Its development spurred the creation of many concepts which are today central to the field, such a groups \cite{jorg, galoiswiki}. Most notably though, Galois theory furnished us with the ability to describe the solutions to polynomials of arbitrary degree, an achievement that eluded mathematicians for thousands of years \cite{jorg}. In this expository paper, we will build up the necessary background knowledge in polynomials and abstract algebra in order to understand Galois' elegant theorems. We will then demonstrate the power of these theorems in finding solutions to polynomial equations.
 \end{abstract}
 
 \newpage
-\section{Preliminaries}
+\section{Polynomials}
 
-\subsection{Polynomials}
+\subsection{Introduction}
 
-Introduce solving polynomial equations:
+A \textit{polynomial} is defined by Wikipedia as ``an expression consisting of variables and coefficients, that involves only the addition, subtraction, multiplication, and non-negative integer exponentiation of variables'' \cite{polynomialwiki}. To be more precise, we can define a \textit{polynomial} over the rational numbers, $QQ$, in the variable $x$ to be the expression,
+\begin{align*}
+p(x) = r_0 + r_1x + \cdots + r_nx^n
+\end{align*} 
+
+where $r_0, \ldots, r_n \in \QQ$, $0 \leq n \in \ZZ$, and $x$ is undefined \cite[\S 2.1, p. 36]{stewart}. We can denote the set of all polynomials over $\QQ$ in $x$ by $\QQ[x]$.
+
+\par
+Polynomials of this form have been a central theme of mathematics for thousands of years, dating back to at least the Babylonians of 1600 BC \cite[p. 2]{stewart}. During this early period of research into polynomials, mathematicians were primarily concerned with polynomials in one variable. That is, the polynomial was represented by an equation with a single variable that could potentially have separate different exponential terms. For example, the equation $x^2 + 2x + 1$ is a common polynomial in one variable. The variable $x$ is an element of a field. For earlier mathematicians, this usually meant rational numbers, until eventually real numbers were introduced. The term with the highest \textit{degree} (that is, the largest value of an exponent of $x$) gives us the degree of the polynomial. In our previous example, we have a polynomial in one variable with degree $2$. Formally, we can define this as follows,
+
+\par
+\textbf{Definition} (\cite[Definition 2.1]{stewart}). If $f$ is a polynomial and $f \neq 0$, then the \textit{degree} of $f$ is the highest power of $t$ occurring in $f$ with non-zero coefficient. We write $\partial f$ for the degree of $f$.
+
+\par
+Finding the zeros of polynomials was a very active field of research for many centuries, with the goal of finding a general, closed form solution for the polynomials of each degree \cite[p. 3-5]{stewart}. If we take a degree $1$ polynomial, such as $x + 1$, finding the zeros amounts to solving the equation $x + 1 = 0$, which is $x = -1$ by our basic rules of algebra and arithmetic. However, the situation rapidly becomes significantly more complicated as the degree of the polynomial increases.
+
+\par
+In the situation of \textit{quadratic polynomials} (that is, polynomials of degree $2$), we need to solve them using radicals. For example, the equation $x^2 - 2 = 0$ is solved by $x = \pm \sqrt{2}$. However, note here that, although our coefficients are in $\QQ$, our answer does not exist in $\QQ$. Thus, for quadratic equations, we must extend from $\QQ[x]$ to $\RR[x]$ in order to find a solution. Similarly, the equation $x^2 + 2 = 0$ is solved by $x = \pm \sqrt{-2}$. Hence, once we get to the case of degree $2$ polynomials, we need to go beyond real numbers and use the complex numbers ($\CC$) in order to furnish a general theory for their solution. We denote the set of such polynomials by $\CC[x]$. We can now give the general quadratic formula to solve equations of the form $ax^2 + bx + c = 0$, given by
+\begin{align*}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{align*}
+
+Closed form equations of this kind were eventually found for cubic (degree $3$) and quartic (degree $4$) polynomials \cite[\S 1.4, p. 25-29]{stewart}. However, a closed form for solutions to quintic (degree $5$) polynomials continued to elude mathematics researchers for centuries \cite[\S 1.4, p. 31]{stewart}. Many mathematicians began to ask if the number system they were working in needed to be expanded yet again, just as the extensions to the real numbers and eventually the complex numbers allowed them to solve polynomials of greater complexity \cite[\S 2.2, p. 39]{stewart}. However, equipped with the following theorem, we can show that this is not the case \cite[\S 2.2, p. 41]{stewart}:
+
+\begin{thm*}[{\cite[Thm.\ 2.4]{stewart}}, \textbf{The Fundamental Theorem of Algebra}] 
+If $p(z)$ is a non-constant polynomial over $\CC$, then there exists $z_0 \in \CC$ such that $p(z_0) = 0$.
+\end{thm*}
+
+Hence, we can see that every polynomial over $\CC$ also has a root in $\CC$, avoiding the pitfall we ran into when considering $x^2 + 1 = 0$ over $\RR$. Thus, it is not necessary to expand to a more ``general'' number system in order to solve higher degree polynomials.
+
+\subsection{Factorization}
+
+We can now begin to discuss the factorization of polynomials. Factoring a polynomial into several polynomials of smaller degree allows us to simply the root-finding problem, as we can then search for the roots of the new polynomials, rather than the original equation. A familiar example would be $x^2 - 1$. This polynomial can be factored into $(x+1)(x-1)$, and so finding the roots of $x^2 - 1 = 0$ simplifies to finding the roots of $x+1 = 0$ and $x - 1 = 0$. The two degree $1$ equations yield $x = -1$ and $x = 1$ quite quickly.
+
+\par
+To formalize factorization of polynomials, we first need to introduce a few theorems:
+
+\begin{thm*}[{\cite[Thm.\ 2.5]{stewart}}, \textbf{Remainder Theorem}] 
+Let $p(x) \in \CC[x]$ with $\partial p \geq 1$, and let $\alpha \in \CC$.
 \begin{enumerate}
-\item \cite[Sec. 1.3]{stewart}
-\item \cite[Ch. 1]{jorg}
+\item There exist $q(t) \in \CC[x]$ and $r \in \CC$ such that $p(x) = (x - \alpha)q(x) + r$
+\item The constant $r$ satisfies $r = p(\alpha)$
+\end{enumerate}
+\end{thm*}
+
+\begin{prop*}[{\cite[Prop.\ 3.1]{stewart}}, \textbf{Division Algorithm}] 
+Let $f$ and $g$ be polynomials over $K$ and suppose that $f$ is non-zero. Then there exist unique polynomials $q$ and $r$ over $K$, such that $g = fq + r$ and has strictly smaller degree than $f$.
+\end{prop*}
+
+The above theorem and proposition allow us to divide polynomials by other polynomials, paving the way for us to discuss the polynomial equivalent of prime numbers: \textit{irreducible polynomials}. A non-constant polynomial over a subring $R$ of $\CC$ is \textit{reducible} if it is a product of two polynomials over $R$ of smaller degree. Otherwise it is \textit{irreducible} \cite[\S 3.2, p. 51]{stewart}.
+
+\textbf{Examples.}
+\begin{enumerate}
+\item All degree $1$ polynomials are irreducible
+\item As above, $x^2 - 1 = (x + 1)(x - 1)$ and is hence a reducible polynomial
 \end{enumerate}
 
-Solution by radicals:
-\begin{enumerate}
-\item \cite[Sec. 1.4]{stewart}
-\item \cite[Ch. 1, 2]{jorg}
-\end{enumerate}
+Now we can assert an analogue of prime factorization for polynomials in $\CC$:
 
-Example of solutions to cubic and quartic polynomials: \cite[Ch. 1]{juliusz}
+\begin{thm*}[{\cite[Thm.\ 3.12]{stewart}}] 
+Any non-zero polynomial over a subring $R$ of $\CC$ is a product of irreducible polynomials over $R$.
+\end{thm*}
 
-Problem of polynomials with degree $\geq 5$:
-\begin{enumerate}
-\item \cite[Ch. 1]{jorg}
-\item \cite{galoiswiki}
-\end{enumerate}
+\begin{proof}
+Let $g$ be a polynomial over $R$ such that $g \neq 0$. We will proceed with this proof through induction. Let us start with cases $\partial g = 0$ and $\partial g = 1$. A fact about polynomials is, for two polynomial $f, h$ over $R$, we have $\partial fh = \partial f + \partial h$. So in both cases for $g$, it is not possible to find two polynomials $f, h$ with degree smaller than $g$ such that $g = fh$. Now fix $n \in \NN$ with $n > 1$, let $\partial g = n$, and suppose for all $k < n$, we have that polynomials of $\partial k$ are reducible. We have two possible cases: either $g$ is irreducible (in which case we are done) or $g = fh$ for two polynomial $f, h$ with $\partial f, \partial h < \partial g$. But by our induction hypothesis, $f$ and $g$ are products of irreducible polynomials, and so $g$ is the product of irreducible polynomials.
+\end{proof}
 
-The Fundamental Theorem of Algebra: 
-\begin{enumerate}
-\item \cite[Section 2.2]{stewart}
-\item \cite[Ch. 4]{jorg} 
-\end{enumerate}
+The framework for the above poor is taken from: \cite[\S 3.2, p. 52]{stewart}.
 
-\subsection{Field Theory}
+\subsection{Zeros of Polynomials}
 
-Define field: \cite[Sec. 7.1]{dummit}
+We can now discuss some useful properties of the zeros of polynomials. If $R$ is a subring of $\CC$ and $f$ is a polynomial over $R$, then an element $\alpha \in R$ such that $f(\alpha) = 0$ is a \textit{zero of f in R}.
 
-Define characteristic of a field: \cite[Sec. 13.1]{dummit}
+\textbf{Definition} (\cite[Definition 3.26]{stewart}). Let $f$ be a polynomial over the subfield $K$ of $\CC$. An element $\alpha \in K$ is a \textit{simple zero} of $f$ if $(x - \alpha) | f(x)$ but $(x - \alpha)^2$ does not divide $f(x)$. The element $\alpha$ is a zero of $f$ of \textit{multiplicity} $m$ if $(x - \alpha)^m | f(x)$ but $(x - \alpha)^{m+1}$ does not divide $f(x)$. Zeros of multiplicity greater than 1 are \textit{repeated} or \textit{multiple zeros}.
 
-Define prime subfield: \cite[Sec. 13.1]{dummit}
+\begin{lemma*}[{\cite[Lemma\ 3.27]{stewart}}] 
+Let $f$ be a non-zero polynomial over the subfield $K$ of $\CC$, and lets its distinct zeros be $\alpha_1, \ldots, \alpha_r$ with multiplicities $m_1, \ldots, m_r$ respectively. Then,
+\begin{align*}
+f(x) = (x - \alpha_1)^{m_1} \cdots (x - \alpha_r)^{m_r}g(x)
+\end{align*}
+where $g$ gas no zeros in K. Conversely, if the above equation holds and $g$ has no zeros in $K$, then the zeros of $f$ in $K$ are $\alpha_1, \ldots, \alpha_r$ with multiplicities $m_1, \ldots, m_r$ respectively.
+\end{lemma*}
 
-Define field extension: \cite[Sec. 13.1]{dummit}
+Lastly, from this lemma we get an important theorem:
 
-Discuss field extension properties:
-\begin{enumerate}
-\item \cite[Sec. 13.1]{dummit}
-\item \cite[Ch. 4]{stewart}
-\end{enumerate}
+\begin{thm*}[{\cite[Thm.\ 3.28]{stewart}}] 
+The number of zeros of a nonzero polynomial over a subfield of $\CC$, counted according to multiplicity, is less than or equal to its degree.
+\end{thm*}
 
-Discuss simple extensions: \cite[Ch. 5]{stewart}
+\section{Field Theory}
 
-Discuss the degree of extensions \cite[Ch. 6]{stewart}
+\subsection{Introduction}
+
+While Galois Theory initially was treated by examining polynomials directly, algebraists eventually switched to examining the more general field extensions related to a polynomial \cite[\S 4, p. 63]{stewart}. We'll start by providing some definitions regarding fields in order to have the necessary background to discuss field extensions.
+
+\textbf{Definition} (\cite[\S 7.1]{dummit}). A ring $R$ with identity $1$, where $1 \neq 0$, is called a \textit{division ring} (or \textit{skew field}) if every nonzero element $a \in R$ has a multiplicative inverse, i.e., there exists $b \in R$ such that $ab = ba = 1$. A commutative division ring is called a \textit{field}.
+
+\textbf{Definition} (\cite[\S 7.1]{dummit}). A \textit{subring} of the ring $R$ is a subgroup of $R$ that is closed under multiplication.
+
+\textbf{Definition} {\cite[\S 1.2]{stewart}] A \textit{monomorphism} is a homomorphism which is injective but not necessarily surjective.
+
+Now, with these three definitions in mind, we can introduce field extensions.
+
+\subsection{Field Extensions}
+
+We define a field extensions as follows:
+
+\textbf{Definition} (\cite[Definition 4.1]{stewart}). A \textit{field extension} is a monomorphism $\tau: K \to L$ where $K$ and $L$ are subfields of $\CC$. We say that $K$ is the \textit{small} field and $L$ is the \textit{large} field.
+
+We make this distinction between $K$ and $L$ as the small and large fields due to the properties of $\tau$ as a monomorphism. Since $\tau$ is injective but not necessarily surjective, we know that $L$ is at least as large as $K$ but could potentially be larger. Hence, we call it the \textit{large} field. We can also use the notation $L:K$ to denote a field extension, and we say that $L$ is an \textit{extension} of $K$. We now need to introduce two more definitions before moving on to simple extensions:
+
+\textbf{Definition} (\cite[Definition 4.3]{stewart}). Let $X$ be a subset of $\CC$. Then the subfield of $\CC$ \textit{generated} by $X$ is the intersection of all subfields of $\CC$ that contain $X$
+
+\textbf{Definition} (\cite[Definition 4.7]{stewart}). If $L:K$ is a field extension and $Y$ is a subset of $L$, then the subfield of $\CC$ generated by $K \cup Y$ is written $K(Y)$ and is said to be obtained from $K$ by \textit{adjoining} $Y$.
 
 \newpage
+\subsection{Simple Extensions}
+
+Simple extensions are field extensions obtained by adjoining one element:
+
+\textbf{Definition} (\cite[Definition 4.10]{stewart}). A \textit{simple extension} is a field extension $L:K$ such that $L = K(\alpha)$ for some $\alpha \in L$.
+
+\textbf{Example.} We have that $\QQ(\sqrt{2}) = \{p + q\sqrt{2} \ | \ p, q \in \QQ\}$ is a simple extension of the field $\QQ$.
+
+
 \section{Galois Theory}
 
-\subsection{Basics}
+\subsection{Overview}
 
-Overview of Galois theory: \cite{galoiswiki}
+We can now return to the main objective of our work: finding a general solution for polynomials of degree $5$ (or higher). The general idea Galois used to approach this idea was associating to each polynomial $p \in \CC[x]$ a group of permutations which we now call the \textit{Galois group} of $p$ \cite[\S 8, p. 107]{stewart}. In this way, we are able to reduce very difficult questions about a polynomial to simpler questions about its Galois group. Galois specifically introduced this concept in order to study solutions to quintic polynomials and, as we will soon demonstrate, he showed that there is no quintic formula \cite{galoiswiki}. Moreover, he was able to describe \textit{which} degree $5$ polynomials are solvable by radicals \cite{galoiswiki}.
 
-Define automorphism: \cite[Sec. 14.1]{dummit}
+We will start by illustrating an example from \cite[\S 8.2]{stewart} in order to give some intuition behind Galois theory. Consider the polynomial $f(x) = x^4 - 4x^2 - 5 = 0$. As discussed before, we can factor this polynomial into the product of irreducible polynomials, yielding $f(x) = (x^2+1)(x^2-5) = 0$. As a result, we find the following roots: $x = i, -i, \sqrt{5}, -\sqrt{5}$. There is a natural sort of relation between $i, -i$ and $\sqrt{5}, -\sqrt{5}$, and we actually see that the elements in each of these pairs are indistinguishable from the other element in the pair algebraically. That is, if we construct a polynomial equation with rational coefficients that is satisfied by a subset of our four roots, we can interchange $i$ and $-i$ or $\sqrt{5}$ and $-\sqrt{5}$ without altering the equation. If we label the roots in the following manner,
+\begin{align*}
+\alpha = i, \ \beta = -i, \ \gamma = \sqrt{5}, \ \delta = -\sqrt{5}
+\end{align*}
 
-Define Galois extension: \cite[Sec. 14.1]{dummit}
+then we can label the ``allowable'' symmetries using the notation from Dummit and Foote:
+\begin{align*}
+(\alpha \beta), \ (\alpha \beta)(\gamma \delta), \ (\gamma \delta), \ I
+\end{align*}
 
-Define Galois group: \cite[14. 1]{dummit}
+where $I$ is the identity. These four symmetries make up the symmetry group of the roots of our polynomial $f(x)$. We can use these polynomial equations of our roots to solve any polynomial that shares this same root structure. That is, the solutions of a polynomial are tied directly to the structure of the symmetric group of its roots.
 
-\subsection{The Fundamental Theorem of Galois Theory}
-
-Summarize the Fundamental Theorem of Galois Theory: \cite{fundamentaltheoremwiki}
-
-Define character of a group: \cite[Sec. 14.2]{dummit}
-
-Define linearly independent characters: \cite[Sec. 14.2]{dummit}
-
-State and prove linear independence of characters theorem: \cite[Sec. 14.2]{dummit}
-
-State and prove Fundamental Theorem of Galois Theory:
-\begin{enumerate}
-\item \cite[Sec. 14.2]{dummit}
-\item \cite[Ch. 9]{juliusz}
-\item \cite[Ch. 12]{stewart}
-\end{enumerate} 
-
-Compute some examples using Galois Extensions and the Fundamental Theorem of Galois Theory:
-\begin{enumerate}
-\item \cite[Sec. 14.2]{dummit}
-\item \cite[Ch. 9]{juliusz}
-\item \cite[Ch. 13]{stewart}
-\end{enumerate} 
-
-\subsection{Soluble Groups}
-
-Define soluble group: \cite[Sec. 14.1]{stewart}
-
-State and prove theorem about solubility of subgroups: \cite[Sec. 14.1]{stewart}
-
-\subsection{The General Polynomial Equation}
-
-Define symmetric polynomials: \cite[Sec. 18.2]{stewart}
-
-State elementary symmetric polynomial theorem: \cite[18.2]{stewart}
-
-State and prove theorem that a polynomial is soluble by radicals if and only if it has a soluble Galois group: \cite[18.4]{stewart}
-
-\subsection{Finite Fields}
-
-Summarize properties of finite fields:
-\begin{enumerate}
-\item \cite[Sec. 14.3]{dummit}
-\item \cite[Ch. 19]{stewart}
-\end{enumerate}
-
-\subsection{Galois Groups of Polynomials}
-
-Give examples of Galois groups of polynomials of degree 2, 3, 4: \cite[Sec. 14.6]{dummit}
 
 \newpage
 \section{Conclusion}
 
-Summarize key ideas here.
+Galois' main point of relating the symmetric group of polynomials' roots to its solutions provided an elegant and powerful new paradigm for addressing the solutions of polynomials.
 
 \newpage
 \begin{thebibliography}{9}
@@ -245,6 +293,9 @@ Stewart, Ian. \textit{Galois Theory}. Chapman \& Hall/CRC, 2015.
 
 \bibitem{fundamentaltheoremwiki}
 ``Wikipedia -- Fundamental Theorem of Galois Theory.” \textit{Wikipedia}, Wikimedia Foundation,\\ \texttt{https://en.wikipedia.org/wiki/Fundamental\_theorem\_of\_Galois\_theory}. 
+
+\bibitem{polynomialwiki}
+``Wikipedia -- Polynomial.” \textit{Wikipedia}, Wikimedia Foundation,\\ \texttt{https://en.wikipedia.org/wiki/Polynomial}. 
 \end{thebibliography}
 
 \end{document}
