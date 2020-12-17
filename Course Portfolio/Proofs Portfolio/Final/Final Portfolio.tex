@@ -153,14 +153,15 @@ December 15, 2020
 	% 4A 	& 2 	&&\\\hline
 	1A 	& 2 	&&\\\hline
 	2A 	& 2 	&&\\\hline
-	4A 	& 2 	&&\\\hline
-	5A 	& 2 	&&\\\hline
-	3A 	& 2 	&&\\\hline
 	2B 	& 2 	&&\\\hline
+	3A 	& 2 	&&\\\hline
+	3C 	& 2 	&&\\\hline
+	4A 	& 2 	&&\\\hline
+	5A  & 2 	&&\\\hline
 	7B 	& 1 	&&\\\hline
 	9B 	& 1 	&&\\\hline
 	10A 	& 1 	&&\\\hline
-	3C 	& 2 	&&\\\hline
+	
 	%%%
 \hline&&&$\qquad\qquad$\\\hline
 \end{tabular}
@@ -264,48 +265,46 @@ Suppose $K \subset H$. Then $\forall \; x \in K$ we have $x \in H$. Hence, $H \c
 
 \hbox{\begin{minipage}{5in}
 \noindent {\bf Statement:} 
-Prove that every finitely generated subgroup of $\QQ$ is cyclic.\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
-\ProblemID
-		{4A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
-		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
-\end{minipage}}}
-
-\begin{proof}
-Let $H$ be a finitely generated subgroup of $\QQ$ and suppose that there is a finite set $\QQ$ such that $H = \langle A \rangle$. Now consider $k$, the product of all the denominators that appear in $A$. Then every element $a/b \in A$ can be re-written as $\frac{a \cdot k/b}{b \cdot k/b} = \frac{a \cdot k/b}{k}$ since $b$ is in the product that yields $k$ and hence is a divisor of $k$. Thus, we can rewrite every fraction in $A$ as a fraction with denominator $k$. That is, every fraction in $A$ can be written as $n/k$ for some $n \in \ZZ$. This lets us conclude that, $$H = \langle A \rangle \leq \langle 1/k \rangle$$
-
-Thus, by Theorem 7 in $\S 2.3$ of DF, we have that $H$ is cyclic since $\langle 1/k \rangle$ is cyclic.
-\end{proof}
-
-\Rubric{}
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\hbox{\begin{minipage}{5in}
-\noindent {\bf Statement:} 
-Prove that if $G/Z(G)$ is cyclic, then $G$ is abelian.
+Let $G$ be a group. Show that the map
+$$\varphi: G \to G \qquad \text{ defined by } \quad  \varphi: g \mapsto g^{-1}$$ is a homomorphism if and only if $G$ is abelian. Now, verify that 
+$$\psi: D_{2n} \to D_{2n}  \text{ defined by } \quad  \psi(s) = s^{-1} \text{ and } \psi(r) = r^{-1}$$
+extends to a well-defined homomorphism, and explain why this does not contradict the first statement.
 \end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
 \ProblemID
-		{5A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2B}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
 		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
 \end{minipage}}}
 
 \begin{proof}
-Suppose $G/Z(G)$ is cyclic. Then there exists an $a \in G$ such that $G/Z(G) = \langle aZ(G) \rangle$. Now, by Proposition 4 from Section 3.1 in Dummit and Foote, we have that the set of left cosets of $Z(G)$ forms a partition of $G$. Hence, each $g \in G$ occurs in one and only of the left cosets of $Z(G)$. Thus, every $g \in G$ can written in the form $a^kz$ for some $z \in Z(G)$ and for some $k$ such that $1 \leq k \leq |a|$.\\
-
-Now let us fix $g_1, g_2 \in G$. From the above, we can write $g_1 = a^kz_1$ and $g_2 = a^mz_2$. Then we have,
+Suppose $\varphi$ is a homomorphism. Then $\varphi(xy) = \varphi(x)\varphi(y)$ for every $x, y \in G$. By the definition of $\varphi$ we have
 \begin{align*}
-g_1g_2 &= a^kz_1a^mz_2
+\varphi(xy) &= y^{-1}x^{-1}\\
+&= \varphi(x)\varphi(y)\\
+&= x^{-1}y^{-1}
 \end{align*}
 
-Since every element in $Z(G)$ commutes with all elements of $G$ and powers of $a$ commute with each other, we derive the following equality,
+Hence $y^{-1}x^{-1} = x^{-1}y^{-1}$ for every $x, y \in G$. Thus, $G$ is abelian. Now suppose $G$ is abelian. Then for every $x, y \in G$, we have that $xy = yx$.
+
+Define the map $\varphi: G \to G$ by $\varphi: g \to g^{-1}$. Then we have,
 \begin{align*}
-g_1g_2 &= a^kz_1a^mz_2\\
-&= a^mz_2a^kz_1\\
-&= g_2g_1
+\varphi(xy) &= (xy)^{-1}\\
+&= y^{-1}x^{-1}
 \end{align*}
 
-Since $g_1, g_2$ were arbitrary in $G$, this holds for all elements of $G$ and hence it is an abelian group.
+and
+\begin{align*}
+\varphi(x)\varphi(y) &= x^{-1}y^{-1}
+\end{align*}
+
+Since $G$ is abelian, we can rewrite 
+\begin{align*}
+\varphi(x)\varphi(y) &= x^{-1}y^{-1}\\
+&= y^{-1}x^{-1}
+\end{align*}
+
+Hence we have that $\varphi(xy) = \varphi(x)\varphi(y)$ for all $x, y \in G$, so $\varphi$ is a homomorphism.\\
+
+Now consider the map $\psi$ as described above.
 
 \end{proof}
 
@@ -406,46 +405,82 @@ So the map is homomorphism and hence an isomorphism.
 
 \hbox{\begin{minipage}{5in}
 \noindent {\bf Statement:} 
-Let $G$ be a group. Show that the map
-$$\varphi: G \to G \qquad \text{ defined by } \quad  \varphi: g \mapsto g^{-1}$$ is a homomorphism if and only if $G$ is abelian. Now, verify that 
-$$\psi: D_{2n} \to D_{2n}  \text{ defined by } \quad  \psi(s) = s^{-1} \text{ and } \psi(r) = r^{-1}$$
-extends to a well-defined homomorphism, and explain why this does not contradict the first statement.
-\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+For which $n \in \ZZ_{\ge 1}$ is $(\ZZ/2^n\ZZ)^\times$ cyclic? Prove your claim.\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
 \ProblemID
-		{2B}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{3C}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
 		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
 \end{minipage}}}
 
 \begin{proof}
-Suppose $\varphi$ is a homomorphism. Then $\varphi(xy) = \varphi(x)\varphi(y)$ for every $x, y \in G$. By the definition of $\varphi$ we have
+Let $n \geq 3$ and consider $2^{n-1}+1$ and $2^{n-1}-1$. We have,
 \begin{align*}
-\varphi(xy) &= y^{-1}x^{-1}\\
-&= \varphi(x)\varphi(y)\\
-&= x^{-1}y^{-1}
+(2^{n-1}+1)^2 = 2^{2n-2} + 2^n + 1 &\equiv 1 \mod 2^n\\
+(2^n(n-1)-1)^2 = 2^{2n-2} - 2^n + 1 &\equiv 1 \mod 2^n
 \end{align*}
 
-Hence $y^{-1}x^{-1} = x^{-1}y^{-1}$ for every $x, y \in G$. Thus, $G$ is abelian. Now suppose $G$ is abelian. Then for every $x, y \in G$, we have that $xy = yx$.
+Thus, we have that $2^{n-1}+1 \mod 2^n \neq 2^{n+1}-1 \mod 2^n$ (i.e. they are distinct elements), but both elements have order $2$.  Note that $(\ZZ/2^n\ZZ)^{\times}$ can be represented by a subset of the following equivalence classes: $\{\bar{1}, \ldots, \overline{2^n-1}\}$. That is, the group is finite with size at most $2^n-1$. Let us assume that $(\ZZ/2^n\ZZ)^{\times}$ is cyclic. Hence, there exists an $x \in (\ZZ/2^n\ZZ)^{\times}$ such that $2^{n-1}+1 = x^\ell$ and $2^{n-1}-1 = x^m$ for some $\ell, m \in \ZZ$. Since $(\ZZ/2^n\ZZ)^{\times}$ is a finite group, we can apply Proposition 2 from Section 2.3 in DF, which states that $x^{2^n-1} = 1$ and $1, x, x^2, \ldots, x^{2^n-2}$ are all distinct elements. Thus, we know $\ell, m \in \{1, 2, 3, \ldots, 2^{n}-1\}$ and $\ell \neq m$ since $2^{n-1}+1 \mod 2^n \neq 2^{n+1}-1 \mod 2^n$.\\
 
-Define the map $\varphi: G \to G$ by $\varphi: g \to g^{-1}$. Then we have,
+Now recall that we have $|x^{\ell}| = |x^m| =  2$. This implies that,
 \begin{align*}
-\varphi(xy) &= (xy)^{-1}\\
-&= y^{-1}x^{-1}
+(2^n - 1) |\ 2\ell \text{ and } (2^n - 1) |\ 2m
 \end{align*}
 
-and
+But since $1 \leq \ell, m \leq 2^n - 1$, we have that $2 \leq 2\ell, 2m \leq 2(2^n -1) < 2 \cdot 2^n$. Hence, the only way for $|x^{\ell}| = 2 = |x^m|$ is if $2\ell, 2m = 2^{n}-1$. But this implies that $\ell, m = 2^{n-1} - 1/2$ and so $x^m = x^\ell$. This is a contradiction since $2^{n-1}+1 \mod 2^n \neq 2^{n+1}-1 \mod 2^n$, so $(\ZZ/2^n\ZZ)^{\times}$ is not cyclic when $n \geq 3$.\\
+
+Now let us examine $(\ZZ/2^2\ZZ)^{\times} = (\ZZ/4\ZZ)^{\times}$. This group has the following elements: $\{\bar{1}, \bar{3}\}$. We have that $\bar{3}^2 = \bar{9} = \bar{1}$ and $\bar{3}^1 = \bar{3}$, so this group is generated by $\langle \bar{3} \rangle$.\\
+
+Finally, we will examine $(\ZZ/2^1\ZZ)^{\times} = (\ZZ/2\ZZ)^{\times}$. This group has the following elements: $\{\bar{1}\}$. We have that $\bar{1}^1 = \bar{1}$, so this group is generated by $\langle \bar{1} \rangle$. Hence, $(\ZZ/2^n\ZZ)^\times$ is cyclic when $n = 1$ or $n = 2$.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that every finitely generated subgroup of $\QQ$ is cyclic.\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{4A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Let $H$ be a finitely generated subgroup of $\QQ$ and suppose that there is a finite set $\QQ$ such that $H = \langle A \rangle$. Now consider $k$, the product of all the denominators that appear in $A$. Then every element $a/b \in A$ can be re-written as $\frac{a \cdot k/b}{b \cdot k/b} = \frac{a \cdot k/b}{k}$ since $b$ is in the product that yields $k$ and hence is a divisor of $k$. Thus, we can rewrite every fraction in $A$ as a fraction with denominator $k$. That is, every fraction in $A$ can be written as $n/k$ for some $n \in \ZZ$. This lets us conclude that, $$H = \langle A \rangle \leq \langle 1/k \rangle$$
+
+Thus, by Theorem 7 in $\S 2.3$ of DF, we have that $H$ is cyclic since $\langle 1/k \rangle$ is cyclic.
+\end{proof}
+
+\Rubric{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hbox{\begin{minipage}{5in}
+\noindent {\bf Statement:} 
+Prove that if $G/Z(G)$ is cyclic, then $G$ is abelian.
+\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
+\ProblemID
+		{5A}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
+		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
+\end{minipage}}}
+
+\begin{proof}
+Suppose $G/Z(G)$ is cyclic. Then there exists an $a \in G$ such that $G/Z(G) = \langle aZ(G) \rangle$. Now, by Proposition 4 from Section 3.1 in Dummit and Foote, we have that the set of left cosets of $Z(G)$ forms a partition of $G$. Hence, each $g \in G$ occurs in one and only of the left cosets of $Z(G)$. Thus, every $g \in G$ can written in the form $a^kz$ for some $z \in Z(G)$ and for some $k$ such that $1 \leq k \leq |a|$.\\
+
+Now let us fix $g_1, g_2 \in G$. From the above, we can write $g_1 = a^kz_1$ and $g_2 = a^mz_2$. Then we have,
 \begin{align*}
-\varphi(x)\varphi(y) &= x^{-1}y^{-1}
+g_1g_2 &= a^kz_1a^mz_2
 \end{align*}
 
-Since $G$ is abelian, we can rewrite 
+Since every element in $Z(G)$ commutes with all elements of $G$ and powers of $a$ commute with each other, we derive the following equality,
 \begin{align*}
-\varphi(x)\varphi(y) &= x^{-1}y^{-1}\\
-&= y^{-1}x^{-1}
+g_1g_2 &= a^kz_1a^mz_2\\
+&= a^mz_2a^kz_1\\
+&= g_2g_1
 \end{align*}
 
-Hence we have that $\varphi(xy) = \varphi(x)\varphi(y)$ for all $x, y \in G$, so $\varphi$ is a homomorphism.\\
-
-Now consider the map $\psi$ as described above.
+Since $g_1, g_2$ were arbitrary in $G$, this holds for all elements of $G$ and hence it is an abelian group.
 
 \end{proof}
 
@@ -453,6 +488,7 @@ Now consider the map $\psi$ as described above.
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \hbox{\begin{minipage}{5in}
 \noindent {\bf Statement:} 
@@ -548,37 +584,6 @@ That is, there exists an $m \in M$ such that $xy - 1 = m$. This implies that $1 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\hbox{\begin{minipage}{5in}
-\noindent {\bf Statement:} 
-For which $n \in \ZZ_{\ge 1}$ is $(\ZZ/2^n\ZZ)^\times$ cyclic? Prove your claim.\end{minipage} \hspace{.3in} {\begin{minipage}{1.1in}
-\ProblemID
-		{3C}%PUT PROBLEM NUMBER HERE, e.g. 4A in place of 0X.
-		{2}%PUT NUMBER OF STARS HERE, e.g. 2 in place of 0.
-\end{minipage}}}
-
-\begin{proof}
-Let $n \geq 3$ and consider $2^{n-1}+1$ and $2^{n-1}-1$. We have,
-\begin{align*}
-(2^{n-1}+1)^2 = 2^{2n-2} + 2^n + 1 &\equiv 1 \mod 2^n\\
-(2^n(n-1)-1)^2 = 2^{2n-2} - 2^n + 1 &\equiv 1 \mod 2^n
-\end{align*}
-
-Thus, we have that $2^{n-1}+1 \mod 2^n \neq 2^{n+1}-1 \mod 2^n$ (i.e. they are distinct elements), but both elements have order $2$.  Note that $(\ZZ/2^n\ZZ)^{\times}$ can be represented by a subset of the following equivalence classes: $\{\bar{1}, \ldots, \overline{2^n-1}\}$. That is, the group is finite with size at most $2^n-1$. Let us assume that $(\ZZ/2^n\ZZ)^{\times}$ is cyclic. Hence, there exists an $x \in (\ZZ/2^n\ZZ)^{\times}$ such that $2^{n-1}+1 = x^\ell$ and $2^{n-1}-1 = x^m$ for some $\ell, m \in \ZZ$. Since $(\ZZ/2^n\ZZ)^{\times}$ is a finite group, we can apply Proposition 2 from Section 2.3 in DF, which states that $x^{2^n-1} = 1$ and $1, x, x^2, \ldots, x^{2^n-2}$ are all distinct elements. Thus, we know $\ell, m \in \{1, 2, 3, \ldots, 2^{n}-1\}$ and $\ell \neq m$ since $2^{n-1}+1 \mod 2^n \neq 2^{n+1}-1 \mod 2^n$.\\
-
-Now recall that we have $|x^{\ell}| = |x^m| =  2$. This implies that,
-\begin{align*}
-(2^n - 1) |\ 2\ell \text{ and } (2^n - 1) |\ 2m
-\end{align*}
-
-But since $1 \leq \ell, m \leq 2^n - 1$, we have that $2 \leq 2\ell, 2m \leq 2(2^n -1) < 2 \cdot 2^n$. Hence, the only way for $|x^{\ell}| = 2 = |x^m|$ is if $2\ell, 2m = 2^{n}-1$. But this implies that $\ell, m = 2^{n-1} - 1/2$ and so $x^m = x^\ell$. This is a contradiction since $2^{n-1}+1 \mod 2^n \neq 2^{n+1}-1 \mod 2^n$, so $(\ZZ/2^n\ZZ)^{\times}$ is not cyclic when $n \geq 3$.\\
-
-Now let us examine $(\ZZ/2^2\ZZ)^{\times} = (\ZZ/4\ZZ)^{\times}$. This group has the following elements: $\{\bar{1}, \bar{3}\}$. We have that $\bar{3}^2 = \bar{9} = \bar{1}$ and $\bar{3}^1 = \bar{3}$, so this group is generated by $\langle \bar{3} \rangle$.\\
-
-Finally, we will examine $(\ZZ/2^1\ZZ)^{\times} = (\ZZ/2\ZZ)^{\times}$. This group has the following elements: $\{\bar{1}\}$. We have that $\bar{1}^1 = \bar{1}$, so this group is generated by $\langle \bar{1} \rangle$. Hence, $(\ZZ/2^n\ZZ)^\times$ is cyclic when $n = 1$ or $n = 2$.
-\end{proof}
-
-\Rubric{}
 
 
 \end{document}
