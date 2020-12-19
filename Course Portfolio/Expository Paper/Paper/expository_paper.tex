@@ -10,6 +10,8 @@
 \usepackage[pdftex,bookmarks]{hyperref}
 \usepackage{enumitem}
 \usepackage{amsthm}
+\usepackage{kbordermatrix}
+
 \theoremstyle{plain}
 	\newtheorem*{thm*}{Theorem}
 	
@@ -110,13 +112,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\title{Expository Paper: Galois Theory and Polynomials}
+\title{Expository Paper: Galois Groups of Polynomials}
 \author{Chris Hayduk}
 \date{December 15, 2020}
 \maketitle
 
 \begin{abstract}
-Galois theory has been a fundamental topic in the overarching field of algebra. Its development spurred the creation of many concepts which are today central to the field, such a groups \cite{jorg, galoiswiki}. Most notably though, Galois theory furnished us with the ability to describe the solutions to polynomials of arbitrary degree, an achievement that eluded mathematicians for thousands of years \cite{jorg}. In this expository paper, we will build up the necessary background knowledge in polynomials and abstract algebra in order to understand Galois' elegant theorems. We will then demonstrate the power of these theorems in finding solutions to polynomial equations.
+Galois theory has been a fundamental topic in the overarching field of algebra. Its development spurred the creation of many concepts which are today central to the field, such a groups \cite{jorg, galoiswiki}. Most notably though, Galois theory furnished us with the ability to describe the solutions to polynomials of arbitrary degree, an achievement that eluded mathematicians for thousands of years \cite{jorg}. In this expository paper, we will build up the necessary background knowledge in polynomials and abstract algebra in order to understand Galois' elegant theorems. In the process, we will develop The Fundamental Theorem of Algebra, the division algorithm for polynomials, field extensions, and automorphisms. We will then make use of these concepts to introduce the Galois group and its applicability to polynomials. Through the use of Galois groups, we are able to abstract away many of the ``unnecessary'' details of these polynomials and focus on the characteristics we care about such as irreducibility, solvability, and the degree of the root operations, widening the range of polynomials which we are able to effectively work with \cite{jorg}.
 \end{abstract}
 
 \newpage
@@ -248,6 +250,14 @@ Simple extensions are field extensions obtained by adjoining one element:
 
 \textbf{Example.} We have that $\QQ(\sqrt{2}) = \{p + q\sqrt{2} \ | \ p, q \in \QQ\}$ is a simple extension of the field $\QQ$.
 
+Simple extensions can be classified into two distinct types: algebraic and transcendental. If $K$ is a subfield $\CC$ and $\alpha \in \CC$, we say $\alpha$ is \textit{algebraic} over $K$ if there exists a non-zero polynomial $p$ over $K$ such that $p(\alpha) = 0$. If not, we say that $\alpha$ is \textit{transcendental} over $K$ \cite[\S 5.1, p. 71]{stewart}.
+
+\par
+Now we will look at constructing simple algebraic extensions. This amounts to finding a specific type of polynomial $f$ such that $f(\alpha) = 0$ known as a minimal polynomial \cite[\S 5.2]{stewart}. However, we must define another polynomial concept before introducing the definition of a minimal polynomial. A \textit{monic polynomial} is a polynomial $f(x) = a_0 + a_1x + \cdots + a_nx^n$ such that $a_n = 1$ \cite[\S 5.2]{stewart}. That is, the term in the polynomial with the largest degree has a corresponding coefficient of $1$. Now, equipped with this definition, we can define a minimal polynomial:
+
+\textbf{Definition} (\cite[Definition 5.5]{stewart}). Let $L : K$ be a field extension, and suppose that $\alpha \in L$ is algebraic over $K$. Then the \textit{minimal polynomial} of $\alpha$ over $K$ is the unique monic polynomial $m$ over $K$ of smallest degree such that $m(\alpha) = 0$.
+
+
 
 \section{Galois Theory}
 
@@ -267,11 +277,127 @@ then we can label the ``allowable'' symmetries using the notation from Dummit an
 
 where $I$ is the identity. These four symmetries make up the symmetry group of the roots of our polynomial $f(x)$. We can use these polynomial equations of our roots to solve any polynomial that shares this same root structure. That is, the solutions of a polynomial are tied directly to the structure of the symmetric group of its roots.
 
+\subsection{Polynomials and Extensions}
+
+First, we need to define a new kind of automorphism:
+
+\textbf{Definition} (\cite[Definition 8.1]{stewart}). Let $L : K$ be a field extension, so that $K$ is a subfield of the subfield $L$ of $\CC$. A $K$-\textit{automorphism} of $L$ is an automorphism $\alpha$ of $L$ such that
+\begin{align*}
+\alpha(k) = k \text{    for all } k \in K
+\end{align*}
+
+We say that $\alpha$ \textit{fixes} $k \in K$ if the above holds.
+
+\par
+Now with the above definition, we can state the following theorem:
+
+\begin{thm*}[{\cite[Thm.\ 8.2]{stewart}}] 
+If $L : K$ is a field extension, then the set of all $K$-automorphisms of $L$ forms a group under composition of maps.
+\end{thm*}
+
+\begin{proof}
+We need to show that the set of all $K$-automorphisms of $L$ has an identity element and is closed under composition and inverses. Note that an automorphism is an isomorphism of a set with itself. Thus, note that the identity map is by definition an automorphism since the inverse of every element is itself. Moreover, since $I(k) = k$ for every $k \in K$, we have that $I$ fixes $K$ in $L$. Thus the identity map is in the set of all $K$-automorphhisms of $L$.
+
+\par
+Now let $\alpha, \beta$ be in the set of all $K$-automorphisms of $L$. We have that $\alpha \beta$ must also be an automorphism. In addition, for every $k \in K$, we have that
+\begin{align*}
+\alpha(\beta(k)) &= \alpha(k)\\
+&= k
+\end{align*}
+
+Hence, $\alpha \beta$ is in the set of all $K$-automorphisms of $L$.
+
+\par
+Lastly, let $\alpha$ be in the set of all $K$-automorphisms of $L$. We need to show that $\alpha^{-1}$ is in the set as well. Since $\alpha$ is bijective, so is $\alpha^{-1}$. In addition, since $\alpha(xy) = \alpha(x)\alpha(y)$ for every $x, y \in L$, we have that,
+\begin{align*}
+\alpha^{-1}(\alpha(x)\alpha(y)) &= \alpha^{-1}(\alpha(xy))\\
+&= xy
+\end{align*}
+
+and
+\begin{align*}
+\alpha^{-1}(\alpha(x))\alpha^{-1}(\alpha(y)) = xy
+\end{align*}
+
+Thus, $\alpha^{-1}$ is an automorphism of $L$. Now note that since $\alpha(k) = k$ for every $k \in K$, we have that,
+\begin{align*}
+&\alpha^{-1}(\alpha(k)) = \alpha^{-1}(k)\\
+\implies &k = \alpha^{-1}(k)
+\end{align*}
+
+Hence, $\alpha^{-1}$ fixes $K$ in $L$ and is thus a $K$-automorphism of $L$. As a result, we have that the set of all $K$-automorphisms of $L$ forms a group.
+\end{proof}
+
+The framework of the above proof is given in \cite[\S 8.5, p. 113]{stewart}.
+
+\par
+We can now introduce our most important definition so far:
+
+\textbf{Definition} (\cite[Definition 8.3]{stewart}). The \textit{Galois group} $\Gamma(L:K)$ of a field extension $L:K$ is the group of all $K$-automorphisms of $L$ under the operation of composition of maps.
+
+\par
+\textbf{Example} \cite[Example 8.4]{stewart}. Let $c$ be the real cube root of $2$ and consider $\QQ(c) : \QQ$. If $\alpha$ is a $\QQ$-automorphism of $\QQ(c)$, then
+\begin{align*}
+(\alpha(c))^3 = \alpha(c)^3 = \alpha(2) = 2
+\end{align*}
+
+Since $\QQ(c) \subset \RR$, we must have $\alpha(c) = c$. Hence $\alpha$ is the identity map and $\Gamma(\QQ(c):\QQ)$ has order $1$.
+
+\newpage
+\subsection{Galois Group of an Equation}
+
+The core feature of Galois groups in relation to polynomials is that all the main properties of a polynomial, such as irreducibility, solvability, and the degree of the root operations, can be determined from the equation's Galois group rather than by making any explicit reference to the polynomial itself \cite[\S 9.1]{jorg}. In addition, the number of possible Galois groups is significantly smaller than the number of possible equations. Hence, describing the properties of the Galois groups for polynomials of a given degree is significantly easier than looking at the properties of the polynomials themselves \cite[\S 9.1]{jorg}.
+
+\par
+We are going to introduce an alternative definition here for the Galois group which will facilitate computations with polynomials:
+
+\textbf{Definition} (\cite[Definition 9.2]{jorg}). For a polynomial equation with multiple solutions (i.e. all of its solutions are distinct) whose coefficients lie in a field $K$, the \textit{Galois group} (over the field $K$) is the set of all permutations $\sigma$ in the symmetric group $S_n$ that permute the indices $1, \ldots, n$ of the solutions $x_1, \ldots, x)n$ in such a way that for every polynomial $h(X_1, \ldots, X_n)$ with coefficients in $K$ and $h(x_1, \ldots, x_n) = 0$, we have $h(x_{\sigma(1)}, \ldots, x_{\sigma(n)}) = 0$.
+
+\par
+Note that the permutations included in the Galois group of an equation can be assembled into a group table, which describes the multiplicative relationship between the permutations. With that structure in mind for the Galois group, we can attempt to define the solvability of an irreducible equation:
+
+\begin{thm*}[{\cite[Thm.\ 9.3]{jorg}}] 
+An irreducible equation is solvable in radicals precisely when the Galois group can be reduced step by step to a one-element Galois group, containing only the identity permutation, where each step corresponds to a decomposition of the (suitably ordered) group table into $m^2$ squares each of which contains the $m$th part of the permutations.\end{thm*}
+
+\par
+\textbf{Example.} Let us consider the polynomial $f(x) = x^2 - 1$ over $\QQ$. The roots of this polynomial are $x_1 = \sqrt{2}$ and $x_2 = -\sqrt{2}$. Since there are $2$ distinct solutions, we have two possible permutations for the roots,
+\begin{align*}
+x_{\sigma_0(1)} &= x_1\\
+x_{\sigma_0(2)} &= x_2
+\end{align*}
+
+and,
+\begin{align*}
+x_{\sigma_1(1)} &= x_2\\
+x_{\sigma_1(2)} &= x_1
+\end{align*}
+
+Thus, we end up with the following group table,
+\begin{align*}
+\kbordermatrix{
+    & \sigma_0 & \sigma_1\\
+    \sigma_0 & \sigma_0 & \sigma_1\\
+    \sigma_1 & \sigma_1 & \sigma_0
+  }
+\end{align*}
+
+Now let us adjoin $\sqrt{2}$ to $\QQ$. That is, we are now considering the field extension $\QQ(\sqrt{2}) = \{a + b\sqrt{2} \ | \ a,b \in \QQ\}$. In this field extension, our roots $x_1$ and $x_2$  in terms of rational numbers and the adjoined $\sqrt{2}$ using the four basic arithmetic operations. So we need to consider $X_1 - x_1$ and $X_2 - x_2$. And hence, the Galois group only contains the identity permutation, $\sigma_0$. Thus, we have reduced the group table to the Galois group with a single element as required.
+
+\par
+Now we are brought to a key result by Galois regarding the solvability in radicals of equations of prime degree,
+\begin{thm*}[{\cite[Thm.\ 9.4]{jorg}}] 
+An irreducible equation of prime degree is solvable in radicals if and only if all the solutions can be expressed as polynomials in two arbitrary solutions.
+\end{thm*}
+
+Now consider the polynomial $x^5 - 17x - 17 = 0$. The polynomial has three real and two complex roots and is irreducible. It is impossible to use any two of the real roots to express the other solutions in terms of polynomials, so the equation is unsolvable by the above theorem.
 
 \newpage
 \section{Conclusion}
 
-Galois' main point of relating the symmetric group of polynomials' roots to its solutions provided an elegant and powerful new paradigm for addressing the solutions of polynomials.
+Galois' main point of relating the symmetric group of polynomials' roots to its solutions provided an elegant and powerful new paradigm for addressing the solutions of polynomials. Each polynomial no longer needed to be evaluated individually. Instead, we can examine the Galois group of a polynomial in order to determine its properties and relate it to other polynomials. In particular, this approach significantly reduced the complexity of the determining the solvability in radicals of the quintic equation which, as we discussed in the introduction, was a primary focus of mathematicians for centuries.
+
+\par
+Moving beyond roots of polynomials, Galois theory's powerful applicability to problems in classical algebra demonstrated the strength continually abstracting the objects that we are working with. Its development laid much of the groundwork for concepts which we've covered in class such as groups and fields. As a result, Galois theory marked one of the most important advancements and developments in the field of algebra.
 
 \newpage
 \begin{thebibliography}{9}
